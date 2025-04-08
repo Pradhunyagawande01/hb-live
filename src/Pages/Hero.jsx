@@ -2,6 +2,8 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import { TiLocationArrow } from "react-icons/ti";
+import { FaDiscord } from "react-icons/fa"; // Added Discord icon
+import { BiSolidChevronDown } from "react-icons/bi"; // Added chevron down icon for Learn More
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -123,6 +125,19 @@ const Hero = () => {
     }
   };
 
+  // Handle Discord button click
+  const handleDiscordClick = () => {
+    window.open("https://discord.gg/vPNPDAPgG5", "_blank", "noopener,noreferrer");
+  };
+
+  // Handle Learn More button click
+  const handleLearnMoreClick = () => {
+    const aboutSection = document.getElementById("about");
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       <AnimatePresence>
@@ -214,21 +229,27 @@ const Hero = () => {
                     variants={itemVariants}
                     className="mt-8 flex flex-col space-y-8 sm:flex-row sm:space-x-6 sm:space-y-0 md:pl-52 sm:pl-0 sm:top-20"
                   >
-                    <Button
-                      title="Discord"
-                      iconRight={<TiLocationArrow className="ml-2" />}
-                      className="bg-[#198f51] text-white hover:bg-opacity-90 transition-all"
-                      onClick={() =>
-                        window.open("https://discord.gg/vPNPDAPgG5", "_blank")
-                      }
-                    />
-                    <Button
-                      title="Learn More"
-                      className="border-2 border-white text-white bg-transparent hover:bg-white hover:bg-opacity-10 transition-all"
-                      onClick={() =>
-                        document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })
-                      }
-                    />
+                    {/* Army-themed Discord Button */}
+                    <button 
+                      onClick={handleDiscordClick}
+                      className="flex items-center justify-center px-6 py-3 bg-[#4B5320] hover:bg-[#5A6324] text-white font-bold rounded shadow-md border-2 border-[#8B9862] transition-all duration-300 relative overflow-hidden group"
+                    >
+                      <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#4B5320] to-[#3B4210] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                      <FaDiscord className="text-xl mr-2 relative z-10" />
+                      <span className="relative z-10 uppercase tracking-wider">Join Discord</span>
+                      <span className="absolute top-0 right-0 bottom-0 w-1 bg-[#8B9862]"></span>
+                      <span className="absolute bottom-0 left-0 right-0 h-1 bg-[#8B9862]"></span>
+                    </button>
+                    
+                    {/* Army-themed Learn More Button */}
+                    <button
+                      onClick={handleLearnMoreClick}
+                      className="flex items-center justify-center px-6 py-3 bg-transparent hover:bg-[#4B5320] hover:bg-opacity-30 text-white font-bold rounded shadow-md border-2 border-[#8B9862] transition-all duration-300 relative overflow-hidden group"
+                    >
+                      <span className="absolute inset-0 w-full h-full bg-[#4B5320] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+                      <span className="relative z-10 uppercase tracking-wider">Learn More</span>
+                      <BiSolidChevronDown className="text-xl ml-2 relative z-10 animate-bounce" />
+                    </button>
                   </motion.div>
                 </div>
               </div>
