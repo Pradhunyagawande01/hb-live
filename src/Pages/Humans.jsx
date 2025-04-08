@@ -84,7 +84,7 @@ const OrganizerCard = ({ member }) => {
         </p>
       </div>
 
-      <div className="flex gap-4 text-2xl text-gray-300 mt-5 z-10">
+      {/* <div className="flex gap-4 text-2xl text-gray-300 mt-5 z-10">
         <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
           <FaInstagram className="hover:text-pink-500 transition" />
         </a>
@@ -94,7 +94,7 @@ const OrganizerCard = ({ member }) => {
         <a href="https://twitter.com/" target="_blank" rel="noreferrer">
           <FaTwitter className="hover:text-sky-400 transition" />
         </a>
-      </div>
+      </div> */}
     </motion.div>
   );
 };
@@ -103,63 +103,63 @@ const Organizers = () => {
   const organizers = [
     {
       name: "Sujal Khade",
-      label: "Design Lead",
+      // label: "Design Lead",
       src: "/img/sujal.png",
     },
     {
       name: "Kritika Rukhiyana",
-      label: "Tech Head",
+      // label: "Tech Head",
       src: "/img/kritika.png",
     },
    
     {
       name: "Rishu Singh",
-      label: "Operations",
+      // label: "Operations",
       src: "/img/rishu.png",
     },
     {
       name: "Pradhunya Gawande",
-      label: "Org",
+      // label: "Org",
       src: "/img/pradhunya.png",
     },
     {
       name: "Ayush Thakre",
-      label: "Marketing",
+      // label: "Marketing",
       src: "/img/ayush.png",
     },
     {
       name: "Pranav Tekale",
-      label: "Sponsorship",
+      // label: "Sponsorship",
       src: "/img/pranav.png",
     },
     {
       name: "Akshay Gangasagar",
-      label: "Event Coordinator",
+      // label: "Event Coordinator",
       src: "/img/akshay.png",
     },
     {
       name: "Himanshi Joshi",
-      label: "Logistics Lead",
+      // label: "Logistics Lead",
       src: "/img/himanshi.png",
     },
     {
       name: "Harsh Kumar",
-      label: "Logistics Lead",
+      // label: "Logistics Lead",
       src: "/img/harsh.png",
     },
     {
       name: "Mrunali Dhopte",
-      label: "Logistics Lead",
+      // label: "Logistics Lead",
       src: "/img/mrunali.png",
     },
     {
       name: "Navinya Yede",
-      label: "Logistics Lead",
+      // label: "Logistics Lead",
       src: "/img/navinya.png",
     },
     {
       name: "Vaibhavi Mangarulkar",
-      label: "Logistics Lead",
+      // label: "Logistics Lead",
       src: "/img/vaibhavi.png",
     },
     {
@@ -169,7 +169,7 @@ const Organizers = () => {
     },
     {
       name: "Sunidhi",
-      label: "Logistics Lead",
+      // label: "Logistics Lead",
       src: "/img/sunidhi.png",
     },
   ];

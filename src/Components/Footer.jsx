@@ -1,12 +1,10 @@
 import { FaDiscord, FaTwitter, FaYoutube, FaMedium, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 const socialLinks = [
-  { href: "https://discord.com", icon: <FaDiscord />, label: "Discord" },
-  { href: "https://twitter.com", icon: <FaTwitter />, label: "Twitter" },
-  { href: "https://youtube.com", icon: <FaYoutube />, label: "YouTube" },
-  { href: "https://medium.com", icon: <FaMedium />, label: "Medium" },
-  { href: "https://medium.com", icon: <FaLinkedin />, label: "Medium" },
-  { href: "https://medium.com", icon: <FaInstagram />, label: "Medium" },
+  { href: "https://discord.gg/vPNPDAPgG5", icon: <FaDiscord />, label: "Discord" },
+  { href: "https://x.com/hack4brahma?t=jhqT75ofTIqomxNi-RwD5w&s=09", icon: <FaTwitter />, label: "Twitter" },
+  { href: "https://www.linkedin.com/company/hack4brahma/", icon: <FaLinkedin />, label: "Medium" },
+  { href: "https://www.instagram.com/hack4brahma?igsh=MWd3bnR0MTRmNGZrYw==", icon: <FaInstagram />, label: "Medium" },
 ];
 
 const Footer = () => {

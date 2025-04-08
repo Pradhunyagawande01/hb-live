@@ -187,7 +187,7 @@ const TracksPage = () => {
             </div> */}
             <div className="relative flex flex-col items-center mx-auto text-[#198f51] mb-6 sm:mb-10">
               <AnimatedTitle
-                title="<b>About</b> the <br /> <b>Regiment</b>"
+                title="<b>Tracks</b>"
                 containerClass="mt-4 sm:mt-8 !text-black text-center reveal-element"
               />
             </div>

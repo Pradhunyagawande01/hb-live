@@ -215,11 +215,11 @@ const Hero = () => {
                     className="mt-8 flex flex-col space-y-8 sm:flex-row sm:space-x-6 sm:space-y-0 md:pl-52 sm:pl-0 sm:top-20"
                   >
                     <Button
-                      title="Register Now"
+                      title="Discord"
                       iconRight={<TiLocationArrow className="ml-2" />}
                       className="bg-[#198f51] text-white hover:bg-opacity-90 transition-all"
                       onClick={() =>
-                        window.open("https://forms.gle/example", "_blank")
+                        window.open("https://discord.gg/vPNPDAPgG5", "_blank")
                       }
                     />
                     <Button
