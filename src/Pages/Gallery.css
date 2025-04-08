@@ -1,0 +1,69 @@
+.gallery-container {
+    @apply mx-auto max-w-[1400px] p-8;
+  }
+  
+  .filters {
+    @apply mb-8 flex flex-wrap justify-center gap-4;
+  }
+  
+  .filter-btn {
+    @apply cursor-pointer rounded-full border-2 border-[#23b745] bg-transparent px-6 py-2 text-[#23b745] transition-all duration-300 ease-in-out hover:bg-[#] hover:text-white;
+  }
+  
+  .filter-btn.active {
+    @apply bg-[#23b745] text-white;
+  }
+  
+  .masonry-grid {
+    @apply flex w-full gap-4;
+  }
+  
+  .masonry-grid_column {
+    @apply p-0 bg-clip-padding;
+  }
+  
+  .gallery-item {
+    @apply relative mb-4 cursor-pointer overflow-hidden rounded-lg transform-gpu transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-xl;
+  }
+  
+  .gallery-item img {
+    @apply block w-full rounded-lg transition-transform duration-300 ease-in-out;
+  }
+  
+  .gallery-item:hover img {
+    @apply scale-105;
+  }
+  
+  .image-overlay {
+    @apply absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white opacity-0 transition-opacity duration-300 ease-in-out;
+  }
+  
+  .gallery-item:hover .image-overlay {
+    @apply opacity-100;
+  }
+  
+  .lightbox {
+    @apply fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm;
+  }
+  
+  .lightbox-content {
+    @apply relative max-h-[90vh] max-w-[90%] rounded-lg shadow-2xl;
+  }
+  
+  .lightbox-content img {
+    @apply max-h-[90vh] max-w-full rounded-lg object-contain;
+  }
+  
+  .close-btn {
+    @apply absolute -right-10 -top-10 cursor-pointer border-none bg-transparent p-2 text-3xl text-white transition-transform duration-200 hover:scale-110;
+  }
+  
+  @media (max-width: 768px) {
+    .gallery-container {
+      @apply p-4;
+    }
+    
+    .close-btn {
+      @apply -top-10 right-0;
+    }
+  }
