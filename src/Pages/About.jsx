@@ -139,14 +139,40 @@ const About = () => {
           />
         </div>
 
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <p className="text-xl sm:text-2xl text-white/70 max-w-3xl mx-auto font-robert-regular mb-3 sm:mb-4 text-reveal">
-            Hack4Brahma: Northeast India's Ultimate Code Battleground
+        <div className="max-w-4xl mx-auto text-center px-4 text-white">
+          <p className="text-3xl sm:text-2xl text-white/70 max-w-3xl mx-auto font-robert-regular mb-3 sm:mb-4 text-reveal">
+            <b>Hack4Brahma: Northeast India's Ultimate Code Battleground</b>
           </p>
-          <p className="text-white/70 text-base sm:text-lg leading-relaxed text-reveal font-robert-regular">
-            We are more than a hackathon—we are a strategic ecosystem where
-            elite tech warriors deploy their skills, strategize with allies, and
-            execute high-stakes missions to conquer universal challenges.
+          <p>
+            <b>Hack4Brahma</b> is proudly presented by a passionate team of
+            student leaders, innovators, and changemakers — each leading
+            critical aspects of the hackathon through dedicated roles as{" "}
+            <b>Team Leads</b> and <b>Co-Leads</b>. From logistics and operations
+            to outreach and content, every detail of Hack4Brahma is built by a
+            team that truly believes in the power of purposeful technology.
+          </p>
+
+          <p>
+            This hackathon is hosted under the banner of <b>Nari Nexus</b>, a
+            growing tech community founded with the vision of{" "}
+            <b>empowering women in technology</b>. At its core, Nari Nexus aims
+            to create inclusive spaces where{" "}
+            <b>diverse voices lead innovation</b>, and where{" "}
+            <b>women and allies</b> collaborate to solve real-world problems
+            through code.
+          </p>
+
+          <p>
+            With Hack4Brahma, we’re not just organizing an event — we’re
+            creating a platform for{" "}
+            <b>
+              regional empowerment, national collaboration, and global impact
+            </b>
+            .
+          </p>
+
+          <p>
+            <b>Led by youth. Powered by purpose. Inspired by inclusion.</b>
           </p>
         </div>
       </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Users, Clock, Calendar, Handshake, CheckCircle } from 'lucide-react';
 import AnimatedTitle from "../Components/AnimatedTitle";
-import Footer from '../Components/Footer';
 
 const CornerBorderWrapper = ({ children }) => (
   <div className="relative">
@@ -331,9 +330,6 @@ const Gallery = () => {
             <p className="text-2xl font-semibold mt-2 text-green-800 text-center" style={{ fontFamily: 'Zentry-Regular' }}>{stats[4].text}</p>
           </div>
         </div>
-      </div>
-      <div className='ml-20'>
-        <Footer />
       </div>
     </div>
   );

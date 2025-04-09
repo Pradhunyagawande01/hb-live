@@ -104,14 +104,40 @@ const Whyh4b = () => {
               containerClass="mt-4 sm:mt-8 !text-black text-center reveal-element"
             />
           </div>
-          <p className="text-lg sm:text-xl md:text-2xl text-white/70 max-w-3xl mx-auto font-robert-regular px-2">
-            We are more than just a development team. We are innovation
-            architects, design visionaries, and technology pioneers committed to
-            transforming digital landscapes.
+          <p className="text-lg sm:text-xl md:text-2xl text-white/70 max-w-6xl mx-auto font-robert-regular px-2">
+            <p>
+              <b>Hack4Brahma isn’t just a hackathon, it’s a mission.</b>
+            </p>
+
+            <p>
+              Set in one of the most <b>culturally rich</b> and{" "}
+              <b>strategically important</b> regions of India, Hack4Brahma
+              invites you to <b>build for purpose, not just prizes</b>. With
+              Northeast India connected to the mainland through the fragile{" "}
+              <b>Siliguri Corridor</b> and surrounded by international borders,
+              the need for innovation here is <b>urgent and real</b>.
+            </p>
+
+            <p>
+              At Hack4Brahma, you’re not just coding, you’re contributing to{" "}
+              <b>regional stability</b>, <b>security</b>, and <b>growth</b>.
+              From solving problems in <b>digital defense</b> and{" "}
+              <b>cross-border collaboration</b> to empowering{" "}
+              <b>rural communities</b> and strengthening{" "}
+              <b>critical infrastructure</b>, your ideas have the power to{" "}
+              <b>make a difference</b>.
+            </p>
+
+            <p>
+              Join a movement where <b>tech meets impact</b>. Work alongside{" "}
+              <b>visionary mentors</b>, tackle <b>real problem statements</b>,
+              and rise as a <b>Brahma Guardian</b>, someone who codes not for{" "}
+              <b>applause</b>, but for <b>action</b>.
+            </p>
           </p>
         </motion.div>
 
-        <motion.div
+        {/* <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 p-2 sm:p-3"
           initial="hidden"
           animate="visible"
@@ -152,7 +178,9 @@ const Whyh4b = () => {
               `}
             >
               <div className="mb-3 sm:mb-4 flex items-center flex-wrap sm:flex-nowrap">
-                <span className="mr-2 sm:mr-3 text-2xl sm:text-3xl">{feature.icon}</span>
+                <span className="mr-2 sm:mr-3 text-2xl sm:text-3xl">
+                  {feature.icon}
+                </span>
                 <h3
                   className={`text-lg sm:text-xl md:text-2xl font-general font-semibold ${feature.color}`}
                 >
@@ -164,9 +192,9 @@ const Whyh4b = () => {
               </p>
             </motion.div>
           ))}
-        </motion.div>
+        </motion.div> */}
 
-        <motion.div
+        {/* <motion.div
           className="mt-8 sm:mt-12 md:mt-16 text-center"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{
@@ -190,7 +218,7 @@ const Whyh4b = () => {
               deliver solutions that not only meet but exceed expectations.
             </p>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
       <Footer />
     </div>

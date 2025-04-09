@@ -7,7 +7,7 @@ import { BiSolidChevronDown } from "react-icons/bi"; // Added chevron down icon 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-import Button from "../Components/Button";
+// import Button from "../Components/Button";
 import VideoPreview from "../Components/VideoPreview";
 import About from "./About";
 import Whyh4b from "./Whyh4b";
