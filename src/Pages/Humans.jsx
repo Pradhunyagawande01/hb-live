@@ -128,7 +128,7 @@ const Organizers = () => {
       src: "/img/ayush.png",
     },
     {
-      name: "Pranav Tekale",
+      name: "Pranav Tekade",
       // label: "Sponsorship",
       src: "/img/pranav.png",
     },
@@ -164,7 +164,7 @@ const Organizers = () => {
     },
     {
       name: "Sahal",
-      label: "Logistics Lead",
+     // label: "Logistics Lead",
       src: "/img/sahal.png",
     },
     {

@@ -1,9 +1,9 @@
 "use client"
-
 import { useState, useEffect, useRef } from "react"
 import { Trophy, Award, Star, Users, Sparkles, ChevronLeft, ChevronRight } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import AnimatedTitle from "../Components/AnimatedTitle";
+import Track from "../Pages/Tracks";
 import Footer from "../Components/Footer";
 
 export default function HackathonPage() {
@@ -62,33 +62,7 @@ export default function HackathonPage() {
     },
   ]
 
-  const tracks = [
-    {
-      title: "Cybersecurity",
-      description: "Protect critical infrastructure and secure communications",
-      color: "from-purple-600/20 to-purple-400/5",
-    },
-    {
-      title: "Logistics & Supply",
-      description: "Optimize resource distribution in challenging environments",
-      color: "from-emerald-600/20 to-emerald-400/5",
-    },
-    {
-      title: "Command & Control",
-      description: "Build systems for improved situational awareness",
-      color: "from-blue-600/20 to-blue-400/5",
-    },
-    {
-      title: "Data Analytics",
-      description: "Leverage data for actionable intelligence capabilities",
-      color: "from-amber-600/20 to-amber-400/5",
-    },
-    {
-      title: "Communications",
-      description: "Develop robust solutions for challenging scenarios",
-      color: "from-red-600/20 to-red-400/5",
-    },
-  ]
+   
 
   // Animation variants
   const containerVariants = {
@@ -264,64 +238,12 @@ export default function HackathonPage() {
             ))}
           </motion.div>
 
-          {/* Track showcase */}
-          <div className="mb-16">
-          <div className="relative flex flex-col items-center container mx-auto px-4 text-[#198f51] mb-10">
-            <AnimatedTitle
-              title="  <b> Mission</b> </b> </br> <b>Directives </b>"
-              containerClass="mt-8 !text-black text-center reveal-element "
-            />
-          </div>
-
-            <div className="relative">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeTrack}
-                  initial={{ opacity: 0, x: 100 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -100 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  className={`bg-gradient-to-r ${tracks[activeTrack].color} border border-white/10 rounded-xl p-6 backdrop-blur-sm`}
-                >
-                  <h3 className="text-2xl font-bold text-white mb-2">{tracks[activeTrack].title}</h3>
-                  <p className="text-gray-300">{tracks[activeTrack].description}</p>
-                </motion.div>
-              </AnimatePresence>
-
-              {/* Track navigation */}
-              <div className="flex justify-center mt-6 gap-2">
-                <button
-                  onClick={() => setActiveTrack((prev) => (prev - 1 + tracks.length) % tracks.length)}
-                  className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
-                >
-                  <ChevronLeft className="h-5 w-5" />
-                </button>
-
-                <div className="flex items-center gap-2">
-                  {tracks.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setActiveTrack(index)}
-                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                        activeTrack === index ? "w-6 bg-gradient-to-r from-green-600 to-green-600-400" : "bg-white/30"
-                      }`}
-                      aria-label={`View track ${index + 1}`}
-                    />
-                  ))}
-                </div>
-
-                <button
-                  onClick={() => setActiveTrack((prev) => (prev + 1) % tracks.length)}
-                  className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
-                >
-                  <ChevronRight className="h-5 w-5" />
-                </button>
-              </div>
-            </div>
-          </div>
+          
+           
    
         </div>
       </div>
+      <Track />
       <Footer />
     </div>
   )

@@ -12,7 +12,7 @@ import {
   Star,
 } from "lucide-react";
 import AnimatedTitle from "../Components/AnimatedTitle";
-import Footer from "../Components/Footer";
+ 
 
 const TracksPage = () => {
   const [hoveredTrack, setHoveredTrack] = useState(null);
@@ -328,8 +328,7 @@ const TracksPage = () => {
           </div>
         </div>
 
-      
-        <Footer />
+       
       </div>
 
       {/* Enhanced CSS with more advanced animations */}

@@ -53,7 +53,7 @@ const Sidebar = () => {
     { icon: GalleryIcon, label: 'Gallery', path: '/gallery' },
     { icon: Users, label: 'Partners', path: '/partners' },
     { icon: Users, label: 'Humans', path: '/humans' },
-    { icon: LayoutGrid, label: 'Tracks', path: '/tracks' },
+    { icon: Trophy, label: 'Prize', path: '/prize' },
     { icon: HelpCircle, label: 'FAQs', path: '/faqs' },
      // { icon: Phone, label: 'Contact', path: '/contact' },
     // { icon: MapPin, label: 'Venue', path: '/venue' },
@@ -100,7 +100,7 @@ const Sidebar = () => {
                 to={item.path}
                 className={`flex items-center space-x-4 text-sm p-2 w-12 group-hover:w-44 rounded-full h-12 transition-all duration-300 ease-in-out
                   ${isActive 
-                    ? 'text-white bg-[#ba9150] shadow-lg backdrop-blur-lg pl-3 scale-105' 
+                    ? 'text-white bg-green-700 shadow-lg backdrop-blur-lg pl-3 scale-105' 
                     : 'hover:bg-white/10 hover:font-medium hover:pl-3 hover:scale-105'}`}
                 aria-current={isActive ? 'page' : undefined}
               >
