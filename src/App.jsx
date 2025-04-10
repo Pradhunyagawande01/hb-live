@@ -5,7 +5,7 @@ import ManinNav from './Components/MainNav';
 // Import your page components
 import Hero from './Pages/Hero';
 import Gallery from "./Pages/Gallery";
-import Prize from "./Pages/Prize"; 
+// import Prize from "./Pages/Prize"; 
 import  Partners from "./Pages/Partners";
 import Humans from './Pages/Humans';
 import Faqs from './Pages/Faqs';
@@ -51,7 +51,7 @@ function App() {
               <Route path="/" element={<Hero />} />
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/partners" element={<Partners />} />
-              <Route path="/prize" element={<Prize />} />
+              {/* <Route path="/prize" element={<Prize />} /> */}
               <Route path="/humans" element={<Humans />} />
               <Route path="/faqs" element={<Faqs />} />
               <Route path="/tracks" element={<Tracks />} />

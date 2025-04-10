@@ -53,7 +53,7 @@ const Sidebar = () => {
     { icon: GalleryIcon, label: 'Gallery', path: '/gallery' },
     { icon: Users, label: 'Partners', path: '/partners' },
     { icon: Users, label: 'Humans', path: '/humans' },
-    { icon: Trophy, label: 'Prize', path: '/prize' },
+    // { icon: Trophy, label: 'Prize', path: '/prize' },
     { icon: HelpCircle, label: 'FAQs', path: '/faqs' },
      // { icon: Phone, label: 'Contact', path: '/contact' },
     // { icon: MapPin, label: 'Venue', path: '/venue' },
