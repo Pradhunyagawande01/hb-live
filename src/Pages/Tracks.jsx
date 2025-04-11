@@ -1,639 +1,417 @@
-import React, { useState, useEffect, useRef } from "react";
-import {
-  Shield,
-  Radio,
-  Compass,
-  Radar,
-  Cog,
-  Code,
-  ChevronLeft,
-  ChevronRight,
-  Upload,
-  Star,
-} from "lucide-react";
-import AnimatedTitle from "../Components/AnimatedTitle";
- 
+import React, { useState, useEffect, useRef, useMemo } from 'react';
+import AnimatedTitle from '../Components/AnimatedTitle';
+import Footer from '../Components/Footer';
 
-const TracksPage = () => {
-  const [hoveredTrack, setHoveredTrack] = useState(null);
-  const [animatedTracks, setAnimatedTracks] = useState([]);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const sliderRef = useRef(null);
-  const autoplayRef = useRef(null);
-
-  const tracks = [
-    {
-      id: 1,
-      title: "Cyber Security",
-      description:
-        "Build solutions to protect military networks and sensitive data from cyber threats. Develop advanced defense systems against digital warfare.",
-      icon: <Shield className="w-12 h-12 mb-4 text-green-400" />,
-      textColor: "text-white",
-      image: "/api/placeholder/400/250",
-      bgGradient: "from-green-900/40 to-black/60",
-    },
-    {
-      id: 2,
-      title: "Communications",
-      description:
-        "Develop innovative communication systems for battlefield coordination and intelligence sharing. Create secure channels resistant to enemy interference.",
-      icon: <Radio className="w-12 h-12 mb-4 text-blue-400" />,
-      textColor: "text-white",
-      image: "/api/placeholder/400/250",
-      bgGradient: "from-blue-900/40 to-black/60",
-    },
-    {
-      id: 3,
-      title: "Field Operations",
-      description:
-        "Create tools to enhance soldier performance, safety, and effectiveness in the field. Design solutions for tactical advantage in diverse environments.",
-      icon: <Compass className="w-12 h-12 mb-4 text-amber-400" />,
-      textColor: "text-white",
-      image: "/api/placeholder/400/250",
-      bgGradient: "from-amber-900/40 to-black/60",
-    },
-    {
-      id: 4,
-      title: "Intelligence & Reconnaissance",
-      description:
-        "Design solutions for data collection, analysis, and actionable intelligence. Develop systems that provide tactical advantage through information superiority.",
-      icon: <Radar className="w-12 h-12 mb-4 text-purple-400" />,
-      textColor: "text-white",
-      image: "/api/placeholder/400/250",
-      bgGradient: "from-purple-900/40 to-black/60",
-    },
-    {
-      id: 5,
-      title: "Logistics & Supply Chain",
-      description:
-        "Optimize resource management and supply delivery systems for military operations. Create innovative solutions for maintaining operational readiness.",
-      icon: <Cog className="w-12 h-12 mb-4 text-red-400" />,
-      textColor: "text-white",
-      image: "/api/placeholder/400/250",
-      bgGradient: "from-red-900/40 to-black/60",
-    },
-    {
-      id: 6,
-      title: "Open Track",
-      description:
-        "Your innovative solution addressing any military or defense challenge not covered by other tracks. Think outside the box to solve critical military problems.",
-      icon: <Code className="w-12 h-12 mb-4 text-cyan-400" />,
-      textColor: "text-white",
-      image: "/api/placeholder/400/250",
-      bgGradient: "from-cyan-900/40 to-black/60",
-    },
-  ];
-
-  // Animation for cards appearing on page load
-  useEffect(() => {
-    // Set page as loaded after a small delay
-    setTimeout(() => setIsLoaded(true), 500);
-
-    const timeout = setTimeout(() => {
-      const trackIds = [];
-      const interval = setInterval(() => {
-        if (trackIds.length < tracks.length) {
-          trackIds.push(tracks[trackIds.length].id);
-          setAnimatedTracks([...trackIds]);
-        } else {
-          clearInterval(interval);
-        }
-      }, 200);
-      return () => clearInterval(interval);
-    }, 600);
-
-    return () => clearTimeout(timeout);
-  }, []);
-
-  // Auto rotation for slider
-  useEffect(() => {
-    autoplayRef.current = setTimeout(() => {
-      if (!isTransitioning) {
-        handleNextSlide();
-      }
-    }, 6000);
-
-    return () => {
-      if (autoplayRef.current) {
-        clearTimeout(autoplayRef.current);
-      }
-    };
-  }, [activeSlide, isTransitioning]);
-
-  const handleSlideChange = (index) => {
-    if (isTransitioning) return;
-
-    setIsTransitioning(true);
-    setActiveSlide(index);
-
-    setTimeout(() => {
-      setIsTransitioning(false);
-    }, 500);
-  };
-
-  const handlePrevSlide = () => {
-    const newIndex = activeSlide === 0 ? tracks.length - 1 : activeSlide - 1;
-    handleSlideChange(newIndex);
-  };
-
-  const handleNextSlide = () => {
-    const newIndex = activeSlide === tracks.length - 1 ? 0 : activeSlide + 1;
-    handleSlideChange(newIndex);
-  };
-
-  // Touch swipe functionality
-  const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
-
-  const handleTouchStart = (e) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchMove = (e) => {
-    touchEndX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    if (touchStartX.current - touchEndX.current > 100) {
-      // Swipe left
-      handleNextSlide();
-    } else if (touchEndX.current - touchStartX.current > 100) {
-      // Swipe right
-      handlePrevSlide();
-    }
-  };
-
+// Track Card Component for better code organization
+const TrackCard = ({ track, isFocused }) => {
   return (
-    <div
-      className={`min-h-screen text-white py-12 md:py-20 transition-all duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
-    >
-      {/* Military grid pattern background with scanner effect
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="bg-grid opacity-5 absolute inset-0"></div>
-        <div className="scanner-line"></div>
-      </div> */}
-
-      <div className="container mx-auto px-4">
-        {/* Header with enhanced animation */}
-        <div className="text-center mb-16 relative">
-          <div className="military-text-effect relative inline-block">
-            {/* <div
-              className="glow-effect absolute -inset-2 rounded-lg opacity-30 blur-xl"
-              style={{ backgroundColor: "#198f51" }}
-            >
-
-            </div> */}
-            <div className="relative flex flex-col items-center mx-auto text-[#198f51] mb-6 sm:mb-10">
-              <AnimatedTitle
-                title="<b>Tracks</b>"
-                containerClass="mt-4 sm:mt-8 !text-black text-center reveal-element"
-              />
-            </div>
-          </div>
-          {/* <p className="text-lg md:text-xl max-w-3xl mx-auto text-gray-300 typewriter-text">
-            Choose your mission objective. Each track presents unique challenges
-            that require innovative solutions to support our troops and enhance
-            military capabilities.
-          </p> */}
-        </div>
-
-        {/* Enhanced slider for tracks with manual navigation */}
-        <div
-          className="relative max-w-4xl mx-auto mb-20"
-          ref={sliderRef}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-        >
-          <div className="overflow-hidden rounded-lg slider-container">
-            <div
-              className={`flex transition-transform duration-500 ease-in-out ${isTransitioning ? "slider-transitioning" : ""}`}
-              style={{ transform: `translateX(-${activeSlide * 100}%)` }}
-            >
-              {tracks.map((track) => (
-                <div key={track.id} className="min-w-full px-4">
-                  <div
-                    className={`rounded-lg overflow-hidden border border-white/50 shadow-2xl backdrop-blur-md bg-black bg-opacity-30 relative
-                      transform transition-all duration-700 ease-out hover:shadow-glow
-                      ${animatedTracks.includes(track.id) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
-                      ${hoveredTrack === track.id ? "scale-102" : ""}`}
-                    onMouseEnter={() => setHoveredTrack(track.id)}
-                    onMouseLeave={() => setHoveredTrack(null)}
-                  >
-                    <div className="relative">
-                      {/* Track Image with improved gradient overlay */}
-                      <div className="w-full h-56 relative overflow-hidden">
-                        <img
-                          src={track.image}
-                          alt={track.title}
-                          className="w-full h-full object-cover transform scale-105 hover:scale-110 transition-transform duration-700"
-                        />
-                        <div
-                          className={`absolute inset-0 bg-gradient-to-b ${track.bgGradient} opacity-90`}
-                        ></div>
-
-                        {/* Badge */}
-                        <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md rounded-full px-3 py-1 text-xs border border-white/30 flex items-center">
-                          <Star size={12} className="mr-1 text-green-400" />
-                          <span>Track {track.id}</span>
-                        </div>
-                      </div>
-
-                      <div className="p-8 relative z-10">
-                        <div className="flex flex-col items-center text-center">
-                          <div className="rounded-full p-4 mb-5 bg-black/60 backdrop-blur-md border border-white/30 transform transition-all duration-300 hover:scale-110 hover:shadow-glow">
-                            {track.icon}
-                          </div>
-                          <h3
-                            className={`text-2xl md:text-3xl font-bold mb-3 ${track.textColor} znetry-font tracking-wide`}
-                          >
-                            {track.title}
-                          </h3>
-                          <div
-                            className="w-16 h-0.5 mb-5 shimmer-line"
-                            style={{ backgroundColor: "#198f51" }}
-                          ></div>
-                          <p
-                            className={`${track.textColor} opacity-90 mb-6 leading-relaxed`}
-                          >
-                            {track.description}
-                          </p>
-
-                          {/* Enhanced Image Upload Section
-                          <div className="w-full mt-5 p-5 border border-dashed border-white/50 rounded-lg bg-black/40 backdrop-blur-md hover:border-green-400 transition-colors">
-                            <p className="text-sm text-gray-300 mb-3">Upload track-specific resources</p>
-                            <div className="flex items-center justify-center w-full">
-                              <label className="w-full flex flex-col items-center px-4 py-4 bg-black/70 text-white rounded-lg cursor-pointer hover:bg-green-900/30 transition-colors group">
-                                <Upload size={20} className="mb-2 group-hover:text-green-400 transition-colors" />
-                                <span className="text-sm">Select file</span>
-                                <input type="file" className="hidden" />
-                              </label>
-                            </div>
-                          </div> */}
-                        </div>
-                      </div>
-
-                      {/* Enhanced card corner decoration */}
-                      <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden">
-                        <div
-                          style={{ backgroundColor: "#198f51" }}
-                          className="rotate-45 transform origin-bottom-left w-20 h-20 -translate-y-10 translate-x-5 opacity-80 pulse-subtle"
-                        ></div>
-                      </div>
-
-                      {/* Bottom decoration line */}
-                      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-green-500 to-transparent opacity-60"></div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Enhanced navigation buttons */}
-          <div className="flex justify-between absolute top-1/2 left-0 right-0 transform -translate-y-1/2 px-2 md:px-0 md:-mx-6">
-            <button
-              onClick={handlePrevSlide}
-              className="w-12 h-12 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-white hover:bg-green-900/5 transition-all duration-300 focus:outline-none transform hover:scale-110"
-              aria-label="Previous slide"
-            >
-              <ChevronLeft size={22} />
-            </button>
-            <button
-              onClick={handleNextSlide}
-              className="w-12 h-12 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-white hover:bg-green-900/50 hover:border-green-400 transition-all duration-300 focus:outline-none transform hover:scale-110"
-              aria-label="Next slide"
-            >
-              <ChevronRight size={22} />
-            </button>
-          </div>
-
-          {/* Enhanced slider indicators */}
-          <div className="flex justify-center mt-8 space-x-3">
-            {tracks.map((track, index) => (
-              <button
-                key={track.id}
-                onClick={() => handleSlideChange(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-500 hover:bg-green-400 hover:scale-125 focus:outline-none ${
-                  activeSlide === index ? "bg-green-500 w-6" : "bg-gray-600"
-                }`}
-                style={
-                  activeSlide === index ? { backgroundColor: "#198f51" } : {}
-                }
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
-        </div>
-
-       
+    <div className={`w-full max-w-md  ${track.title === "OPEN INNOVATION"} overflow-hidden shadow-lg`}>
+      <div className="h-56 overflow-hidden relative">
+        {/* {track.image ? ( */}
+          <img 
+            src={track.image} 
+            alt={track.title} 
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src = "/img/placeholder.png"; // Fallback image
+            }}
+          />
+        {/* ) : ( */}
+          {/* <div className="h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center"> */}
+            {/* <div className="px-6 py-4 bg-black bg-opacity-70 rounded-sm border border-gray-700 text-center"> */}
+              {/* <div className="text-4xl font-bold text-green-500 mb-2">{`0${track.id}`}</div> */}
+              {/* <div className="text-xs text-gray-400 uppercase tracking-widest">Track</div> */}
+            {/* </div> */}
+          {/* </div> */}
+        {/* )} */}
+        
+        {/* Military-style overlay elements
+        <div className="absolute top-0 left-0 w-16 h-1 bg-green-500"></div>
+        <div className="absolute bottom-0 right-0 w-16 h-1 bg-green-500"></div> */}
+        
+        {/* Track ID badge */}
+        {/* <div className="absolute top-3 right-3 bg-black bg-opacity-70 px-3 py-1 border border-gray-700">
+          <span className="text-green-400 font-mono text-sm">{`TRACK ${track.id}/8`}</span>
+        </div> */}
       </div>
-
-      {/* Enhanced CSS with more advanced animations */}
-      <style jsx>{`
-     
-
-        .znetry-font {
-          font-family: "Black Ops One", cursive;
-          letter-spacing: 0.15em;
-          text-transform: uppercase;
-        }
-
-        /* Enhanced animations */
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .animate-fade-in {
-          animation: fadeIn 0.8s ease-out forwards;
-        }
-
-        /* Scale transformation for hover */
-        .scale-102 {
-          transform: scale(1.02);
-        }
-
-        /* Enhanced military grid background */
-        .bg-grid {
-          background-image: linear-gradient(
-              rgba(25, 143, 81, 0.05) 1px,
-              transparent 1px
-            ),
-            linear-gradient(90deg, rgba(25, 143, 81, 0.05) 1px, transparent 1px);
-          background-size: 20px 20px;
-          background-position: center center;
-        }
-
-        /* Scanner effect */
-        .scanner-line {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: 2px;
-          background: linear-gradient(
-            to right,
-            transparent,
-            #198f51,
-            transparent
-          );
-          opacity: 0.5;
-          animation: scan 8s linear infinite;
-          box-shadow: 0 0 10px 2px rgba(25, 143, 81, 0.5);
-        }
-
-        @keyframes scan {
-          0% {
-            top: 0;
-          }
-          100% {
-            top: 100%;
-          }
-        }
-
-        /* Enhanced typewriter effect for subtitle */
-        @keyframes typing {
-          from {
-            width: 0;
-          }
-          to {
-            width: 100%;
-          }
-        }
-
-        .typewriter-text {
-          overflow: hidden;
-          border-right: 3px solid #198f51;
-          white-space: nowrap;
-          animation:
-            typing 3.5s steps(50, end) forwards,
-            blink-caret 0.75s step-end infinite;
-          max-width: 100%;
-          display: inline-block;
-        }
-
-        @keyframes blink-caret {
-          from,
-          to {
-            border-color: transparent;
-          }
-          50% {
-            border-color: #198f51;
-          }
-        }
-
-        /* Enhanced fade in items for detail lists */
-        @keyframes fadeInItem {
-          from {
-            opacity: 0;
-            transform: translateX(-15px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        .fade-in-item {
-          opacity: 0;
-          animation: fadeInItem 0.6s ease-out forwards;
-        }
-
-        /* Light bar animation */
-        .light-bar {
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 100%;
-          width: 30%;
-          background: linear-gradient(
-            to right,
-            transparent,
-            rgba(25, 143, 81, 0.8),
-            transparent
-          );
-          animation: lightMove 2s infinite linear;
-        }
-
-        @keyframes lightMove {
-          0% {
-            left: -30%;
-          }
-          100% {
-            left: 100%;
-          }
-        }
-
-        /* Pulsing dot */
-        .pulse-dot {
-          animation: pulseDot 2s infinite;
-        }
-
-        @keyframes pulseDot {
-          0% {
-            transform: scale(1);
-            opacity: 1;
-          }
-          50% {
-            transform: scale(1.5);
-            opacity: 0.5;
-          }
-          100% {
-            transform: scale(1);
-            opacity: 1;
-          }
-        }
-
-        /* Subtle pulse animation */
-        .pulse-subtle {
-          animation: pulseSubtle 3s infinite ease-in-out;
-        }
-
-        @keyframes pulseSubtle {
-          0% {
-            opacity: 0.7;
-          }
-          50% {
-            opacity: 1;
-          }
-          100% {
-            opacity: 0.7;
-          }
-        }
-
-        /* Shimmer line effect */
-        .shimmer-line {
-          position: relative;
-          overflow: hidden;
-        }
-
-        .shimmer-line::after {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(
-            90deg,
-            transparent,
-            rgba(255, 255, 255, 0.4),
-            transparent
-          );
-          animation: shimmer 2s infinite;
-        }
-
-        @keyframes shimmer {
-          0% {
-            left: -100%;
-          }
-          100% {
-            left: 100%;
-          }
-        }
-
-        /* Radar sweep animation */
-        .radar-sweep {
-          background: conic-gradient(rgba(25, 143, 81, 0.3), transparent);
-          border-radius: 50%;
-          animation: sweep 4s infinite linear;
-          transform-origin: bottom right;
-        }
-
-        @keyframes sweep {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-
-        /* Glitch effect */
-        .glitch-effect {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: rgba(25, 143, 81, 0.2);
-          opacity: 0;
-          pointer-events: none;
-        }
-
-        .glitch-effect::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: -10px;
-          width: 5px;
-          height: 100%;
-          background: rgba(25, 143, 81, 0.5);
-          animation: glitch 3s infinite;
-        }
-
-        @keyframes glitch {
-          0% {
-            opacity: 0;
-            left: -10px;
-          }
-          1% {
-            opacity: 1;
-            left: 10px;
-          }
-          2% {
-            opacity: 0;
-            left: -10px;
-          }
-          55% {
-            opacity: 0;
-            left: -10px;
-          }
-          56% {
-            opacity: 1;
-            left: 10px;
-          }
-          57% {
-            opacity: 0;
-            left: -10px;
-          }
-          100% {
-            opacity: 0;
-            left: -10px;
-          }
-        }
-
-        /* Shadow glow effect */
-        .shadow-glow {
-          box-shadow: 0 0 15px 2px rgba(25, 143, 81, 0.4);
-        }
-
-        /* Slider transition enhancement */
-        .slider-transitioning {
-          transition-timing-function: cubic-bezier(0.45, 0, 0.2, 1);
-        }
-
-        .slider-container {
-          mask-image: linear-gradient(
-            to right,
-            transparent 0%,
-            black 5%,
-            black 95%,
-            transparent 100%
-          );
-        }
-      `}</style>
+      
+      {/* <div className="p-6"> */}
+        {/* Track name with military aesthetic */}
+        {/* <div className="flex items-center mb-3">
+          <div className="h-px w-6 bg-green-500 mr-3"></div>
+          <h3 className={`text-xl font-bold font-mono uppercase ${track.title === "OPEN INNOVATION" ? 'text-yellow-500' : 'text-green-400'}`}>
+            {track.title}
+          </h3>
+        </div> */}
+        
+        {/* Description */}
+        {/* <p className="text-gray-400 mb-4">
+          {track.description}
+        </p> */}
+        
+        {/* Military-style footer */}
+        {/* <div className="flex justify-between items-center mt-4">
+          <div className="text-xs text-gray-500 uppercase tracking-wider font-mono">
+            Classification: Level {Math.floor(Math.random() * 3) + 1}
+          </div>
+          <div className="h-6 w-6 border border-gray-700 flex items-center justify-center">
+            <div className="h-3 w-3 bg-green-500 opacity-50"></div>
+          </div>
+        </div> */}
+      {/* </div> */}
     </div>
   );
 };
 
-export default TracksPage;
+const TracksSlider = () => {
+  // Track data with army-themed titles
+  const tracks = [
+    {
+      id: 1,
+      title: "Healthcare",
+      description: "Bring your unique ideas and innovative solutions to address any challenge.",
+      image: "/img/HC.png"
+    },
+    {
+      id: 2,
+      title: "Cyber Security",
+      description: "Develop solutions to protect critical digital infrastructure against evolving threats.",
+      image: "/img/CS.png"
+    },
+    {
+      id: 3,
+      title: "Education",
+      description: "Create technology to enhance tactical awareness and mission effectiveness.",
+      image: "/img/EDU.png"
+    },
+    {
+      id: 4,
+      title: "Artificial Intelligence",
+      description: "Build tools for data analysis, pattern recognition, and information processing.",
+      image: "/img/AI.png"
+    },
+    {
+      id: 5,
+      title: "Data Science",
+      description: "Design solutions for supply chain optimization and resource management.",
+      image: "/img/DS.png"
+    },
+    {
+      id: 6,
+      title: "IOT",
+      description: "Innovate healthcare solutions for emergency response and field treatment.",
+      image: "/img/IOT.png"
+    },
+    {
+      id: 7,
+      title: "Machanical Learning",
+      description: "Develop secure and reliable communication systems for challenging environments.",
+      image: "/img/ML.png"
+    },
+    {
+      id: 8,
+      title: "AUTONOMOUS SYSTEMS",
+      description: "Create intelligent autonomous solutions for various mission applications.",
+      image: "/img/WEB.png"
+    }
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const slideInterval = useRef(null);
+  const sliderRef = useRef(null);
+
+  // Calculate indices for visible slides with useMemo for performance
+  const visibleIndices = useMemo(() => {
+    return [-2, -1, 0, 1, 2].map(offset => {
+      let index = currentIndex + offset;
+      // Handle wrapping
+      if (index < 0) index = tracks.length + index;
+      if (index >= tracks.length) index = index - tracks.length;
+      return index;
+    });
+  }, [currentIndex, tracks.length]);
+
+  // Move to the previous slide
+  const prevSlide = () => {
+    if (!isTransitioning) {
+      setIsTransitioning(true);
+      setCurrentIndex(prevIndex => (prevIndex === 0 ? tracks.length - 1 : prevIndex - 1));
+      resetInterval();
+    }
+  };
+
+  // Move to the next slide
+  const nextSlide = () => {
+    if (!isTransitioning) {
+      setIsTransitioning(true);
+      setCurrentIndex(prevIndex => (prevIndex === tracks.length - 1 ? 0 : prevIndex + 1));
+      resetInterval();
+    }
+  };
+
+  // Go to a specific slide
+  const goToSlide = (index) => {
+    if (!isTransitioning && index !== currentIndex) {
+      setIsTransitioning(true);
+      setCurrentIndex(index);
+      resetInterval();
+    }
+  };
+
+  // Handle keyboard navigation
+  const handleKeyDown = (e) => {
+    if (e.key === 'ArrowLeft') {
+      prevSlide();
+    } else if (e.key === 'ArrowRight') {
+      nextSlide();
+    }
+  };
+
+  // Reset transition state after animation completes
+  const handleTransitionEnd = () => {
+    setIsTransitioning(false);
+  };
+
+  // Toggle auto-rotation pause state
+  const togglePause = () => {
+    setIsPaused(prev => !prev);
+  };
+
+  // Reset the auto-rotation interval
+  const resetInterval = () => {
+    if (slideInterval.current) {
+      clearInterval(slideInterval.current);
+    }
+    
+    if (!isPaused) {
+      slideInterval.current = setInterval(() => {
+        nextSlide();
+      }, 5000);
+    }
+  };
+
+  // Set up auto-rotation and keyboard event listeners
+  useEffect(() => {
+    if (!isPaused) {
+      slideInterval.current = setInterval(() => {
+        nextSlide();
+      }, 5000);
+    }
+    
+    // Add keyboard event listeners
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      if (slideInterval.current) {
+        clearInterval(slideInterval.current);
+      }
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isPaused]);
+
+  // Handle pause/resume when component state changes
+  useEffect(() => {
+    if (isPaused && slideInterval.current) {
+      clearInterval(slideInterval.current);
+    } else {
+      resetInterval();
+    }
+  }, [isPaused]);
+
+  // Add touch swipe functionality
+  useEffect(() => {
+    const slider = sliderRef.current;
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    const handleTouchStart = (e) => {
+      touchStartX = e.touches[0].clientX;
+    };
+    
+    const handleTouchMove = (e) => {
+      touchEndX = e.touches[0].clientX;
+    };
+    
+    const handleTouchEnd = () => {
+      if (touchStartX - touchEndX > 75) {
+        // Swipe left
+        nextSlide();
+      } else if (touchEndX - touchStartX > 75) {
+        // Swipe right
+        prevSlide();
+      }
+    };
+    
+    if (slider) {
+      slider.addEventListener('touchstart', handleTouchStart);
+      slider.addEventListener('touchmove', handleTouchMove);
+      slider.addEventListener('touchend', handleTouchEnd);
+      
+      return () => {
+        slider.removeEventListener('touchstart', handleTouchStart);
+        slider.removeEventListener('touchmove', handleTouchMove);
+        slider.removeEventListener('touchend', handleTouchEnd);
+      };
+    }
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-black text-gray-200 py-12 px-4 overflow-hidden">
+      {/* Military-style header */}
+      <div className="container mx-auto mb-12">
+        <div className="flex flex-col items-center">
+        <div className="relative flex flex-col items-center mx-auto text-[#198f51] mb-6 sm:mb-10">
+          <AnimatedTitle
+            title="<b>Tracks</b>"
+            containerClass="mt-4 sm:mt-8 !text-black text-center reveal-element"
+          />
+        </div>
+          {/* <div className="h-1 w-24 md:w-32 bg-green-500 mb-6 md:mb-8"></div>
+          <p className="text-center text-gray-400 max-w-2xl mb-6 font-mono text-sm md:text-base">
+            SELECT YOUR OBJECTIVE AND EXECUTE THE MISSION
+          </p> */}
+          
+          {/* Military rank-style decoration */}
+          <div className="flex items-center space-x-2 mb-6 md:mb-8">
+            <div className="h-px w-12 md:w-16 bg-gray-700"></div>
+            <div className="h-4 md:h-5 w-4 md:w-5 rotate-45 border-2 border-gray-700"></div>
+            <div className="h-px w-12 md:w-16 bg-gray-700"></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Track Slider */}
+      <div 
+        className="relative w-full max-w-6xl mx-auto h-80 md:h-96" 
+        ref={sliderRef}
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="Mission Tracks Carousel"
+      >
+        {/* Track cards */}
+        <div 
+          className="relative h-full" 
+          onTransitionEnd={handleTransitionEnd}
+          aria-live="polite"
+        >
+          {tracks.map((track, index) => {
+            // Calculate position in slider
+            const position = visibleIndices.indexOf(index);
+            if (position === -1) return null; // Don't render if not in visible range
+            
+            // Calculate styling based on position
+            let zIndex = 10 - Math.abs(position - 2);
+            let opacity = position === 2 ? 1 : 0.7 - Math.abs(position - 2) * 0.2;
+            let scale = 1 - Math.abs(position - 2) * 0.1;
+            let translateX = (position - 2) * 50;
+            
+            if (position === 2) {
+              // Center card (focused)
+              translateX = 0;
+            }
+            
+            const isFocused = position === 2;
+            
+            return (
+              <div
+                key={track.id}
+                className="absolute top-0 left-0 w-full h-full flex justify-center transition-all duration-500"
+                style={{
+                  transform: `translateX(${translateX}%) scale(${scale})`,
+                  opacity: opacity,
+                  zIndex: zIndex
+                }}
+                role="group"
+                aria-roledescription="slide"
+                aria-label={track.title}
+                aria-hidden={!isFocused}
+              >
+                <TrackCard track={track} isFocused={isFocused} />
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Navigation controls */}
+        <button 
+          onClick={prevSlide}
+          className="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 z-20 bg-black bg-opacity-70 border border-green-900 p-1 md:p-2 text-green-500 hover:text-green-400 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500"
+          disabled={isTransitioning}
+          aria-label="Previous track"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        
+        <button 
+          onClick={nextSlide}
+          className="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 z-20 bg-black bg-opacity-70 border border-green-900 p-1 md:p-2 text-green-500 hover:text-green-400 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500"
+          disabled={isTransitioning}
+          aria-label="Next track"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+        
+        {/* Pause/Play button */}
+        {/* <button
+          onClick={togglePause}
+          className="absolute left-1/2 transform -translate-x-1/2 bottom-4 z-20 bg-black bg-opacity-70 border border-green-900 p-1 md:p-2 text-green-500 hover:text-green-400 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500"
+          aria-label={isPaused ? "Resume autoplay" : "Pause autoplay"}
+        >
+          {isPaused ? (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          )}
+        </button> */}
+      </div>
+
+      {/* Track indicators */}
+      <div className="container mx-auto mt-8">
+        <div className="flex justify-center space-x-2 md:space-x-3" role="tablist" aria-label="Track selection">
+          {tracks.map((track, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`w-1 md:w-2 h-6 md:h-8 transition-all ${
+                index === currentIndex ? 'bg-green-500' : 'bg-gray-700 hover:bg-gray-600'
+              } focus:outline-none focus:ring-2 focus:ring-green-500`}
+              aria-label={`Go to track ${index + 1}: ${track.title}`}
+              aria-selected={index === currentIndex}
+              role="tab"
+            />
+          ))}
+        </div>
+      </div>
+      
+      {/* Current Track Info - Mobile Responsive */}
+      <div className="container mx-auto mt-6 px-4 md:hidden">
+        <p className="text-center text-xs text-gray-500">
+          <span className="text-green-500">{currentIndex + 1}/8</span> | {tracks[currentIndex].title}
+        </p>
+      </div>
+      
+      {/* Military-style footer */}
+      {/* <div className="container mx-auto mt-12 md:mt-16">
+        <div className="flex justify-center items-center">
+          <div className="h-px w-12 md:w-16 bg-gray-800"></div>
+          <div className="mx-4 text-green-500 text-xs font-mono uppercase tracking-widest">Secure Connection</div>
+          <div className="h-px w-12 md:w-16 bg-gray-800"></div>
+        </div>
+      </div> */}
+      <Footer />
+    </div>
+  );
+};
+
+export default TracksSlider;

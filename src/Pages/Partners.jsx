@@ -9,13 +9,13 @@ function Partners() {
   // Partner data with military ranks
   const partners = {
     general: {
-      title: "GENERAL",
-      description: "Supreme Command Level Partners",
+      // title: "GENERAL",
+      // description: "Supreme Command Level Partners",
       icon: Shield,
       partners: [
         {
-          name: "Alpha Strategic Command",
-          logo: "img/title.jpg",
+          name: "Diamond",
+          logo: "img/1.png",
           // description: "Strategic Operations Command",
           // rank: "5-Star General"
         },
@@ -23,44 +23,42 @@ function Partners() {
       ]
     },
     colonel: {
-      title: "COLONEL",
-      description: "Elite Tactical Division",
+      // title: "COLONEL",
+      // description: "Elite Tactical Division",
       icon: Star,
       partners: [
+        // {
+        //   name: "",
+        //   logo: "img/colenal.png",
+        //   // description: "Advanced Combat Solutions",
+        //   // rank: "Colonel"
+        // },
         {
-          name: "Bravo Tactical Systems",
-          logo: "img/colenal.png",
-          // description: "Advanced Combat Solutions",
-          // rank: "Colonel"
-        },
-        {
-          name: "Charlie Defense Corp",
-          logo: "img/colenal.png",
+          name: "Platinum",
+          logo: "img/2.png",
           // description: "Tactical Defense Unit",
           // rank: "Lieutenant Colonel"
         }
       ]
     },
     major: {
-      title: "MAJOR",
-      description: "Special Operations Force",
       icon: Medal,
       partners: [
         {
-          name: "Delta Strike Force",
-          logo: "img/star.png",
+          name: "Gold",
+          logo: "img/3.png",
           description: "Specialized Operations",
           rank: "Major"
         },
         {
-          name: "Echo Intelligence",
-          logo: "img/star.png",
+          name: "Silver",
+          logo: "img/4.png",
           description: "Tactical Intelligence",
           rank: "Major"
         },
         {
-          name: "Foxtrot Dynamics",
-          logo: "img/star.png",
+          name: "Bronze",
+          logo: "img/5.png",
           description: "Combat Systems",
           rank: "Major"
         }
@@ -145,7 +143,7 @@ function Partners() {
               <div className={`
                 grid gap-8 justify-items-center
                 ${key === 'general' ? 'grid-cols-1' : 
-                  key === 'colonel' ? 'grid-cols-1 md:grid-cols-2' : 
+                  key === 'colonel' ? 'grid-cols-1 md:grid-cols-1' : 
                   'grid-cols-1 md:grid-cols-3'}
               `}>
                 {tier.partners.map((partner) => (
@@ -154,7 +152,7 @@ function Partners() {
                     className="relative w-full max-w-md group"
                   >
                      
-                    <div className="relative p-6 border border-gray-700 rounded-lg overflow-hidden">
+                    <div className="relative p-6 border border-gray-700 rounded-lg overflow-hidden h-[450px]">
                       {/* Military Corner Decorations */}
                       <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-green-500" />
                       <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-green-500" />

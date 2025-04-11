@@ -14,72 +14,72 @@ export default function Faqs() {
       id: 1,
       question: "What is Hack4Brahma?",
       answer:
-        "Hack4Brahma is where retro meets innovation, a 24-hour in-person hackathon that combines the nostalgia of classic arcade games with modern tech wizardry. Connect with amazing people, enjoy gaming sessions to take a break from coding!",
+        "Hack4Brahma is a 24-hour offline hackathon themed around regional impact and defense-tech, bringing together innovators to solve real-world challenges for Northeast India.",
     },
     {
       id: 2,
       question: "What are the venue rules?",
       answer:
-        "Once checked in, participants must remain at the venue until the hackathon ends after the closing ceremony. Only registered participants are allowed - no guests or guardians can stay at the venue during the event.",
+        "Participants must carry valid ID, follow code of conduct, and stay within the hackathon area. Outside food, alcohol, or any disruptive behavior is strictly prohibited.",
     },
     {
       id: 3,
       question: "What should I bring?",
       answer:
-        "Bring your laptop, charger, any necessary peripherals, and personal items for an overnight stay. Food and basic amenities will be provided at the venue. Don't forget your student ID and registration confirmation!",
+        "Bring your laptop, charger, ID card, any other devices you need, and lots of energy! We’ll provide internet, power, food, and swag.",
     },
     {
       id: 4,
       question: "How does judging work?",
       answer:
-        "Judging details, including criteria and round structure, can be found in the Hacker Guide sent to your email. Projects will be evaluated on innovation, technical complexity, and presentation quality.",
+        "Judging will be based on innovation, impact, technical complexity, scalability, and relevance to theme. Final presentations will be evaluated by industry experts.",
     },
     {
       id: 5,
       question: "Are there any team requirements?",
       answer:
-        "Teams can consist of 3-4 members. You can form teams beforehand or find teammates during our team formation session at the start of the event. Solo participation is not permitted.",
+        "Yes, teams should consist of 3 to 4 members. You can form a team in advance or join our Discord to find teammates.",
     },
     {
       id: 6,
       question: "What technologies can we use?",
       answer:
-        "Youre free to use any programming languages, frameworks, or tools. All code must be written during the hackathon. Pre-built templates or previous projects are not allowed.",
+        "You’re free to use any tech stack, APIs, or tools. Just make sure your project is built during the hackathon hours.",
     },
     {
       id: 7,
       question: "Can I attend Hack4Brahma virtually?",
-      answer: "Unfortunately, Hack4Brahma is only offered in-person.",
+      answer: "UnfortunatelyNo, this is a fully offline event. All participants are required to be physically present at the venue.",
     },
     {
       id: 8,
       question: "What is the participation fee?",
-      answer: "There is no participation fee; it's completely free to join!",
+      answer: "There is no fee. Hack4Brahma is completely free to attend for selected participants.",
     },
     {
       id: 9,
       question: "Who can participate?",
       answer:
-        "Anyone is welcome to apply—students or working professionals. Whether you want to innovate or just enjoy a fun weekend, you're welcome!",
+        "Anyone with a passion for technology—students, developers, designers, creators. Beginners are welcome too!",
     },
     {
       id: 10,
       question: "What is the ideal team size?",
-      answer: "Teams should consist of 3-4 members.",
+      answer: "3 to 4 members per team. Teams with fewer or more members will not be eligible.",
     },
     {
       id: 11,
       question:
         "Can my parent/guardian stay at the venue if they come with me?",
       answer:
-        "The answer is No. Arrangements like food, etc., are only for the attendees. We recommend you to find a stay option for them near the venue. They can drop you at the hackathon venue and can pick you but can't stay at venue during the hackathon as we do not have any provision for them",
+        "No, only registered participants are allowed inside the hackathon zone. Accommodation details (if any) will be shared beforehand.",
     },
     {
       id: 12,
       question:
         "I am below 18 years of age, can I participate in the hackathon?",
       answer:
-        "Yes! You can participate in the hackathon but we would need written consent from your parent/guardian and you wouldn't be allowed to leave the venue during the hackathon.",
+        "Yes, but you’ll need to submit a parental consent form before the event. Further instructions will be shared post-selection.",
     },
   ];
 
