@@ -14,10 +14,10 @@ function Partners() {
       icon: Shield,
       partners: [
         {
-          name: "Diamond",
+          // name: "",
           logo: "img/1.png",
           // description: "Strategic Operations Command",
-          // rank: "5-Star General"
+          rank: "Diamond"
         },
         
       ]
@@ -34,10 +34,10 @@ function Partners() {
         //   // rank: "Colonel"
         // },
         {
-          name: "Platinum",
+          // name: "Platinum",
           logo: "img/2.png",
           // description: "Tactical Defense Unit",
-          // rank: "Lieutenant Colonel"
+          rank: "Platinum"
         }
       ]
     },
@@ -45,22 +45,22 @@ function Partners() {
       icon: Medal,
       partners: [
         {
-          name: "Gold",
+          // name: "Gold",
           logo: "img/3.png",
-          description: "Specialized Operations",
-          rank: "Major"
+          // description: "Specialized Operations",
+          rank: "Gold"
         },
         {
-          name: "Silver",
+          // name: "Silver",
           logo: "img/4.png",
-          description: "Tactical Intelligence",
-          rank: "Major"
+          // description: "Tactical Intelligence",
+          rank: "Silver"
         },
         {
-          name: "Bronze",
+          // name: "Bronze",
           logo: "img/5.png",
-          description: "Combat Systems",
-          rank: "Major"
+          // description: "Combat Systems",
+          rank: "Bronze"
         }
       ]
     }
@@ -152,7 +152,7 @@ function Partners() {
                     className="relative w-full max-w-md group"
                   >
                      
-                    <div className="relative p-6 border border-gray-700 rounded-lg overflow-hidden h-[450px]">
+                    <div className="relative p-6 border border-gray-700 rounded-lg overflow-hidden h-[400px] align-middle flex items-center justify-center">
                       {/* Military Corner Decorations */}
                       <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-green-500" />
                       <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-green-500" />
@@ -167,13 +167,13 @@ function Partners() {
                       <img 
                         src={partner.logo} 
                         alt={partner.name}
-                        className="w-full h-49 object-cover mb-6 rounded transition-transform duration-300 group-hover:scale-105"
+                        className="w-full object-cover mb-6 rounded transition-transform duration-300 group-hover:scale-105"
                       />
                       
-                      <div className="text-center">
+                      {/* <div className="text-center">
                         <h3 className="text-xl font-bold mb-2">{partner.name}</h3>
                         <p className="text-gray-400">{partner.description}</p>
-                      </div>
+                      </div> */}
                       
                       {/* Scanning Line Effect */}
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-500/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />

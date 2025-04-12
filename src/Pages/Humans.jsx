@@ -133,6 +133,13 @@ const Organizers = () => {
       twitter: "https://x.com/ayushthakre__",
     },
     {
+      name: "Mohd Sahal",
+      // label: "Marketing",
+      src: "/img/sahal.png",
+      linkedin: "https://www.linkedin.com/in/sahal-parvez",
+      twitter: "https://x.com/SahalParvez742",
+    },
+    {
       name: "Pranav Tekade",
       // label: "Sponsorship",
       src: "/img/pranav.png",
