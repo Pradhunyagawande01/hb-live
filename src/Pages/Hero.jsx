@@ -137,6 +137,14 @@ const Hero = () => {
     );
   };
 
+  const handleRegistreClick = () => {
+    window.open(
+      "https://forms.office.com/r/9UW6EyXuMJ",
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
+
   // Handle Learn More button click
   const handleLearnMoreClick = () => {
     const aboutSection = document.getElementById("about");
@@ -236,7 +244,7 @@ const Hero = () => {
 
                   <motion.div
                     variants={itemVariants}
-                    className="mt-8 flex flex-col space-y-8 sm:flex-row sm:space-x-6 sm:space-y-0 md:pl-52 sm:pl-0 sm:top-20"
+                    className="mt-8 flex space-y-8 sm:flex-row sm:space-x-6 sm:space-y-0 md:pl-52 sm:pl-0 sm:top-20"
                   >
                     {/* Army-themed Discord Button */}
                     <button
@@ -254,14 +262,14 @@ const Hero = () => {
 
                     {/* Army-themed Learn More Button */}
                     <button
-                      // onClick={handleLearnMoreClick}
-                      className="flex items-center justify-center px-6 py-3 text-white font-bold rounded shadow-md border-2 border-[#8B9862] transition-all duration-300 relative overflow-hidden group w-72"
+                      onClick={handleRegistreClick}
+                      className="flex items-center justify-center px-6 py-3 bg-[#4B5320] hover:bg-[#5A6324] text-white font-bold rounded shadow-md border-2 border-[#8B9862] transition-all duration-300 relative overflow-hidden group"
                     >
                       {/* Background image div - FIXED */}
                       <div
                         className="absolute inset-0 bg-auto bg-center bg-no-repeat"
                         style={{
-                          backgroundImage: "url('/img/04.png')"
+                          // backgroundImage: "url('/img/04.png')"
                         }}
                       ></div>
 
@@ -269,11 +277,13 @@ const Hero = () => {
                       <span className="absolute inset-0 w-full h-full bg-[#4B5320] opacity-0 group-hover:opacity-20 transition-opacity duration-300 z-10"></span>
 
                       {/* Content */}
-                      {/* <span className="relative z-20 uppercase tracking-wider flex items-center gap-2">
-                        Learn More
-                      </span> */}
+                      <span className="relative z-20 uppercase tracking-wider flex items-center gap-2">
+                        Call for Voleenteers
+                      </span>
 
-                      {/* <BiSolidChevronDown className="text-xl ml-2 relative z-20 animate-bounce" /> */}
+                      <BiSolidChevronDown className="text-xl ml-2 relative z-20 animate-bounce" />
+                      <span className="absolute top-0 right-0 bottom-0 w-1 bg-[#8B9862]"></span>
+                      <span className="absolute bottom-0 left-0 right-0 h-1 bg-[#8B9862]"></span>
                     </button>
                   </motion.div>
                 </div>
