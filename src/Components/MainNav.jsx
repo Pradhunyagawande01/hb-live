@@ -51,7 +51,7 @@ const Sidebar = () => {
   const menuItems = [
     { icon: Home, label: 'Home', path: '/' },
     { icon: GalleryIcon, label: 'Gallery', path: '/gallery' },
-    { icon: Phone, label: 'Partners', path: '/partners' },
+    { icon: Phone, label: 'Sponsors', path: '/partners' },
     { icon: Users, label: 'Humans', path: '/humans' },
     { icon: Calendar, label: 'Tracks', path: '/tracks' },
     { icon: HelpCircle, label: 'FAQs', path: '/faqs' },
