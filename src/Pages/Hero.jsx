@@ -182,7 +182,7 @@ const Hero = () => {
               className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-black pl-1 md:pl-0 sm:pl-0"
             >
               <div>
-                <div className="mask-clip-path absolute-center absolute z-50 size-32 sm:size-48 md:size-64 cursor-pointer overflow-hidden rounded-lg pl-1">
+                {/* <div className="mask-clip-path absolute-center absolute z-50 size-32 sm:size-48 md:size-64 cursor-pointer overflow-hidden rounded-lg pl-1"> */}
                   {/* <VideoPreview>
                     <div
                       onClick={handleMiniVdClick}
@@ -199,7 +199,7 @@ const Hero = () => {
                       />
                     </div>
                   </VideoPreview> */}
-                </div>
+                {/* </div> */}
 
                 <video
                   ref={nextVdRef}
