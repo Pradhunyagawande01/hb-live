@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Star, Target, Award } from "lucide-react";
 import AnimatedTitle from "../Components/AnimatedTitle";
+import Footer from "../Components/Footer";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -110,18 +111,18 @@ const About = () => {
       ref={sectionRef}
       id="about"
       className="min-h-screen w-screen 
-      bg-fixed bg-cover bg-center py-8 sm:py-16 px-4 sm:pl-20
+      bg-fixed bg-cover bg-center sm:py-16 px-4 sm:pl-20
       will-change-transform"
     >
       <div className="relative w-full max-w-7xl mx-auto overflow-hidden">
-        <div className="relative flex flex-col items-center mx-auto text-[#198f51] mb-6 sm:mb-10">
+        <div className="relative flex flex-col items-center mx-auto text-[#198f51] sm:mb-10">
           <AnimatedTitle
-            title="<b>About</b> the <br /> <b>Regiment</b>"
-            containerClass="mt-4 sm:mt-8 !text-black text-center reveal-element"
+            title="<b>About</b> <b>us</b> "
+            containerClass="sm:mt-8 !text-black text-center reveal-element"
           />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8 mb-8 sm:mb-16">
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8 mb-8 sm:mb-16">
           <AboutCard
             icon={Target}
             title="Mission"
@@ -137,45 +138,22 @@ const About = () => {
             title="Approach"
             description="Create a dynamic war room of mentors, tactical networking, and hands-on combat training."
           />
-        </div>
+        </div> */}
 
-        <div className="max-w-4xl mx-auto text-center px-4 text-white">
-          <p className="text-3xl sm:text-2xl text-white/70 max-w-3xl mx-auto font-robert-regular mb-3 sm:mb-4 text-reveal">
-            <b>Hack4Brahma: Northeast India's Ultimate Code Battleground</b>
-          </p>
+        <div className=" mx-auto text-center px-4 text-white/70 text-2xl mb-24">
           <p>
-            <b>Hack4Brahma</b> is proudly presented by a passionate team of
-            student leaders, innovators, and changemakers — each leading
-            critical aspects of the hackathon through dedicated roles as{" "}
-            <b>Team Leads</b> and <b>Co-Leads</b>. From logistics and operations
-            to outreach and content, every detail of Hack4Brahma is built by a
-            team that truly believes in the power of purposeful technology.
-          </p>
-
-          <p>
-            This hackathon is hosted under the banner of <b>Nari Nexus</b>, a
-            growing tech community founded with the vision of{" "}
-            <b>empowering women in technology</b>. At its core, Nari Nexus aims
-            to create inclusive spaces where{" "}
-            <b>diverse voices lead innovation</b>, and where{" "}
-            <b>women and allies</b> collaborate to solve real-world problems
-            through code.
-          </p>
-
-          <p>
-            With Hack4Brahma, we’re not just organizing an event — we’re
-            creating a platform for{" "}
-            <b>
-              regional empowerment, national collaboration, and global impact
-            </b>
-            .
-          </p>
-
-          <p>
-            <b>Led by youth. Powered by purpose. Inspired by inclusion.</b>
+            Hack4Brahma is a student-led hackathon powered by Nari Nexus — a
+            tech community committed to empowering women and fostering inclusive
+            innovation. Driven by passionate team leads, every aspect of the
+            event, from logistics to outreach, is crafted with purpose. At its
+            heart, Nari Nexus creates space for diverse voices to collaborate
+            and solve real-world problems through technology. Regional
+            empowerment. National collaboration. Global impact. Led by youth.
+            Powered by purpose. Inspired by inclusion.
           </p>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

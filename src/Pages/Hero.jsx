@@ -302,9 +302,9 @@ const Hero = () => {
             </motion.h1>
           </motion.div>
         </div>
-
-        <About />
         <Whyh4b />
+        <About />
+        
       </div>
     </>
   );

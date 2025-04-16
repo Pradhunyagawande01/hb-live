@@ -104,13 +104,13 @@ const Footer = () => {
       </div>
       
       {/* Bottom Section */}
-      <div className="border-t border-gray-800 mt-8">
+      {/* <div className="border-t border-gray-800 mt-8">
         <div className="container mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
             &copy; {currentYear} Hack4Brahma. All rights reserved.
           </p>
         </div>
-      </div>
+      </div> */}
     </footer>
   );
 };

@@ -89,50 +89,38 @@ const Whyh4b = () => {
   return (
     <div
       ref={containerRef}
-      className="relative min-h-screen w-full bg-black text-white overflow-hidden px-4 sm:px-6 md:pl-20"
+      className="relative w-full bg-black text-white overflow-hidden px-4 sm:px-6 md:pl-20"
     >
-      <div className="relative z-10 container mx-auto py-8 sm:py-12 md:py-16">
+      <div className="relative z-10 container  py-8 sm:py-12 md:py-16">
         <motion.div
           initial="hidden"
           animate="visible"
           variants={titleVariants}
-          className="text-center mb-8 sm:mb-12 md:mb-16"
+          className="text-center sm:mb-12"
         >
           <div className="relative flex flex-col items-center container mx-auto px-2 sm:px-4 text-[#198f51] mb-6 sm:mb-10">
             <AnimatedTitle
-              title="<b>Why</b> <b>Hack4Brahma?</b>"
+              title="<b>What</b> <b>is</b> <b>Hack4Brahma?</b>"
               containerClass="mt-4 sm:mt-8 !text-black text-center reveal-element"
             />
           </div>
           <p className="text-lg sm:text-xl md:text-2xl text-white/70 max-w-6xl mx-auto font-robert-regular px-2">
-            <p>
-              <b>Hack4Brahma isn’t just a hackathon, it’s a mission.</b>
+            <p className="text-3xl sm:text-2xl text-white/70 max-w-3xl mx-auto font-robert-regular mb-3 sm:mb-4 text-reveal">
+              <b>Hack4Brahma: Northeast India's Ultimate Code Battleground</b>
+              <br />
+              <b>संयोजय I नवसृज I विजयी भव</b>
             </p>
-
             <p>
-              Set in one of the most <b>culturally rich</b> and{" "}
-              <b>strategically important</b> regions of India, Hack4Brahma
-              invites you to <b>build for purpose, not just prizes</b>. With
-              Northeast India connected to the mainland through the fragile{" "}
-              <b>Siliguri Corridor</b> and surrounded by international borders,
-              the need for innovation here is <b>urgent and real</b>.
-            </p>
-
-            <p>
-              At Hack4Brahma, you’re not just coding, you’re contributing to{" "}
-              <b>regional stability</b>, <b>security</b>, and <b>growth</b>.
-              From solving problems in <b>digital defense</b> and{" "}
-              <b>cross-border collaboration</b> to empowering{" "}
-              <b>rural communities</b> and strengthening{" "}
-              <b>critical infrastructure</b>, your ideas have the power to{" "}
-              <b>make a difference</b>.
-            </p>
-
-            <p>
-              Join a movement where <b>tech meets impact</b>. Work alongside{" "}
-              <b>visionary mentors</b>, tackle <b>real problem statements</b>,
-              and rise as a <b>Brahma Guardian</b>, someone who codes not for{" "}
-              <b>applause</b>, but for <b>action</b>.
+              More than just a hackathon, Hack4Brahma is a
+              mission-driven movement set in one of India’s most culturally rich
+              and strategically vital regions. With its unique geopolitical
+              importance, the event calls on developers to build with purpose —
+              not just for prizes. Participants will tackle real-world
+              challenges like digital defense, rural empowerment, and
+              cross-border collaboration, contributing to regional stability and
+              growth. Code with impact. Collaborate with mentors. Become a
+              Brahma Guardian — someone who codes for change, not just
+              recognition.
             </p>
           </p>
         </motion.div>
@@ -220,7 +208,6 @@ const Whyh4b = () => {
           </div>
         </motion.div> */}
       </div>
-      <Footer />
     </div>
   );
 };
