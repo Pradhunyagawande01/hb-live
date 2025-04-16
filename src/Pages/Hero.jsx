@@ -278,7 +278,7 @@ const Hero = () => {
 
                       {/* Content */}
                       <span className="relative z-20 uppercase tracking-wider flex items-center gap-2">
-                        Call for Vvlunteers
+                        Call for Vlunteers
                       </span>
 
                       <BiSolidChevronDown className="text-xl ml-2 relative z-20 animate-bounce" />
