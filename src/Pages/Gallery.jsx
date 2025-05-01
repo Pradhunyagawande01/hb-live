@@ -263,7 +263,7 @@ export default function Gallery() {
           {/* Card 9 */}
           <div className="md:col-span-3 md:col-start-6 md:row-start-1">
             <div className="bg-transparent text-green-500 font-bold flex flex-col justify-center items-center h-full py-8 md:py-0">
-              <span className="text-5xl md:text-7xl font-extrabold">500+</span>
+              <span className="text-5xl md:text-7xl font-extrabold">350+</span>
               <span className="text-xl font-semibold mt-1">Hackers</span>
             </div>
           </div>
@@ -282,8 +282,8 @@ export default function Gallery() {
           <div className="md:col-span-3 md:col-start-4 md:row-start-3">
             <div className="bg-transparent text-black font-bold text-xl flex justify-center items-center h-full">
               <div className="bg-transparent text-green-500 font-bold flex flex-col justify-center items-center h-full py-8 md:py-0">
-                <span className="text-5xl md:text-7xl font-extrabold">24+</span>
-                <span className="text-xl font-semibold mt-1">Hack Hours</span>
+                <span className="text-5xl md:text-7xl font-extrabold">25+</span>
+                <span className="text-xl font-semibold mt-1">Mentors</span>
               </div>
             </div>
           </div>
