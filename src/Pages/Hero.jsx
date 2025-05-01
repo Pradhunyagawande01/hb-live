@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 // import Button from "../Components/Button";
-import VideoPreview from "../Components/VideoPreview";
+// import VideoPreview from "../Components/VideoPreview";
 import About from "./About";
 import Whyh4b from "./Whyh4b";
 import Loader from "../Components/Loader";
@@ -162,7 +162,7 @@ const Hero = () => {
 
       <div className="pl-1 md:pl-0 sm:pl-0 scrollbar-hide">
         <div className="relative h-dvh w-screen overflow-x-hidden">
-          {loading && (
+          {/* {loading && (
             <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-violet-50">
               <div className="three-body">
                 <div className="three-body__dot"></div>
@@ -170,7 +170,7 @@ const Hero = () => {
                 <div className="three-body__dot"></div>
               </div>
             </div>
-          )}
+          )} */}
 
           <motion.div
             initial="hidden"
