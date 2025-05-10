@@ -95,9 +95,10 @@ const NavBar = () => {
               ))}
             </div> */}
 
-            <button
+<button
               onClick={toggleAudioIndicator}
-              className="ml-10 flex items-center space-x-0.5 text-black"
+              className="ml-10 flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg hover:shadow-green-500/30 transition-all duration-300"
+              aria-label="Toggle audio indicator"
             >
               <audio
                 ref={audioElementRef}
@@ -112,7 +113,7 @@ const NavBar = () => {
                     active: isIndicatorActive,
                   })}
                   style={{
-                    animationDelay: `${bar * 0.1}s`,
+                    animationDelay: `${bar * 0.15}s`,
                   }}
                 />
               ))}

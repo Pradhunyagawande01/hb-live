@@ -4,9 +4,24 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  width: 100dvw;
+* {
+  -webkit-scrollbar: none; /* Chrome, Safari, and Opera */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+}
+
+::-webkit-scrollbar {
+  display: none;
+  width: 0px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+  overflow: -moz-scrollbars-none; /* Firefox */
   background-color: #000000;
   font-family: "General Sans", sans-serif;
 }
@@ -44,7 +59,7 @@ body {
   }
 
   .nav-hover-btn {
-    @apply relative ms-10 font-general text-xs uppercase text-blue-50 after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100 dark:after:bg-white cursor-pointer;
+    @apply relative ms-10 font-general text-xs uppercase text-blue-50 after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:transition-transform after:duration-300 after:ease-in-out hover:after:origin-bottom-left hover:after:scale-x-100 dark:after:bg-white cursor-pointer;
   }
 
   .floating-nav {
@@ -314,4 +329,29 @@ body {
 
 .radial-hover-bg:hover {
   background: radial-gradient(circle at center, #000000 0%, #000080 100%);
+}
+
+
+
+@keyframes pulseScaleGreen {
+  0%, 100% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(1.1);
+  }
+}
+
+.indicator-line {
+  width: 4px;
+  height: 24px;
+  background: linear-gradient(to top, #22c55e, #16a34a); /* green-500 to green-600 */
+  border-radius: 10px;
+  transform-origin: bottom;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 4px #22c55e66;
+}
+
+.indicator-line.active {
+  animation: pulseScaleGreen 1s infinite ease-in-out;
 }
