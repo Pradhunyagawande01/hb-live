@@ -10,7 +10,7 @@ import  Partners from "./Pages/Partners";
 import Humans from './Pages/Humans';
 import Faqs from './Pages/Faqs';
 import Tracks from './Pages/Tracks';
-// import Digitalswag from './Pages/Digitalswag';
+import Digitalswag from './Pages/Digitalswag';
 // import Venue from './Pages/Venue';
 // import Prizes from './pages/Prizes';
 // import Schedule from './pages/Schedule';
@@ -60,7 +60,7 @@ function App() {
               {/* <Route path="/venue" element={<Venue />} /> */}
 
               {/* added digital-swag path  */}
-              {/* <Route path="/digital-swag" element={<Digitalswag />} /> */}
+              <Route path="/digital-swag" element={<Digitalswag />} />
 
 
               {/* <Route path="/gallery" element={<Gallery />} />

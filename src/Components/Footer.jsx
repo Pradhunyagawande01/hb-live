@@ -169,7 +169,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
         {/* Branding */}
         <div>
-          <h3 className="text-3xl font-bold text-emerald-400 mb-4">Hack4Brahma</h3>
+          <h3 className="text-2xl md:text-4xl font-medium text-white mb-4 mt-2">Hack<span className="font-semibold text-[#06AD63] text-[5rem]">4</span>Brahma</h3>
           <p className="text-green-100 leading-relaxed">
             A hackathon dedicated to honoring and supporting our brave soldiers
             through innovative technological solutions.

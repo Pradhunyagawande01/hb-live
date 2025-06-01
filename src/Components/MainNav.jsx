@@ -9,6 +9,7 @@ import {
   Calendar,
   HelpCircle,
   Phone,
+  Camera,
   MapPin,
   LayoutGrid,
   Menu
@@ -52,6 +53,7 @@ const Sidebar = () => {
   const menuItems = [
     { icon: Home, label: 'Home', path: '/' },
     { icon: GalleryIcon, label: 'Gallery', path: '/gallery' },
+    { icon: Camera, label: 'Digital Swag', path: '/digital-swag' },
     { icon: HandCoins , label: 'Sponsors', path: '/partners' },
     { icon: Users, label: 'Humans', path: '/humans' },
     { icon: Calendar, label: 'Tracks', path: '/tracks' },
