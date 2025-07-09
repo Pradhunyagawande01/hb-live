@@ -3,10 +3,9 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import AnimatedTitle from "../Components/AnimatedTitle";
-import CircularGallery from '../Components/CircularGallery'
+import CircularGallery from "../Components/CircularGallery";
+import DottedBg from "../Components/DottedBg";
 import Footer from "../Components/Footer";
-
-
 
 export default function Faqs() {
   const faqData = [
@@ -49,12 +48,14 @@ export default function Faqs() {
     {
       id: 7,
       question: "Can I attend Hack4Brahma virtually?",
-      answer: "UnfortunatelyNo, this is a fully offline event. All participants are required to be physically present at the venue.",
+      answer:
+        "UnfortunatelyNo, this is a fully offline event. All participants are required to be physically present at the venue.",
     },
     {
       id: 8,
       question: "What is the participation fee?",
-      answer: "There is no fee. Hack4Brahma is completely free to attend for selected participants.",
+      answer:
+        "There is no fee. Hack4Brahma is completely free to attend for selected participants.",
     },
     {
       id: 9,
@@ -65,7 +66,8 @@ export default function Faqs() {
     {
       id: 10,
       question: "What is the ideal team size?",
-      answer: "3 to 4 members per team. Teams with fewer or more members will not be eligible.",
+      answer:
+        "3 to 4 members per team. Teams with fewer or more members will not be eligible.",
     },
     {
       id: 11,
@@ -90,55 +92,66 @@ export default function Faqs() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-gray-200 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <AnimatedTitle
-            title="<b> FAQ's</b>"
-            containerClass="mt-8 !text-black text-center reveal-element"
-          />
-          <p className="text-gray-400 text-lg mt-16 mb-4 font-general">
-            Find answers to the most common questions about our services
-          </p>
-        </div>
-
-        {/* FAQ in 2 Columns */}
-        <div className="flex flex-col gap-8">
-          {faqData.map((faq) => (
-            <div
-              key={faq.id}
-              className="pb-4 border-b border-gray-700 transition-all duration-300"
-            >
-              <button
-                onClick={() => toggleItem(faq.id)}
-                className="w-full text-left flex justify-between items-center py-3 hover:text-green-500 transition-colors duration-200"
-              >
-                <span className="text-lg font-medium font-robert-regular">
-                  {faq.question}
-                </span>
-                <ChevronDown
-                  className={`w-5 h-5 text-green-500 transition-transform duration-300 ${
-                    openItem === faq.id ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-              {openItem === faq.id && (
-                <div className="pt-2">
-                  <p className="text-gray-400 font-robert-medium">
-                    {faq.answer}
-                  </p>
-                </div>
-              )}
+    <div className="relative min-h-screen text-gray-200 overflow-hidden">
+      {/* Add DottedBg wrapper */}
+      <DottedBg
+        dotColor="rgba(255, 255, 255, 0.25)"
+        bgColor="black"
+        dotSize={2}
+        baseSpacing={30}
+        repelRadius={100}
+        explodeStrength={25}
+        returnSpeed={0.5}
+      >
+        <div className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            {/* Header */}
+            <div className="text-center mb-12">
+              <AnimatedTitle
+                title="<b> FAQ's</b>"
+                containerClass="mt-8 !text-black text-center reveal-element"
+              />
+              <p className="text-gray-400 text-lg mt-16 mb-4 font-general">
+                Find answers to the most common questions about our services
+              </p>
             </div>
-          ))}
-        </div>
-      </div>
 
-      <div className="relative, h-[600px] py-8 sm:py-12 md:py-16">
-        <CircularGallery bend={0} textColor="#ffffff" borderRadius={0.1} />
-      </div>
-      <Footer />
+            {/* FAQ in 2 Columns */}
+            <div className="flex flex-col gap-8">
+              {faqData.map((faq) => (
+                <div
+                  key={faq.id}
+                  className="pb-4 border-b border-gray-700 transition-all duration-300"
+                >
+                  <button
+                    onClick={() => toggleItem(faq.id)}
+                    className="w-full text-left flex justify-between items-center py-3 hover:text-green-500 transition-colors duration-200"
+                  >
+                    <span className="text-lg font-medium font-robert-regular">
+                      {faq.question}
+                    </span>
+                    <ChevronDown
+                      className={`w-5 h-5 text-green-500 transition-transform duration-300 ${
+                        openItem === faq.id ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                  {openItem === faq.id && (
+                    <div className="pt-2">
+                      <p className="text-gray-400 font-robert-medium">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+        
+          <Footer />
+        </div>
+      </DottedBg>
     </div>
   );
 }

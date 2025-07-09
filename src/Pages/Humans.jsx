@@ -8,6 +8,7 @@ import {
 import { FaLinkedin, FaTwitter } from "react-icons/fa";
 import AnimatedTitle from "../Components/AnimatedTitle";
 import Footer from "../Components/Footer";
+import DottedBg from "../Components/DottedBg";
 
 const springValues = {
   damping: 30,
@@ -98,6 +99,24 @@ const OrganizerCard = ({ member }) => {
 const Organizers = () => {
   const organizers = [
     {
+      name: "Kritika Rukhiyana",
+      src: "/img/kritika.png",
+      linkedin: "https://www.linkedin.com/in/kritika-rukhiyana-65a28a307",
+      twitter: "https://x.com/Kritika8924",
+    },
+    {
+      name: "Rishu Kumar Singh",
+      src: "/img/rishu.png",
+      linkedin: "https://www.linkedin.com/in/rishukrsingh/",
+      twitter: "https://x.com/rishuksingh",
+    },
+    {
+      name: "Pradhunya Gawande",
+      src: "/img/pradhunya.png",
+      linkedin: "https://www.linkedin.com/in/pradhunya-gawande",
+      twitter: "https://x.com/pradhunya_patil",
+    },
+    {
       name: "Akshay Gangasagar",
       src: "/img/akshay.png",
       linkedin: "https://www.linkedin.com/in/akshay-gangasagar-67b25b305/",
@@ -127,12 +146,6 @@ const Organizers = () => {
       twitter: "https://x.com/KanakDharamthok",
     },
     {
-      name: "Kritika Rukhiyana",
-      src: "/img/kritika.png",
-      linkedin: "https://www.linkedin.com/in/kritika-rukhiyana-65a28a307",
-      twitter: "https://x.com/Kritika8924",
-    },
-    {
       name: "Mohd Sahal",
       src: "/img/sahal.png",
       linkedin: "https://www.linkedin.com/in/sahal-parvez",
@@ -151,29 +164,10 @@ const Organizers = () => {
       twitter: "https://x.com/navinya_yed0203",
     },
     {
-      name: "Pradhunya Gawande",
-      src: "/img/pradhunya.png",
-      linkedin: "https://www.linkedin.com/in/pradhunya-gawande",
-      twitter: "https://x.com/pradhunya_patil",
-    },
-    {
       name: "Pranav Tekade",
       src: "/img/pranav.png",
       linkedin: "https://www.linkedin.com/in/pranav-tekade-57b5a2320",
       twitter: "https://x.com/prana_v_18",
-    },
-    {
-      name: "Rishu Kumar Singh",
-      src: "/img/rishu.png",
-      linkedin: "https://www.linkedin.com/in/rishukrsingh/",
-      twitter: "https://x.com/rishuksingh",
-    },
-    {
-      name: "Sujal Khade",
-      src: "/img/sujal.png",
-      linkedin:
-        "https://www.linkedin.com/in/sujal-khade-2823a32a6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-      twitter: "https://x.com/CodeTechie43?t=mTB5xj5Xm0mxEtD78UeReQ&s=09",
     },
     {
       name: "Sunidhi Haware",
@@ -186,22 +180,41 @@ const Organizers = () => {
       src: "/img/vaibhavi.png",
       linkedin: "https://www.linkedin.com/in/vaibhavi-mangrulkar-7b0793285",
     },
+    {
+      name: "Sujal Khade",
+      src: "/img/sujal.png",
+      linkedin:
+        "https://www.linkedin.com/in/sujal-khade-2823a32a6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      twitter: "https://x.com/CodeTechie43?t=mTB5xj5Xm0mxEtD78UeReQ&s=09",
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white py-16 px-6 flex flex-col items-center">
-      <AnimatedTitle
-        title="<b>Humans</b>"
-        containerClass="mt-8 text-black text-center reveal-element"
-      />
-      <div className="mt-16 py-8 sm:py-12 md:py-16 w-full flex justify-center">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-16 max-w-6xl w-full justify-items-center">
-          {organizers.map((member, index) => (
-            <OrganizerCard key={index} member={member} />
-          ))}
+    <div className="relative min-h-screen text-white">
+      <DottedBg
+        dotColor="rgba(255, 255, 255, 0.25)"
+        bgColor="black"
+        dotSize={2}
+        baseSpacing={30}
+        repelRadius={100}
+        explodeStrength={25}
+        returnSpeed={0.5}
+      >
+        <div className="relative z-10 py-16 px-6 flex flex-col items-center">
+          <AnimatedTitle
+            title="<b>Humans</b>"
+            containerClass="mt-8 text-black text-center reveal-element"
+          />
+          <div className="mt-16 py-8 sm:py-12 md:py-16 w-full flex justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-16 max-w-6xl w-full justify-items-center">
+              {organizers.map((member, index) => (
+                <OrganizerCard key={index} member={member} />
+              ))}
+            </div>
+          </div>
+          <Footer />
         </div>
-      </div>
-      <Footer />
+      </DottedBg>
     </div>
   );
 };
