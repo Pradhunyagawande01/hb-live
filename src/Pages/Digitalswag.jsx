@@ -389,13 +389,6 @@
 //   );
 // }
 
-
-
-
-
-
-
-
 // Digital-swag.jsx
 
 // import React, { useState, useRef, useEffect } from "react";
@@ -538,17 +531,17 @@
 
 //   const handleUploadClick = () => fileInputRef.current?.click();
 
-  // const copyToClipboard = (text, type) => {
-  //   navigator.clipboard.writeText(text).then(() => {
-  //     if (type === "hashtag") {
-  //       setHashtagCopied(true);
-  //       setTimeout(() => setHashtagCopied(false), 2000);
-  //     } else {
-  //       setHandleCopied(true);
-  //       setTimeout(() => setHandleCopied(false), 2000);
-  //     }
-  //   });
-  // };
+// const copyToClipboard = (text, type) => {
+//   navigator.clipboard.writeText(text).then(() => {
+//     if (type === "hashtag") {
+//       setHashtagCopied(true);
+//       setTimeout(() => setHashtagCopied(false), 2000);
+//     } else {
+//       setHandleCopied(true);
+//       setTimeout(() => setHandleCopied(false), 2000);
+//     }
+//   });
+// };
 
 //   const handleCameraClick = async () => {
 //     try {
@@ -740,160 +733,160 @@
 //           {/* Controls  */}
 //                 {/* RIGHT SIDE */}
 
-          // <div className="w-full md:w-1/2">
-          //   <div className="bg-gray-900 rounded-lg p-6 border border-green-900/50">
-          //     <h2 className="text-2xl font-bold mb-2">Customize Your Badge</h2>
-          //     <p className="text-green-400 text-sm mb-6">
-          //       Create your professional digital badge for Hack4Brahma
-          //     </p>
+// <div className="w-full md:w-1/2">
+//   <div className="bg-gray-900 rounded-lg p-6 border border-green-900/50">
+//     <h2 className="text-2xl font-bold mb-2">Customize Your Badge</h2>
+//     <p className="text-green-400 text-sm mb-6">
+//       Create your professional digital badge for Hack4Brahma
+//     </p>
 
-          //     <div className="space-y-6">
-          //       <div>
-          //         <label
-          //           htmlFor="name"
-          //           className="block text-sm font-medium text-gray-300 mb-1"
-          //         >
-          //           Your Name
-          //         </label>
-          //         <Input
-          //           id="name"
-          //           type="text"
-          //           placeholder="Enter your full name"
-          //           value={name}
-          //           onChange={handleNameChange}
-          //           className="bg-black border-green-800 focus:border-green-500 text-white"
-          //         />
-          //       </div>
+//     <div className="space-y-6">
+//       <div>
+//         <label
+//           htmlFor="name"
+//           className="block text-sm font-medium text-gray-300 mb-1"
+//         >
+//           Your Name
+//         </label>
+//         <Input
+//           id="name"
+//           type="text"
+//           placeholder="Enter your full name"
+//           value={name}
+//           onChange={handleNameChange}
+//           className="bg-black border-green-800 focus:border-green-500 text-white"
+//         />
+//       </div>
 
-          //       <div>
-          //         <label className="block text-sm font-medium text-gray-300 mb-3">
-          //           Profile Photo
-          //         </label>
-          //         <div className="grid grid-cols-2 gap-3">
-          //           <Button
-          //             onClick={handleUploadClick}
-          //             variant="outline"
-          //             className="bg-black border-green-700 hover:bg-green-900/30 text-green-400"
-          //           >
-          //             <Upload className="mr-2 h-4 w-4" /> Select File
-          //           </Button>
-          //           <input
-          //             ref={fileInputRef}
-          //             type="file"
-          //             accept="image/*"
-          //             onChange={handleFileUpload}
-          //             className="hidden"
-          //           />
+//       <div>
+//         <label className="block text-sm font-medium text-gray-300 mb-3">
+//           Profile Photo
+//         </label>
+//         <div className="grid grid-cols-2 gap-3">
+//           <Button
+//             onClick={handleUploadClick}
+//             variant="outline"
+//             className="bg-black border-green-700 hover:bg-green-900/30 text-green-400"
+//           >
+//             <Upload className="mr-2 h-4 w-4" /> Select File
+//           </Button>
+//           <input
+//             ref={fileInputRef}
+//             type="file"
+//             accept="image/*"
+//             onChange={handleFileUpload}
+//             className="hidden"
+//           />
 
-          //           <Button
-          //             onClick={handleCameraClick}
-          //             variant="outline"
-          //             className="bg-black border-green-700 hover:bg-green-900/30 text-green-400"
-          //           >
-          //             <Camera className="mr-2 h-4 w-4" /> Use Camera
-          //           </Button>
-          //         </div>
-          //       </div>
+//           <Button
+//             onClick={handleCameraClick}
+//             variant="outline"
+//             className="bg-black border-green-700 hover:bg-green-900/30 text-green-400"
+//           >
+//             <Camera className="mr-2 h-4 w-4" /> Use Camera
+//           </Button>
+//         </div>
+//       </div>
 
-                // <div className="pt-2 border-t border-green-900/50">
-                //   <p className="text-xs text-gray-400 mb-4">
-                //     Share your badge on social media using:
-                //   </p>
-                //   <div className="flex flex-col space-y-2 mb-4">
-                //     <div className="flex items-center justify-between p-2 bg-black/50 rounded border border-green-900/30">
-                //       <span className="text-green-400 font-mono">
-                //         #Hack4Brahma
-                //       </span>
-                //       <Button
-                //         size="sm"
-                //         onClick={() =>
-                //           copyToClipboard("#Hack4Brahma", "hashtag")
-                //         }
-                //         className="bg-green-800 hover:bg-green-700 text-white h-7 px-2"
-                //       >
-                //         {hashtagCopied ? (
-                //           <Check className="h-3 w-3" />
-                //         ) : (
-                //           <Copy className="h-3 w-3" />
-                //         )}
-                //       </Button>
-                //     </div>
-                //     <div className="flex items-center justify-between p-2 bg-black/50 rounded border border-green-900/30">
-                //       <span className="text-green-400 font-mono">
-                //         @Hack4Brahma
-                //       </span>
-                //       <Button
-                //         size="sm"
-                //         onClick={() =>
-                //           copyToClipboard("@Hack4Brahma", "handle")
-                //         }
-                //         className="bg-green-800 hover:bg-green-700 text-white h-7 px-2"
-                //       >
-                //         {handleCopied ? (
-                //           <Check className="h-3 w-3" />
-                //         ) : (
-                //           <Copy className="h-3 w-3" />
-                //         )}
-                //       </Button>
-                //     </div>
-                //   </div>
-                // </div>
+// <div className="pt-2 border-t border-green-900/50">
+//   <p className="text-xs text-gray-400 mb-4">
+//     Share your badge on social media using:
+//   </p>
+//   <div className="flex flex-col space-y-2 mb-4">
+//     <div className="flex items-center justify-between p-2 bg-black/50 rounded border border-green-900/30">
+//       <span className="text-green-400 font-mono">
+//         #Hack4Brahma
+//       </span>
+//       <Button
+//         size="sm"
+//         onClick={() =>
+//           copyToClipboard("#Hack4Brahma", "hashtag")
+//         }
+//         className="bg-green-800 hover:bg-green-700 text-white h-7 px-2"
+//       >
+//         {hashtagCopied ? (
+//           <Check className="h-3 w-3" />
+//         ) : (
+//           <Copy className="h-3 w-3" />
+//         )}
+//       </Button>
+//     </div>
+//     <div className="flex items-center justify-between p-2 bg-black/50 rounded border border-green-900/30">
+//       <span className="text-green-400 font-mono">
+//         @Hack4Brahma
+//       </span>
+//       <Button
+//         size="sm"
+//         onClick={() =>
+//           copyToClipboard("@Hack4Brahma", "handle")
+//         }
+//         className="bg-green-800 hover:bg-green-700 text-white h-7 px-2"
+//       >
+//         {handleCopied ? (
+//           <Check className="h-3 w-3" />
+//         ) : (
+//           <Copy className="h-3 w-3" />
+//         )}
+//       </Button>
+//     </div>
+//   </div>
+// </div>
 
-          //       <div className="pt-2 border-t border-green-900/50">
-          //         <p className="text-xs text-gray-400 italic mb-4">
-          //           * Your images are not stored permanently. They are only used
-          //           to generate your badge.
-          //         </p>
-          //         <div className="grid grid-cols-2 gap-3">
-          //           <Button
-          //             onClick={handleDownload}
-          //             disabled={isDownloading}
-          //             className="bg-green-700 hover:bg-green-600 text-white"
-          //           >
-          //             {isDownloading ? (
-          //               <div className="flex items-center">
-          //                 <div className="animate-spin mr-2 h-4 w-4 border-2 border-white border-t-transparent rounded-full" />
-          //                 PROCESSING
-          //               </div>
-          //             ) : (
-          //               <>
-          //                 <Download className="mr-2 h-4 w-4" /> DOWNLOAD
-          //               </>
-          //             )}
-          //           </Button>
+//       <div className="pt-2 border-t border-green-900/50">
+//         <p className="text-xs text-gray-400 italic mb-4">
+//           * Your images are not stored permanently. They are only used
+//           to generate your badge.
+//         </p>
+//         <div className="grid grid-cols-2 gap-3">
+//           <Button
+//             onClick={handleDownload}
+//             disabled={isDownloading}
+//             className="bg-green-700 hover:bg-green-600 text-white"
+//           >
+//             {isDownloading ? (
+//               <div className="flex items-center">
+//                 <div className="animate-spin mr-2 h-4 w-4 border-2 border-white border-t-transparent rounded-full" />
+//                 PROCESSING
+//               </div>
+//             ) : (
+//               <>
+//                 <Download className="mr-2 h-4 w-4" /> DOWNLOAD
+//               </>
+//             )}
+//           </Button>
 
-          //           <DropdownMenu>
-          //             <DropdownMenuTrigger asChild>
-          //               <Button className="bg-black border-green-700 hover:bg-green-900/30 text-green-400">
-          //                 <Share className="mr-2 h-4 w-4" /> SHARE
-          //               </Button>
-          //             </DropdownMenuTrigger>
-          //             <DropdownMenuContent className="bg-gray-900 border-green-900">
-          //               <DropdownMenuItem
-          //                 onClick={() => handleShare("linkedin")}
-          //                 className="hover:bg-green-900/50"
-          //               >
-          //                 <Linkedin className="mr-2 h-4 w-4" /> LinkedIn
-          //               </DropdownMenuItem>
-          //               <DropdownMenuItem
-          //                 onClick={() => handleShare("twitter")}
-          //                 className="hover:bg-green-900/50"
-          //               >
-          //                 <Twitter className="mr-2 h-4 w-4" /> Twitter
-          //               </DropdownMenuItem>
-          //               <DropdownMenuItem
-          //                 onClick={() => handleShare("instagram")}
-          //                 className="hover:bg-green-900/50"
-          //               >
-          //                 <Instagram className="mr-2 h-4 w-4" /> Instagram
-          //               </DropdownMenuItem>
-          //             </DropdownMenuContent>
-          //           </DropdownMenu>
-          //         </div>
-          //       </div>
-          //     </div>
-          //   </div>
-          // </div>
+//           <DropdownMenu>
+//             <DropdownMenuTrigger asChild>
+//               <Button className="bg-black border-green-700 hover:bg-green-900/30 text-green-400">
+//                 <Share className="mr-2 h-4 w-4" /> SHARE
+//               </Button>
+//             </DropdownMenuTrigger>
+//             <DropdownMenuContent className="bg-gray-900 border-green-900">
+//               <DropdownMenuItem
+//                 onClick={() => handleShare("linkedin")}
+//                 className="hover:bg-green-900/50"
+//               >
+//                 <Linkedin className="mr-2 h-4 w-4" /> LinkedIn
+//               </DropdownMenuItem>
+//               <DropdownMenuItem
+//                 onClick={() => handleShare("twitter")}
+//                 className="hover:bg-green-900/50"
+//               >
+//                 <Twitter className="mr-2 h-4 w-4" /> Twitter
+//               </DropdownMenuItem>
+//               <DropdownMenuItem
+//                 onClick={() => handleShare("instagram")}
+//                 className="hover:bg-green-900/50"
+//               >
+//                 <Instagram className="mr-2 h-4 w-4" /> Instagram
+//               </DropdownMenuItem>
+//             </DropdownMenuContent>
+//           </DropdownMenu>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// </div>
 //           {/* RIGHT side */}
 
 //         </div>
@@ -946,18 +939,12 @@
 //   );
 // }
 
-
-
-
-
-
-
-
 import React, { useState, useRef, useEffect } from "react";
 const template = "/img/final_frame.png";
 const defaultAvatar = "/img/final_defaultIMG.jpg";
 import FancyButton from "./FancyButton";
 import AnimatedTitle from "../Components/AnimatedTitle";
+import DottedBg from "../Components/DottedBg";
 
 import { toPng } from "html-to-image";
 import Footer from "../Components/Footer";
@@ -1083,55 +1070,74 @@ const Digitalswag = () => {
       ctx.fillStyle = "#4a2419";
       ctx.textAlign = "center";
       const textY = canvas.height - canvas.height * 0.2;
-      ctx.fillText(name && "•↣ " + name +" ↢•" || "Your Name Here", canvas.width / 2, textY);
+      ctx.fillText(
+        (name && "•↣ " + name + " ↢•") || "Your Name Here",
+        canvas.width / 2,
+        textY
+      );
     };
     templateImage.src = template;
   };
 
-
   return (
     <>
-    <div className="min-h-[100vh] flex items-center py-8 md:py-12 relative bg-black text-white">
-      <div className="container mx-auto px-4 md:px-0">
-        <div className="flex justify-center mb-6">
-          <AnimatedTitle
-            className="text-4xl md:text-5xl font-bold text-center mb-8"
-            title="<b>Digital</b> <b>Badge</b> "
-            containerClass="sm:mt-8 text-center text-emerald-300"
-          />
-        </div>
-
-        <div className="flex flex-col md:flex-row justify-between items-center xl:mx-40">
-          <div className="w-full md:w-[80%] flex justify-center mb-5 md:mb-0">
-            <div className="w-full aspect-[4/5] max-w-[900px]">
-              <canvas
-                ref={canvasRef}
-                width={900}
-                height={1125}
-                className="w-full h-full rounded-md border-4 border-[#2E2D29] shadow-lg bg-black"
+      <div className="min-h-[100vh] flex items-center py-8 md:py-12 relative bg-black text-white">
+        <DottedBg
+          dotColor="rgba(255,255,255,.25)"
+          bgColor="black"
+          dotSize={2}
+          baseSpacing={30}
+          repelRadius={100}
+          explodeStrength={25}
+          returnSpeed={0.5}
+        >
+          <div className="container mx-auto px-4 md:px-0">
+            <div className="flex justify-center mb-6">
+              <AnimatedTitle
+                className="text-4xl md:text-5xl font-bold text-center mb-8"
+                title="<b>Digital</b> <b>Badge</b> "
+                containerClass="sm:mt-8 text-center text-emerald-300"
               />
             </div>
-            <img
-              ref={defaultAvatarRef}
-              src={defaultAvatar}
-              alt="Default Avatar"
-              style={{ display: "none" }}
-            />
-          </div>
 
+            <div className="flex flex-col md:flex-row justify-between items-center xl:mx-40">
+              <div className="w-full md:w-[80%] flex justify-center mb-5 md:mb-0">
+                <div className="w-full aspect-[4/5] max-w-[900px]">
+                  <canvas
+                    ref={canvasRef}
+                    width={900}
+                    height={1125}
+                    className="w-full h-full rounded-md border-4 border-[#2E2D29] shadow-lg bg-black"
+                  />
+                </div>
+                <img
+                  ref={defaultAvatarRef}
+                  src={defaultAvatar}
+                  alt="Default Avatar"
+                  style={{ display: "none" }}
+                />
+              </div>
 
-            {/* RIGHT SIDE */}
-          <div className="w-full md:w-1/2 lg:w-2/3 flex flex-col justify-between md:ml-10 bg-black/50 p-6 rounded-md shadow-xl">
-            <div className="text-center md:text-left mb-4 lg:mb-5">
-              <h2 className="text-2xl md:text-4xl font-medium text-white mb-4 mt-2">
-                Hack<span className="font-semibold text-[#06AD63] text-[5rem]">4</span>Brahma 
-              </h2>
-              <p className="text-green-200 font-medium mb-2">
-              Get ready to unleash your inner tech warrior at Hack4Brahma! Show off your hype and rep the hackathon spirit with our exclusive digital badge because legends don’t just join, they leave a mark!
-              </p>
-              <p className="text-green-200 font-medium mb-2">
-                Personalize your badge with your name and photo. Download and share your badge on social media.
-                {/* share using{" "}
+              {/* RIGHT SIDE */}
+              <div className="w-full md:w-1/2 lg:w-2/3 flex flex-col justify-between md:ml-10 bg-black/50 p-6 rounded-md shadow-xl">
+                <div className="text-center md:text-left mb-4 lg:mb-5">
+                  <h2 className="text-2xl md:text-4xl font-medium text-white mb-4 mt-2">
+                    Hack
+                    <span className="font-semibold text-[#06AD63] text-[5rem]">
+                      4
+                    </span>
+                    Brahma
+                  </h2>
+                  <p className="text-green-200 font-medium mb-2">
+                    Get ready to unleash your inner tech warrior at Hack4Brahma!
+                    Show off your hype and rep the hackathon spirit with our
+                    exclusive digital badge because legends don’t just join,
+                    they leave a mark!
+                  </p>
+                  <p className="text-green-200 font-medium mb-2">
+                    Personalize your badge with your name and photo. Download
+                    and share your badge on social media.
+                    {/* share using{" "}
                 <a
                   className="underline text-emerald-300 hover:text-lime-300"
                   href="https://twitter.com/search?q=%23acehack"
@@ -1149,57 +1155,60 @@ const Digitalswag = () => {
                 >
                   @Hack4Brahma
                 </a> */}
-                .
-              </p>
-              <p className="text-xs text-lime-400 italic">
-                *We don’t store your image. Your privacy is our priority.
-              </p>
+                    .
+                  </p>
+                  <p className="text-xs text-lime-400 italic">
+                    *We don’t store your image. Your privacy is our priority.
+                  </p>
+                </div>
 
-              
-            </div>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value.toUpperCase())}
+                  placeholder="Enter Your Name"
+                  className="rounded-md bg-emerald-800/80 px-4 py-2 text-white text-lg mb-4 placeholder-gray-300 focus:outline-none"
+                />
 
-            
+                <div className="flex flex-col md:flex-row justify-end gap-3">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageUpload}
+                    ref={imageInputRef}
+                    style={{ display: "none" }}
+                  />
+                  <div
+                    onClick={() => imageInputRef.current.click()}
+                    className="w-full md:w-auto"
+                  >
+                    <FancyButton data="Upload photo" id="upload" />
+                  </div>
 
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value.toUpperCase())}
-              placeholder="Enter Your Name"
-              className="rounded-md bg-emerald-800/80 px-4 py-2 text-white text-lg mb-4 placeholder-gray-300 focus:outline-none"
-            />
+                  <div
+                    onClick={handleDownloadSwag}
+                    className="w-full md:w-auto"
+                  >
+                    <FancyButton data="Download" id="download" />
+                  </div>
 
-            <div className="flex flex-col md:flex-row justify-end gap-3">
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleImageUpload}
-                ref={imageInputRef}
-                style={{ display: "none" }}
-              />
-              <div onClick={() => imageInputRef.current.click()} className="w-full md:w-auto">
-                <FancyButton data="Upload photo" id="upload" />
+                  <a
+                    href="https://ctt.ac/cxM88"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full md:w-auto block"
+                  >
+                    <FancyButton data="Share" id="share" />
+                  </a>
+                </div>
               </div>
-
-              <div onClick={handleDownloadSwag} className="w-full md:w-auto">
-                <FancyButton data="Download" id="download" />
-              </div>
-
-              <a
-                href="https://ctt.ac/cxM88"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full md:w-auto block"
-              >
-                <FancyButton data="Share" id="share" />
-              </a>
             </div>
+            <Footer />
           </div>
-        </div>
+        </DottedBg>
       </div>
-    </div>
-    <Footer/>
+      
     </>
-
   );
 };
 

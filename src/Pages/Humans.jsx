@@ -98,12 +98,8 @@ const OrganizerCard = ({ member }) => {
 
 const Organizers = () => {
   const organizers = [
-    {
-      name: "Kritika Rukhiyana",
-      src: "/img/kritika.png",
-      linkedin: "https://www.linkedin.com/in/kritika-rukhiyana-65a28a307",
-      twitter: "https://x.com/Kritika8924",
-    },
+    
+    
     {
       name: "Rishu Kumar Singh",
       src: "/img/rishu.png",
@@ -115,6 +111,19 @@ const Organizers = () => {
       src: "/img/pradhunya.png",
       linkedin: "https://www.linkedin.com/in/pradhunya-gawande",
       twitter: "https://x.com/pradhunya_patil",
+    },
+    {
+      name: "Kritika Rukhiyana",
+      src: "/img/kritika.png",
+      linkedin: "https://www.linkedin.com/in/kritika-rukhiyana-65a28a307",
+      twitter: "https://x.com/Kritika8924",
+    },
+    {
+      name: "Sujal Khade",
+      src: "/img/sujal.png",
+      linkedin:
+        "https://www.linkedin.com/in/sujal-khade-2823a32a6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      twitter: "https://x.com/CodeTechie43?t=mTB5xj5Xm0mxEtD78UeReQ&s=09",
     },
     {
       name: "Akshay Gangasagar",
@@ -179,13 +188,6 @@ const Organizers = () => {
       name: "Vaibhavi Mangrulkar",
       src: "/img/vaibhavi.png",
       linkedin: "https://www.linkedin.com/in/vaibhavi-mangrulkar-7b0793285",
-    },
-    {
-      name: "Sujal Khade",
-      src: "/img/sujal.png",
-      linkedin:
-        "https://www.linkedin.com/in/sujal-khade-2823a32a6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-      twitter: "https://x.com/CodeTechie43?t=mTB5xj5Xm0mxEtD78UeReQ&s=09",
     },
   ];
 
