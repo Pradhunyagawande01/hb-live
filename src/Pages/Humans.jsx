@@ -103,7 +103,7 @@ const Organizers = () => {
     {
       name: "Rishu Kumar Singh",
       src: "/img/rishu.png",
-      linkedin: "https://www.linkedin.com/in/rishukrsingh/",
+      linkedin: "https://www.linkedin.com/in/rishukumarsinghiitp/",
       twitter: "https://x.com/rishuksingh",
     },
     {
@@ -147,12 +147,6 @@ const Organizers = () => {
       src: "/img/himanshi.png",
       linkedin: "https://www.linkedin.com/in/himanshi-aggarwal-5a5553321",
       twitter: "https://x.com/HimanshiAg15396",
-    },
-    {
-      name: "Kanak Dharamthok",
-      src: "/img/kanak.png",
-      linkedin: "https://www.linkedin.com/in/kanak-dharamthok-8b6b8928b/",
-      twitter: "https://x.com/KanakDharamthok",
     },
     {
       name: "Mohd Sahal",
