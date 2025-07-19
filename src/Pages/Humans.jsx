@@ -118,24 +118,13 @@ const Organizers = () => {
       linkedin: "https://www.linkedin.com/in/kritika-rukhiyana-65a28a307",
       twitter: "https://x.com/Kritika8924",
     },
-    {
-      name: "Sujal Khade",
-      src: "/img/sujal.png",
-      linkedin:
-        "https://www.linkedin.com/in/sujal-khade-2823a32a6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-      twitter: "https://x.com/CodeTechie43?t=mTB5xj5Xm0mxEtD78UeReQ&s=09",
-    },
+  
     {
       name: "Akshay Gangasagar",
       src: "/img/akshay.png",
       linkedin: "https://www.linkedin.com/in/akshay-gangasagar-67b25b305/",
     },
-    {
-      name: "Ayush Thakre",
-      src: "/img/ayush.png",
-      linkedin: "https://www.linkedin.com/in/ayush-thakre-096558294/",
-      twitter: "https://x.com/ayushthakre__",
-    },
+ 
     {
       name: "Harsh Kumar",
       src: "/img/harsh.png",
@@ -166,12 +155,7 @@ const Organizers = () => {
       linkedin: "https://www.linkedin.com/in/navinya-yede-251802257",
       twitter: "https://x.com/navinya_yed0203",
     },
-    {
-      name: "Pranav Tekade",
-      src: "/img/pranav.png",
-      linkedin: "https://www.linkedin.com/in/pranav-tekade-57b5a2320",
-      twitter: "https://x.com/prana_v_18",
-    },
+     
     {
       name: "Sunidhi Haware",
       src: "/img/sunidhi.png",
