@@ -167,7 +167,7 @@ const Hero = () => {
 
               <motion.h1
                 variants={itemVariants}
-                className="special-font hero-heading font-bold text-3xl sm:text-5xl md:text-7xl lg:text-9xl absolute bottom-7 right-5 z-40 text-[#198f51] pr-20"
+                className="special-font hero-heading  text-3xl sm:text-5xl md:text-7xl lg:text-9xl absolute bottom-7 right-5 z-40 text-[#198f51] pr-20"
               >
                 <b>24 Hr</b><br /><b>Hackathon</b>
               </motion.h1>
@@ -176,9 +176,12 @@ const Hero = () => {
                 <div className="mt-10 sm:mt-48 md:mt-24 px-2 sm:px-5 md:px-10 pl-4">
                   <motion.h1
                     variants={itemVariants}
-                    className="special-font hero-heading text-white sm:pl-7 md:pl-52 font-bold sm:text-9xl"
+                    // className="special-font hero-heading text-white sm:pl-7 md:pl-52 sm:text-9xl"
+                    className="special-font hero-heading text-white sm:pl-7 md:pl-52 font-bold text-3xl sm:text-5xl md:text-7xl lg:text-9xl"
                   >
-                    Hack<b className="text-[#198f51]">4</b>Brahma
+                   <b>
+                     Hack<b className="text-[#198f51]">4</b>Brahma
+                   </b>
                   </motion.h1>
 
                   <motion.div
