@@ -188,7 +188,6 @@ const Hero = () => {
                       </b>
                     </h1>
                   </motion.div>
-
                   {/* Sponsors - Top Right */}
                   <motion.div
                     variants={itemVariants}
@@ -201,7 +200,7 @@ const Hero = () => {
                     />
                     <img
                       src="/img/DPIIT.png"
-                      alt="DPIIT Startup India"
+                      alt="DPIIT"
                       className="h-8 sm:h-10 lg:h-14 object-contain"
                     />
                   </motion.div>
