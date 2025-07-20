@@ -200,7 +200,7 @@ const Hero = () => {
                       className="h-8 sm:h-10 lg:h-14 object-contain"
                     />
                     <img
-                      src="/img/sayuj.png"
+                      src="/img/sayuj1.png"
                       alt="Sayuj"
                       className="h-8 sm:h-10 lg:h-14 "
                     />
