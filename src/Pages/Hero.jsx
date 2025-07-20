@@ -1,4 +1,3 @@
-
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
@@ -51,26 +50,29 @@ const Hero = () => {
     setCurrentIndex((prevIndex) => (prevIndex % totalVideos) + 1);
   };
 
-  useGSAP(() => {
-    if (hasClicked) {
-      gsap.set("#next-video", { visibility: "visible" });
-      gsap.to("#next-video", {
-        transformOrigin: "center center",
-        scale: 1,
-        width: "100%",
-        height: "100%",
-        duration: 1,
-        ease: "power1.inOut",
-        onStart: () => nextVdRef.current.play(),
-      });
-      gsap.from("#current-video", {
-        transformOrigin: "center center",
-        scale: 0,
-        duration: 1.5,
-        ease: "power1.inOut",
-      });
-    }
-  }, { dependencies: [currentIndex], revertOnUpdate: true });
+  useGSAP(
+    () => {
+      if (hasClicked) {
+        gsap.set("#next-video", { visibility: "visible" });
+        gsap.to("#next-video", {
+          transformOrigin: "center center",
+          scale: 1,
+          width: "100%",
+          height: "100%",
+          duration: 1,
+          ease: "power1.inOut",
+          onStart: () => nextVdRef.current.play(),
+        });
+        gsap.from("#current-video", {
+          transformOrigin: "center center",
+          scale: 0,
+          duration: 1.5,
+          ease: "power1.inOut",
+        });
+      }
+    },
+    { dependencies: [currentIndex], revertOnUpdate: true }
+  );
 
   useGSAP(() => {
     gsap.set("#video-frame", {
@@ -117,11 +119,19 @@ const Hero = () => {
   };
 
   const handleDiscordClick = () => {
-    window.open("https://discord.gg/vPNPDAPgG5", "_blank", "noopener,noreferrer");
+    window.open(
+      "https://discord.gg/vPNPDAPgG5",
+      "_blank",
+      "noopener,noreferrer"
+    );
   };
 
   const handleRegistreClick = () => {
-    window.open("http://hack4brahmaputra.devfolio.co", "_blank", "noopener,noreferrer");
+    window.open(
+      "http://hack4brahmaputra.devfolio.co",
+      "_blank",
+      "noopener,noreferrer"
+    );
   };
 
   const handleLearnMoreClick = () => {
@@ -135,7 +145,7 @@ const Hero = () => {
       <Navbar isVisible={showContent} />
 
       <div className="pl-1 md:pl-0 sm:pl-0 scrollbar-hide">
-        <div className="relative h-dvh w-screen overflow-x-hidden">
+        <div className="relative h-dvh w-screen overflow-x-hidden bg-black">
           <motion.div
             initial="hidden"
             animate={showContent ? "visible" : "hidden"}
@@ -156,7 +166,9 @@ const Hero = () => {
                   onLoadedData={handleVideoLoad}
                 />
                 <video
-                  src={getVideoSrc(currentIndex === totalVideos - 1 ? 1 : currentIndex)}
+                  src={getVideoSrc(
+                    currentIndex === totalVideos - 1 ? 1 : currentIndex
+                  )}
                   autoPlay
                   loop
                   muted
@@ -165,28 +177,41 @@ const Hero = () => {
                 />
               </div>
 
-              <motion.h1
-                variants={itemVariants}
-                className="special-font hero-heading  text-3xl sm:text-5xl md:text-7xl lg:text-9xl absolute bottom-7 right-5 z-40 text-[#198f51] pr-20"
-              >
-                <b>24 Hr</b><br /><b>Hackathon</b>
-              </motion.h1>
+              {/* Main Content Container */}
+              <div className="absolute left-0 top-0 z-40 size-full flex flex-col justify-between p-4 lg:p-16">
+                <div className="flex justify-between items-center gap-6 w-full flex-col md:flex-col lg:flex-row">
+                  {/* Main Logo */}
+                  <motion.div variants={itemVariants} className="special-font hero-heading text-white sm:pl-40 md:pl-36 font-bold text-9xl sm:text-7xl md:text-9xl lg:text-9xl pt-16">
+                    <h1 className="special-font text-white font-bold text-7xl sm:text-9xl md:text-9xl lg:text-8xl xl:text-9xl leading-none ">
+                      <b>
+                        HACK<span className="text-[#198f51]">4</span>BRAHMA
+                      </b>
+                    </h1>
+                  </motion.div>
 
-              <div className="absolute left-0 top-0 z-40 size-full">
-                <div className="mt-10 sm:mt-48 md:mt-24 px-2 sm:px-5 md:px-10 pl-4">
-                  <motion.h1
-                    variants={itemVariants}
-                    // className="special-font hero-heading text-white sm:pl-7 md:pl-52 sm:text-9xl"
-                    className="special-font hero-heading text-white sm:pl-7 md:pl-52 font-bold text-3xl sm:text-5xl md:text-7xl lg:text-9xl"
-                  >
-                   <b>
-                     Hack<b className="text-[#198f51]">4</b>Brahma
-                   </b>
-                  </motion.h1>
-
+                  {/* Sponsors - Top Right */}
                   <motion.div
                     variants={itemVariants}
-                    className="mt-3 flex flex-col sm:flex-row flex-wrap gap-4 justify-center sm:justify-start px-4 md:px-0 md:pl-52"
+                    className="flex items-center gap-4 lg:gap-4 sm:pl-7 md:pl-28 pt-10"
+                  >
+                    <img
+                      src="/img/SAYUJ.png"
+                      alt="Sayuj"
+                      className="h-8 sm:h-10 lg:h-14 object-contain"
+                    />
+                    <img
+                      src="/img/DPIIT.png"
+                      alt="DPIIT Startup India"
+                      className="h-8 sm:h-10 lg:h-14 object-contain"
+                    />
+                  </motion.div>
+                </div>
+
+                {/* Middle Section - Buttons */}
+                <div className="justify-center flex items-center ">
+                  <motion.div               
+                    variants={itemVariants}
+                    className="flex justify-center items-center flex-col sm:flex-row flex-wrap gap-4 md:px-0 md:pr-[500px] lg:pt-4 lg:pb-0 "
                   >
                     <button
                       onClick={handleDiscordClick}
@@ -194,7 +219,9 @@ const Hero = () => {
                     >
                       <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#4B5320] to-[#3B4210] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                       <FaDiscord className="text-xl mr-2 relative z-10" />
-                      <span className="relative z-10 uppercase tracking-wider">Join Discord</span>
+                      <span className="relative z-10 uppercase tracking-wider">
+                        Join Discord
+                      </span>
                     </button>
 
                     <button
@@ -210,11 +237,22 @@ const Hero = () => {
                     </button>
                   </motion.div>
                 </div>
+
+                {/* Bottom Right - 24 HR HACKATHON */}
+                <div className="md:flex md:justify-end">
+                  <motion.h2
+                    variants={itemVariants}
+                    className=" pb-40 special-font text-[#198f51] font-bold text-7xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl leading-none text-center  lg:text-right"
+                  >
+                    <b>24HR
+                    <br />
+                    HACKATHON</b>
+                  </motion.h2>
+                </div>
               </div>
             </div>
           </motion.div>
         </div>
-
         <Whyh4b />
         <About />
       </div>

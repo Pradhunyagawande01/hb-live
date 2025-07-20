@@ -3,92 +3,98 @@ import {
   Shield,
   Star,
   Medal,
-  Target,
-  Crosshair,
-  Award,
-  Sword,
+  Camera, // Use a different icon imported from lucide-react if Camera isn't present
 } from "lucide-react";
 import AnimatedTitle from "../Components/AnimatedTitle";
 import Footer from "../Components/Footer";
 import Marquee from "../Components/Marquee.jsx";
 import DottedBg from "../Components/DottedBg";
-function Partners() {
-  const [activeSection, setActiveSection] = useState(null);
 
-  // Partner data with military ranks
+function Partners() {
+  const [activeSection, setActiveSection] = useState("general");
+
+  // Partner data with military and media partners
   const partners = {
     general: {
-      // title: "GENERAL",
-      // description: "Supreme Command Level Partners",
+      title: "GENERAL",
+      description: "Supreme Command Level Partners",
       icon: Shield,
       partners: [
         {
-          // name: "",
+          name: "Diamond Corp",
           logo: "img/1.png",
-          // description: "Strategic Operations Command",
           rank: "Diamond",
         },
       ],
     },
     colonel: {
-      // title: "COLONEL",
-      // description: "Elite Tactical Division",
+      title: "COLONEL",
+      description: "Elite Tactical Division",
       icon: Star,
       partners: [
-        // {
-        //   name: "",
-        //   logo: "img/colenal.png",
-        //   // description: "Advanced Combat Solutions",
-        //   // rank: "Colonel"
-        // },
         {
-          // name: "Platinum",
+          name: "Platinum Inc",
           logo: "img/2.png",
-          // description: "Tactical Defense Unit",
           rank: "Platinum",
         },
       ],
     },
     major: {
+      title: "MAJOR",
+      description: "Specialized Support Units",
       icon: Medal,
       partners: [
         {
-          // name: "Gold",
+          name: "Gold Systems",
           logo: "img/3.png",
-          // description: "Specialized Operations",
           rank: "Gold",
         },
         {
-          // name: "Silver",
+          name: "Silver Solutions",
           logo: "img/4.png",
-          // description: "Tactical Intelligence",
           rank: "Silver",
         },
         {
-          // name: "Bronze",
+          name: "Bronze Brigade",
           logo: "img/5.png",
-          // description: "Combat Systems",
           rank: "Bronze",
         },
       ],
     },
+    media: {
+      title: "Media Partners",
+      description: "Broadcasting our mission to the world!",
+      icon: Camera,
+      partners: [
+        {
+          name: "Eventopia",
+          logo: "img/eventopia.png",
+          rank: "Media",
+        },
+        {
+          name: "NexFellow",
+          logo: "img/nexfellow2.jpg",
+          rank: "Media",
+        },
+        // add more as needed
+      ],
+    },
   };
 
+  // Cycle only military partners, not media
   useEffect(() => {
+    const militaryKeys = Object.keys(partners).filter((k) => k !== "media");
+    const currentIndex = militaryKeys.indexOf(activeSection);
+    const nextIndex = currentIndex === militaryKeys.length - 1 ? 0 : currentIndex + 1;
     const interval = setInterval(() => {
-      const sections = Object.keys(partners);
-      const currentIndex = sections.indexOf(activeSection);
-      const nextIndex =
-        currentIndex === sections.length - 1 ? 0 : currentIndex + 1;
-      setActiveSection(sections[nextIndex]);
+      setActiveSection(militaryKeys[nextIndex]);
     }, 3000);
-
     return () => clearInterval(interval);
-  }, [activeSection]);
+  }, [activeSection]); // only needs to update when activeSection changes
 
   return (
     <div className="relative min-h-screen text-gray-100 overflow-hidden">
-      {/* Add DottedBg wrapper */}
+      {/* Dotted background */}
       <DottedBg
         dotColor="rgba(255, 255, 255, 0.25)"
         bgColor="black"
@@ -105,26 +111,7 @@ function Partners() {
               containerClass="mt-8 !text-black text-center reveal-element "
             />
           </div>
-          {/* Background Radar Animation */}
-          {/* <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-green-500/5 via-transparent to-transparent opacity-30" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,0,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,0,0.1)_1px,transparent_1px)] bg-[size:20px_20px] opacity-10" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <div className="relative w-[800px] h-[800px]">
-            <div className="absolute inset-0 border-2 border-green-500/10 rounded-full animate-ping" />
-            <div className="absolute inset-0 border border-green-500/20 rounded-full" />
-            <div 
-              className="absolute w-full h-1 bg-gradient-to-r from-green-500/30 to-transparent origin-left"
-              style={{
-                animation: 'radar-sweep 4s linear infinite',
-                transformOrigin: 'left center',
-              }}
-            />
-          </div>
-        </div>
-      </div> */}
 
-          {/* Content */}
           <div className="relative z-10 container mx-auto px-4 py-16">
             {/* Header */}
             <div className="text-center mb-20">
@@ -145,42 +132,46 @@ function Partners() {
                 <div
                   key={key}
                   className={`
-                relative rounded-lg p-8
-                
-                transition-all duration-500
-              `}
+                    relative rounded-lg p-8
+                    transition-all duration-500
+                  `}
                 >
                   {/* Tier Header */}
                   <div className="text-center mb-12">
                     <div className="inline-flex items-center justify-center p-4 bg-gradient-to-br from-green-600 to-green-900 rounded-full mb-4">
                       <tier.icon className="w-8 h-8" />
                     </div>
-                    <h2 className="text-3xl font-bold tracking-wider mb-2">
-                      {tier.title}
-                    </h2>
-                    <p className="text-green-500">{tier.description}</p>
+                    {tier.title && (
+                      <h2 className="text-3xl font-bold tracking-wider mb-2">
+                        {tier.title}
+                      </h2>
+                    )}
+                    {tier.description && (
+                      <p className="text-green-500">{tier.description}</p>
+                    )}
                   </div>
 
                   {/* Partners */}
                   <div
                     className={`
-                grid gap-8 justify-items-center
-                ${
-                  key === "general"
-                    ? "grid-cols-1"
-                    : key === "colonel"
-                      ? "grid-cols-1 md:grid-cols-1"
-                      : "grid-cols-1 md:grid-cols-3"
-                }
-              `}
+                      grid gap-8 justify-items-center
+                      ${
+                        key === "general"
+                          ? "grid-cols-1"
+                          : key === "colonel"
+                          ? "grid-cols-1 md:grid-cols-1"
+                          : key === "media"
+                          ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-2"
+                          : "grid-cols-1 md:grid-cols-3"
+                      }
+                    `}
                   >
-                    {tier.partners.map((partner) => (
+                    {tier.partners.map((partner, idx) => (
                       <div
-                        key={partner.name}
+                        key={partner.name || partner.logo || idx}
                         className="relative w-full max-w-md group"
                       >
                         <div className="relative p-6 border border-gray-700 rounded-lg overflow-hidden h-[400px] align-middle flex items-center justify-center">
-                          {/* Military Corner Decorations */}
                           <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-green-500" />
                           <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-green-500" />
                           <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-green-500" />
@@ -197,11 +188,6 @@ function Partners() {
                             className="w-full object-cover mb-6 rounded transition-transform duration-300 group-hover:scale-105"
                           />
 
-                          {/* <div className="text-center">
-                        <h3 className="text-xl font-bold mb-2">{partner.name}</h3>
-                        <p className="text-gray-400">{partner.description}</p>
-                      </div> */}
-
                           {/* Scanning Line Effect */}
                           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-500/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                         </div>
@@ -211,15 +197,12 @@ function Partners() {
                 </div>
               ))}
             </div>
-
-            {/* Military Footer Decoration */}
           </div>
 
-          {/* marquee  */}
+          {/* You can enable this if needed */}
           {/* <div>
             <Marquee />
           </div> */}
-
           <Footer />
         </div>
       </DottedBg>
