@@ -193,14 +193,15 @@ const Hero = () => {
                     variants={itemVariants}
                     className="flex items-center gap-4 lg:gap-4 sm:pl-7 md:pl-28 pt-10"
                   >
-                    <img
-                      src="/img/SAYUJ.png"
-                      alt="Sayuj"
-                      className="h-8 sm:h-10 lg:h-14 object-contain"
-                    />
+                    
                     <img
                       src="/img/DPIIT.png"
                       alt="DPIIT"
+                      className="h-8 sm:h-10 lg:h-14 object-contain"
+                    />
+                    <img
+                      src="/img/sayuj.png"
+                      alt="Sayuj"
                       className="h-8 sm:h-10 lg:h-14 object-contain"
                     />
                   </motion.div>
