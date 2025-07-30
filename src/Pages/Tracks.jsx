@@ -70,13 +70,13 @@ const TrackCard = ({ track, isFocused }) => {
 const TracksSlider = () => {
   // Track data with army-themed titles
   const tracks = [
-    {
-      id: 1,
-      title: "Healthcare",
-      description:
-        "Bring your unique ideas and innovative solutions to address any challenge.",
-      image: "/img/HC.png",
-    },
+    // {
+    //   id: 1,
+    //   title: "Healthcare",
+    //   description:
+    //     "Bring your unique ideas and innovative solutions to address any challenge.",
+    //   image: "/img/HC.png",
+    // },
     {
       id: 2,
       title: "Cyber Security",
@@ -89,7 +89,7 @@ const TracksSlider = () => {
       title: "Education",
       description:
         "Create technology to enhance tactical awareness and mission effectiveness.",
-      image: "/img/EDU.png",
+      image: "/img/AR.png",
     },
     {
       id: 4,
@@ -100,10 +100,10 @@ const TracksSlider = () => {
     },
     {
       id: 5,
-      title: "Data Science",
+      title: "Open innovative",
       description:
-        "Design solutions for supply chain optimization and resource management.",
-      image: "/img/DS.png",
+        "Foster a culture of open innovation and collaboration.",
+      image: "/img/oi.png",
     },
     {
       id: 6,
@@ -113,18 +113,11 @@ const TracksSlider = () => {
       image: "/img/IOT.png",
     },
     {
-      id: 7,
-      title: "Machanical Learning",
-      description:
-        "Develop secure and reliable communication systems for challenging environments.",
-      image: "/img/ML.png",
-    },
-    {
       id: 8,
-      title: "AUTONOMOUS SYSTEMS",
+      title: "GAme Development",
       description:
         "Create intelligent autonomous solutions for various mission applications.",
-      image: "/img/WEB.png",
+      image: "/img/GD.png",
     },
   ];
 

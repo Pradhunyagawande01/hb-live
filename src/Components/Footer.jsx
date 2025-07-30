@@ -97,7 +97,7 @@ const Footer = () => {
             </li>
           </ul>
 
-          <h4 className="text-lg text-emerald-300 font-semibold mb-2">Important Documents</h4>
+          {/* <h4 className="text-lg text-emerald-300 font-semibold mb-2">Important Documents</h4>
           <ul className="space-y-2">
             {documentLinks.map((link, index) => (
               <li key={index}>
@@ -116,7 +116,7 @@ const Footer = () => {
                 </a>
               </li>
             ))}
-          </ul>
+          </ul> */}
         </div>
       </div>
 
