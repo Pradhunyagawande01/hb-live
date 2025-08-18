@@ -463,7 +463,7 @@ const Digitalswag = () => {
                       </div>
                     </motion.div>
 
-                    <motion.a
+                    {/* <motion.a
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       href="https://ctt.ac/cxM88"
@@ -474,7 +474,7 @@ const Digitalswag = () => {
                       <div className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-semibold py-3 px-6 rounded-lg text-center transition-all duration-300 shadow-lg">
                         🚀 Share
                       </div>
-                    </motion.a>
+                    </motion.a> */}
                   </div>
                 </motion.div>
 
