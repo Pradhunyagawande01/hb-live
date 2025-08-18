@@ -48,10 +48,10 @@ const Footer = () => {
         {/* Branding */}
         <div>
           <h3 className="text-2xl md:text-4xl font-medium text-white mb-4 mt-2">Hack<span className="font-semibold text-[#06AD63] text-[5rem]">4</span>Brahma</h3>
-          <p className="text-green-100 leading-relaxed">
+          {/* <p className="text-green-100 leading-relaxed">
             A hackathon dedicated to honoring and supporting our brave soldiers
             through innovative technological solutions.
-          </p>
+          </p> */}
         </div>
 
         {/* Social Media */}

@@ -253,8 +253,8 @@ const Hero = () => {
             </div>
           </motion.div>
         </div>
-        <Whyh4b />
-        <About />
+        {/* <Whyh4b />
+        <About /> */}
       </div>
     </>
   );

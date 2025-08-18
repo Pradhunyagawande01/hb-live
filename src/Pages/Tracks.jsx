@@ -269,7 +269,7 @@ const TracksSlider = () => {
   return (
     <div className="relative min-h-screen text-gray-200 overflow-hidden">
       {/* Add DottedBg wrapper */}
-      <DottedBg
+      {/* <DottedBg
         dotColor="rgba(255, 255, 255, 0.25)"
         bgColor="black"
         dotSize={2}
@@ -277,8 +277,8 @@ const TracksSlider = () => {
         repelRadius={100}
         explodeStrength={25}
         returnSpeed={0.5}
-      >
-        <div className="relative z-10 py-12 px-4">
+      > */}
+        <div className="relative z-10">
           {/* Military-style header */}
           <div className="container mx-auto mb-12">
             <div className="flex flex-col items-center">
@@ -449,18 +449,8 @@ const TracksSlider = () => {
               {tracks[currentIndex].title}
             </p>
           </div>
-
-          {/* Military-style footer */}
-          {/* <div className="container mx-auto mt-12 md:mt-16">
-        <div className="flex justify-center items-center">
-          <div className="h-px w-12 md:w-16 bg-gray-800"></div>
-          <div className="mx-4 text-green-500 text-xs font-mono uppercase tracking-widest">Secure Connection</div>
-          <div className="h-px w-12 md:w-16 bg-gray-800"></div>
         </div>
-      </div> */}
-          <Footer />
-        </div>
-      </DottedBg>
+     
     </div>
   );
 };

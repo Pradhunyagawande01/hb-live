@@ -110,7 +110,7 @@ const About = () => {
   return (
     <div className="relative w-full min-h-screen">
       {/* Add DottedBg wrapper here */}
-      <DottedBg
+      {/* <DottedBg
         dotColor="rgba(255, 255, 255, 0.25)"
         bgColor="black"
         dotSize={2}
@@ -118,7 +118,7 @@ const About = () => {
         repelRadius={100}
         explodeStrength={25}
         returnSpeed={0.5}
-      >
+      > */}
         <div
           ref={sectionRef}
           id="about"
@@ -134,7 +134,7 @@ const About = () => {
               />
             </div>
 
-            {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8 mb-8 sm:mb-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8 mb-8 sm:mb-16">
           <AboutCard
             icon={Target}
             title="Mission"
@@ -150,7 +150,7 @@ const About = () => {
             title="Approach"
             description="Create a dynamic war room of mentors, tactical networking, and hands-on combat training."
           />
-        </div> */}
+        </div> 
 
             <div className=" mx-auto text-center px-4 text-white/70 text-2xl mb-24">
               <p>
@@ -165,9 +165,8 @@ const About = () => {
               </p>
             </div>
           </div>
-          <Footer />
         </div>
-      </DottedBg>
+      {/* </DottedBg> */}
     </div>
   );
 };

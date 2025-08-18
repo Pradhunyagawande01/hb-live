@@ -171,7 +171,7 @@ const Organizers = () => {
 
   return (
     <div className="relative min-h-screen text-white">
-      <DottedBg
+      {/* <DottedBg
         dotColor="rgba(255, 255, 255, 0.25)"
         bgColor="black"
         dotSize={2}
@@ -179,7 +179,7 @@ const Organizers = () => {
         repelRadius={100}
         explodeStrength={25}
         returnSpeed={0.5}
-      >
+      > */}
         <div className="relative z-10 py-16 px-6 flex flex-col items-center">
           <AnimatedTitle
             title="<b>Humans</b>"
@@ -192,9 +192,9 @@ const Organizers = () => {
               ))}
             </div>
           </div>
-          <Footer />
+          {/* <Footer /> */}
         </div>
-      </DottedBg>
+      {/* </DottedBg> */}
     </div>
   );
 };

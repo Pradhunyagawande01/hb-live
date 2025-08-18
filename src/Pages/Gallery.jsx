@@ -38,7 +38,7 @@ export default function Gallery() {
   return (
     <div className="relative min-h-screen text-white p-2 sm:p-4 overflow-hidden">
       {/* dotted background layer */}
-      <DottedBg
+      {/* <DottedBg
         dotColor="rgba(255,255,255,.25)"
         bgColor="black"
         dotSize={2}
@@ -46,7 +46,7 @@ export default function Gallery() {
         repelRadius={100}
         explodeStrength={25}
         returnSpeed={0.5}
-      >
+      > */}
         <div className="relative z-10">
           {/* page title */}
           <div className="text-center mb-6 sm:mb-8 mt-2 sm:mt-4">
@@ -139,7 +139,7 @@ export default function Gallery() {
               {/* card 1 */}
               <div className="md:col-span-5">
                 <CornerBorderWrapper>
-                  <img src="/img/img1.jpg" alt="Gallery image 1" className="w-full object-cover rounded-md h-60" />
+                  <img src="/img/delhi.jpg" alt="Gallery image 1" className="w-full object-cover rounded-md h-60" />
                 </CornerBorderWrapper>
               </div>
 
@@ -220,9 +220,9 @@ export default function Gallery() {
             </div>
           </div>
 
-          <Footer />
+          {/* <Footer /> */}
         </div>
-      </DottedBg>
+      {/* </DottedBg> */}
     </div>
   );
 }

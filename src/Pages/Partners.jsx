@@ -95,7 +95,7 @@ function Partners() {
   return (
     <div className="relative min-h-screen text-gray-100 overflow-hidden">
       {/* Dotted background */}
-      <DottedBg
+      {/* <DottedBg
         dotColor="rgba(255, 255, 255, 0.25)"
         bgColor="black"
         dotSize={2}
@@ -103,7 +103,7 @@ function Partners() {
         repelRadius={100}
         explodeStrength={25}
         returnSpeed={0.5}
-      >
+      > */}
         <div className="relative z-10">
           <div className="relative flex flex-col items-center container mx-auto px-4 text-[#198f51] mb-10">
             <AnimatedTitle
@@ -203,9 +203,9 @@ function Partners() {
           {/* <div>
             <Marquee />
           </div> */}
-          <Footer />
+          {/* <Footer /> */}
         </div>
-      </DottedBg>
+      {/* </DottedBg> */}
     </div>
   );
 }

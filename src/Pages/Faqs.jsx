@@ -94,7 +94,7 @@ export default function Faqs() {
   return (
     <div className="relative min-h-screen text-gray-200 overflow-hidden">
       {/* Add DottedBg wrapper */}
-      <DottedBg
+      {/* <DottedBg
         dotColor="rgba(255, 255, 255, 0.25)"
         bgColor="black"
         dotSize={2}
@@ -102,7 +102,7 @@ export default function Faqs() {
         repelRadius={100}
         explodeStrength={25}
         returnSpeed={0.5}
-      >
+      > */}
         <div className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             {/* Header */}
@@ -149,9 +149,9 @@ export default function Faqs() {
           </div>
 
         
-          <Footer />
+          {/* <Footer /> */}
         </div>
-      </DottedBg>
+      {/* </DottedBg> */}
     </div>
   );
 }
