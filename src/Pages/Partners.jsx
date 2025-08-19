@@ -141,11 +141,11 @@ function Partners() {
                     <div className="inline-flex items-center justify-center p-4 bg-gradient-to-br from-green-600 to-green-900 rounded-full mb-4">
                       <tier.icon className="w-8 h-8" />
                     </div>
-                    {tier.title && (
+                    {/* {tier.title && (
                       <h2 className="text-3xl font-bold tracking-wider mb-2">
                         {tier.title}
                       </h2>
-                    )}
+                    )} */}
                     {tier.description && (
                       <p className="text-green-500">{tier.description}</p>
                     )}

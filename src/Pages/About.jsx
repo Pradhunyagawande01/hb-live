@@ -108,65 +108,36 @@ const About = () => {
   );
 
   return (
-    <div className="relative w-full min-h-screen">
-      {/* Add DottedBg wrapper here */}
-      {/* <DottedBg
-        dotColor="rgba(255, 255, 255, 0.25)"
-        bgColor="black"
-        dotSize={2}
-        baseSpacing={30}
-        repelRadius={100}
-        explodeStrength={25}
-        returnSpeed={0.5}
-      > */}
-        <div
-          ref={sectionRef}
-          id="about"
-          className="relative z-10 w-full min-h-screen
-          bg-fixed bg-cover bg-center sm:py-16 px-4 sm:pl-20
+    <div className="relative w-full">
+     
+      <div
+        ref={sectionRef}
+        id="about"
+        className="relative w-full sm:py-16 px-4 sm:pl-20
           will-change-transform"
-        >
-          <div className="relative w-full max-w-7xl mx-auto overflow-hidden">
-            <div className="relative flex flex-col items-center mx-auto text-[#198f51] sm:mb-10">
-              <AnimatedTitle
-                title="<b>About</b> <b>us</b> "
-                containerClass="sm:mt-8 !text-black text-center reveal-element"
-              />
-            </div>
+      >
+        <div className="relative w-full max-w-7xl overflow-hidden">
+          <div className="relative flex flex-col items-center mx-auto text-[#198f51] sm:mb-10">
+            <AnimatedTitle
+              title="<b>About</b> <b>us</b> "
+              containerClass="sm:mt-8 !text-black text-center reveal-element"
+            />
+          </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8 mb-8 sm:mb-16">
-          <AboutCard
-            icon={Target}
-            title="Mission"
-            description="Mobilize innovation and establish a stronghold for the brightest tech minds."
-          />
-          <AboutCard
-            icon={Star}
-            title="Vision"
-            description="Lead the digital revolution through strategic collaboration and cutting-edge technologies."
-          />
-          <AboutCard
-            icon={Award}
-            title="Approach"
-            description="Create a dynamic war room of mentors, tactical networking, and hands-on combat training."
-          />
-        </div> 
-
-            <div className=" mx-auto text-center px-4 text-white/70 text-2xl mb-24">
-              <p>
-                Hack4Brahma is a student-led hackathon powered by Nari Nexus — a
-                tech community committed to empowering women and fostering
-                inclusive innovation. Driven by passionate team leads, every
-                aspect of the event, from logistics to outreach, is crafted with
-                purpose. At its heart, Nari Nexus creates space for diverse
-                voices to collaborate and solve real-world problems through
-                technology. Regional empowerment. National collaboration. Global
-                impact. Led by youth. Powered by purpose. Inspired by inclusion.
-              </p>
-            </div>
+          <div className=" mx-auto text-center px-4 text-white/70 text-2xl mb-24">
+            <p>
+              Hack4Brahma is Northeast India’s biggest hackathon, supported by
+              Startup India and SAYUJ, powered by Orkes, hosted at IIIT Guwahati
+              on 11th–12th October 2025. Students will collaborate, build
+              real-world tech projects, and connect with industry experts,
+              immersing themselves in a dynamic community of innovators.
+              Alongside hands-on coding and mentorship, participants will enjoy
+              workshops, fun activities, and the unique opportunity to launch
+              impactful ideas with lasting community value.
+            </p>
           </div>
         </div>
-      {/* </DottedBg> */}
+      </div>
     </div>
   );
 };

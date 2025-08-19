@@ -67,37 +67,15 @@ const NavBar = () => {
       ref={navContainerRef}
       className="fixed inset-x-0 top-4 z-50 h-16 border-none transition-all duration-700 sm:inset-x-6"
     >
-      <header className="absolute top-1/2 w-full -translate-y-1/2">
-        <nav className="flex size-full items-center justify-between p-4">
+      <header className="absolute top-1/2 w-full -translate-y-1/2 overflow-visible">
+        <nav className="flex size-full items-center justify-between">
           {/* Logo and Product button */}
           <div className="flex items-center gap-7">
-            
 
-            {/* <Button
-              id="product-button"
-              title="Products"
-              rightIcon={<TiLocationArrow />}
-              containerClass="bg-blue-50 md:flex hidden items-center justify-center gap-1"
-            /> */}
-          </div>
-
-          {/* Navigation Links and Audio Button */}
-          <div className="flex h-full items-center">
-            {/* <div className="hidden md:block">
-              {navItems.map((item, index) => (
-                <a
-                  key={index}
-                  href={`#${item.toLowerCase()}`}
-                  className="nav-hover-btn"
-                >
-                  {item}
-                </a>
-              ))}
-            </div> */}
-
-<button
+            {/* Audio Indicator Button */}
+            <button
               onClick={toggleAudioIndicator}
-              className="ml-10 flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg hover:shadow-green-500/30 transition-all duration-300"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg hover:shadow-green-500/30 transition-all duration-300"
               aria-label="Toggle audio indicator"
             >
               <audio
@@ -118,6 +96,26 @@ const NavBar = () => {
                 />
               ))}
             </button>
+
+            
+          </div>
+
+          {/* Navigation Links, MLH Badge, and Audio Button */}
+          <div className="flex h-full items-center gap-4">           
+            {/* MLH Badge */}
+            <a
+              href="/"
+              // target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:block"
+              aria-label="Major League Hacking"
+            >
+              <img
+                src="/img/MLH.png"
+                alt="Major League Hacking 2026 Hackathon Season"
+                className="h-[165px] w-auto pt-6 transition-transform duration-300"
+              />
+            </a>
           </div>
         </nav>
       </header>
