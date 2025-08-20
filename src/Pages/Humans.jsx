@@ -98,8 +98,6 @@ const OrganizerCard = ({ member }) => {
 
 const Organizers = () => {
   const organizers = [
-    
-    
     {
       name: "Rishu Kumar Singh",
       src: "/img/rishu.png",
@@ -118,13 +116,13 @@ const Organizers = () => {
       linkedin: "https://www.linkedin.com/in/kritika-rukhiyana-65a28a307",
       twitter: "https://x.com/Kritika8924",
     },
-  
+
     {
       name: "Akshay Gangasagar",
       src: "/img/akshay.png",
       linkedin: "https://www.linkedin.com/in/akshay-gangasagar-67b25b305/",
     },
- 
+
     {
       name: "Harsh Kumar",
       src: "/img/harsh.png",
@@ -143,25 +141,14 @@ const Organizers = () => {
       linkedin: "https://www.linkedin.com/in/sahal-parvez",
       twitter: "https://x.com/SahalParvez742",
     },
-    {
-      name: "Mrunali Dhopte",
-      src: "/img/mrunali.png",
-      linkedin: "https://www.linkedin.com/in/mrunali-dhopte-944a181aa",
-      twitter: "https://x.com/mrunu",
-    },
+
     {
       name: "Navinya Yede",
       src: "/img/navinya.png",
       linkedin: "https://www.linkedin.com/in/navinya-yede-251802257",
       twitter: "https://x.com/navinya_yed0203",
     },
-     
-    {
-      name: "Sunidhi Haware",
-      src: "/img/sunidhi.png",
-      linkedin: "https://www.linkedin.com/in/sunidhi-haware-797a97323",
-      twitter: "https://x.com/Sunidhi_vj",
-    },
+
     {
       name: "Vaibhavi Mangrulkar",
       src: "/img/vaibhavi.png",
@@ -180,20 +167,20 @@ const Organizers = () => {
         explodeStrength={25}
         returnSpeed={0.5}
       > */}
-        <div className="relative z-10 py-16 px-6 flex flex-col items-center">
-          <AnimatedTitle
-            title="<b>Humans</b>"
-            containerClass="mt-8 text-black text-center reveal-element"
-          />
-          <div className="mt-16 py-8 sm:py-12 md:py-16 w-full flex justify-center">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-16 max-w-6xl w-full justify-items-center">
-              {organizers.map((member, index) => (
-                <OrganizerCard key={index} member={member} />
-              ))}
-            </div>
+      <div className="relative z-10 py-16 px-6 flex flex-col items-center">
+        <AnimatedTitle
+          title="<b>Humans</b>"
+          containerClass="mt-8 text-black text-center reveal-element"
+        />
+        <div className="mt-16 py-8 sm:py-12 md:py-16 w-full flex justify-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-16 max-w-6xl w-full justify-items-center">
+            {organizers.map((member, index) => (
+              <OrganizerCard key={index} member={member} />
+            ))}
           </div>
-          {/* <Footer /> */}
         </div>
+        {/* <Footer /> */}
+      </div>
       {/* </DottedBg> */}
     </div>
   );

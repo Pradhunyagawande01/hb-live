@@ -432,7 +432,7 @@ const Digitalswag = () => {
                   )}
 
                   {/* Action Buttons */}
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
                     <input
                       type="file"
                       accept="image/*"
@@ -463,18 +463,7 @@ const Digitalswag = () => {
                       </div>
                     </motion.div>
 
-                    <motion.a
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      href="https://ctt.ac/cxM88"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block"
-                    >
-                      <div className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-semibold py-3 px-6 rounded-lg text-center transition-all duration-300 shadow-lg">
-                        🚀 Share
-                      </div>
-                    </motion.a>
+        
                   </div>
                 </motion.div>
 
