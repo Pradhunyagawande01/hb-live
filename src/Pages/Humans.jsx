@@ -173,7 +173,7 @@ const Organizers = () => {
           containerClass="mt-8 text-black text-center reveal-element"
         />
         <div className="mt-16 py-8 sm:py-12 md:py-16 w-full flex justify-center">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-16 max-w-6xl w-full justify-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16 max-w-6xl w-full justify-items-center">
             {organizers.map((member, index) => (
               <OrganizerCard key={index} member={member} />
             ))}
