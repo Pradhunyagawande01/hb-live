@@ -188,24 +188,27 @@ const Hero = () => {
                       </b>
                     </h1>
                   </motion.div>
-                  {/* Sponsors - Top Right */}
-                  <motion.div
-                    variants={itemVariants}
-                    className="flex items-center gap-4 lg:gap-4 sm:pl-7 md:pl-28 pt-10"
-                  >
-                    
-                    <img
-                      src="/img/DPIIT.png"
-                      alt="DPIIT"
-                      className="h-8 sm:h-10 lg:h-14 object-contain"
-                    />
-                    <img
-                      src="/img/sayuj1.png"
-                      alt="Sayuj"
-                      className="h-8 sm:h-10 lg:h-14 "
-                    />
-                  </motion.div>
+                  
+                  {/* Empty space for balance */}
+                  <div className="flex-1"></div>
                 </div>
+
+                {/* Top Left - Sponsor Logos (moved from top-right) */}
+                <motion.div
+                  variants={itemVariants}
+                    className="absolute top-4 left-16 lg:left-24 flex items-center gap-4 lg:gap-6"
+                >
+                  <img
+                    src="/img/DPIIT.png"
+                    alt="DPIIT"
+                    className="h-8 sm:h-10 lg:h-14 object-contain"
+                  />
+                  <img
+                    src="/img/sayuj1.png"
+                    alt="Sayuj"
+                    className="h-8 sm:h-10 lg:h-14 object-contain"
+                  />
+                </motion.div>
 
                 {/* Middle Section - Buttons */}
                 <div className="justify-center flex items-center ">
