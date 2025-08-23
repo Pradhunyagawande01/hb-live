@@ -15,26 +15,26 @@ function Partners() {
 
   // Partner data with military and media partners
   const partners = {
-    general: {
-      title: "GENERAL",
-      description: "Supreme Command Level Partners",
-      icon: Shield,
-      partners: [
-        {
-          name: "Diamond Corp",
-          logo: "img/1.png",
-          rank: "Diamond",
-        },
-      ],
-    },
+    // general: {
+    //   title: "GENERAL",
+    //   description: "Supreme Command Level Partners",
+    //   icon: Shield,
+    //   partners: [
+    //     {
+    //       name: "Orkes",
+    //       logo: "/img/Orkes.png",
+    //       rank: "Diamond",
+    //     },
+    //   ],
+    // },
     colonel: {
       title: "COLONEL",
       description: "Elite Tactical Division",
       icon: Star,
       partners: [
         {
-          name: "Platinum Inc",
-          logo: "img/2.png",
+          name: "Pathway Framework",
+          logo: "/img/pathway.png",
           rank: "Platinum",
         },
       ],
@@ -46,17 +46,17 @@ function Partners() {
       partners: [
         {
           name: "Gold Systems",
-          logo: "img/3.png",
+          logo: "/img/GitHub.png",
           rank: "Gold",
         },
         {
           name: "Silver Solutions",
-          logo: "img/4.png",
+          logo: "/img/3.png",
           rank: "Silver",
         },
         {
           name: "Bronze Brigade",
-          logo: "img/5.png",
+          logo: "/img/4.png",
           rank: "Bronze",
         },
       ],
@@ -68,15 +68,39 @@ function Partners() {
       partners: [
         {
           name: "Eventopia",
-          logo: "img/eventopia.png",
+          logo: "/img/eventopia.png",
           rank: "Media",
         },
         {
           name: "NexFellow",
-          logo: "img/nexfellow2.jpg",
+          logo: "/img/nexfellow2.jpg",
           rank: "Media",
         },
         // add more as needed
+      ],
+    },
+
+    // New InKind section (5 logos) 
+    inkind: {
+      title: "In-Kind Partners",
+      description: "Supporting our mission in-kind",
+      icon: Camera, // reuse Camera icon for visual parity
+      partners: [
+        { name: "InterviewBuddy", logo: "/img/g29.png", rank: "InKind" },
+        { name: "interview-cake", logo: "/img/interview-cake.png", rank: "InKind" },
+        { name: "GiveMyCertificate", logo: "/img/GMC LogoS.png", rank: "InKind" },
+        { name: "wolfram", logo: "/img/wolfram.png", rank: "InKind" },
+        { name: "xyz", logo: "/img/xyz.svg", rank: "InKind" },
+      ],
+    },
+
+    // Ecosystem row (now same size 320 and centered) 
+    ecosystem: {
+      title: "Ecosystem",
+      description: "Ecosystem Partners",
+      icon: Shield,
+      partners: [
+        { name: "WIP", logo: "/img/WIP-logo .png", rank: "Ecosystem" },
       ],
     },
   };
@@ -91,6 +115,40 @@ function Partners() {
     }, 3000);
     return () => clearInterval(interval);
   }, [activeSection]); // only needs to update when activeSection changes
+
+  // helper to pick card sizing based on tier key (keeps diamond/platinum visually large)
+  const getCardSizeClass = (tierKey) => {
+    switch (tierKey) {
+      case "general":
+      case "colonel":
+        // keep Diamond & Platinum visually big 
+        return "w-full max-w-[320px] h-[320px]";
+      case "major":
+        // gold / silver / bronze large 
+        return "w-full max-w-[320px] h-[320px]";
+      case "media":
+        // media cards moderate 
+        return "w-full max-w-[320px] h-[320px]";
+      case "inkind":
+        // in-kind compact boxes 
+        return "w-full max-w-[320px] h-[320px]";
+      case "ecosystem":
+        // ecosystem now same size as others 
+        return "w-full max-w-[320px] h-[320px]";
+      default:
+        return "w-full max-w-[320px] h-[320px]";
+    }
+  };
+
+  // grid column helper for partner lists (kept for non-inkind tiers)
+  const getGridColsForTier = (key, count) => {
+    if (key === "major") return "grid-cols-1 md:grid-cols-3";
+    if (key === "media") return count <= 2 ? "grid-cols-1 md:grid-cols-2" : "grid-cols-1 sm:grid-cols-2 md:grid-cols-3";
+    if (key === "inkind") return ""; 
+    if (key === "ecosystem") return "grid-cols-1 justify-center"; // center single ecosystem logo
+    if (key === "colonel" || key === "general") return "grid-cols-1";
+    return "grid-cols-1 md:grid-cols-3";
+  };
 
   return (
     <div className="relative min-h-screen text-gray-100 overflow-hidden">
@@ -152,48 +210,120 @@ function Partners() {
                   </div>
 
                   {/* Partners */}
-                  <div
-                    className={`
-                      grid gap-8 justify-items-center
-                      ${
-                        key === "general"
-                          ? "grid-cols-1"
-                          : key === "colonel"
-                          ? "grid-cols-1 md:grid-cols-1"
-                          : key === "media"
-                          ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-2"
-                          : "grid-cols-1 md:grid-cols-3"
-                      }
-                    `}
-                  >
-                    {tier.partners.map((partner, idx) => (
-                      <div
-                        key={partner.name || partner.logo || idx}
-                        className="relative w-full max-w-md group"
-                      >
-                        <div className="relative p-6 border border-gray-700 rounded-lg overflow-hidden h-[400px] align-middle flex items-center justify-center">
-                          <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-green-500" />
-                          <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-green-500" />
-                          <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-green-500" />
-                          <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-green-500" />
 
-                          {/* Rank Badge */}
-                          <div className="absolute top-4 right-4 px-3 py-1 bg-green-900/80 rounded-full border border-green-500/50 text-xs font-mono">
-                            {partner.rank}
+                  {/*  InKind: render first row (3) centered, second row (2) centered */}
+                  {key === "inkind" ? (
+                    <div className="space-y-6">
+                      {/* first row: top 3 */}
+                      <div className="flex flex-wrap justify-center gap-8">
+                        {tier.partners.slice(0, 3).map((partner, idx) => (
+                          <div
+                            key={partner.name || partner.logo || idx}
+                            className={`relative group ${getCardSizeClass(key)}`}
+                          >
+                            <div className="relative p-5 border border-gray-700 rounded-lg overflow-hidden flex items-center justify-center h-full">
+                              <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-green-500" />
+                              <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-green-500" />
+                              <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-green-500" />
+                              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-green-500" />
+
+                              {/* Rank Badge remains visible */}
+                              <div className="absolute top-4 right-4 px-3 py-1 bg-green-900/80 rounded-full border border-green-500/50 text-xs font-mono">
+                                {partner.rank}
+                              </div>
+
+                              <img
+                                src={partner.logo}
+                                alt="" /* keep alt empty to avoid alt text showing */
+                                className="max-h-[65%] max-w-full object-contain mb-0 rounded transition-transform duration-300 group-hover:scale-105"
+                                onError={(e) => {
+                                  // hide broken images so no alt text or name appears
+                                  e.currentTarget.style.display = "none";
+                                }}
+                              />
+
+                              {/* Scanning Line Effect */}
+                              <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-transparent via-green-500/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                            </div>
                           </div>
-
-                          <img
-                            src={partner.logo}
-                            alt={partner.name}
-                            className="w-full object-cover mb-6 rounded transition-transform duration-300 group-hover:scale-105"
-                          />
-
-                          {/* Scanning Line Effect */}
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-500/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                        </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
+
+                      {/* second row: bottom 2 centered (symmetry) */}
+                      <div className="flex flex-wrap justify-center gap-8">
+                        {tier.partners.slice(3).map((partner, idx) => (
+                          <div
+                            key={partner.name || partner.logo || idx + 3}
+                            className={`relative group ${getCardSizeClass(key)}`}
+                          >
+                            <div className="relative p-5 border border-gray-700 rounded-lg overflow-hidden flex items-center justify-center h-full">
+                              <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-green-500" />
+                              <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-green-500" />
+                              <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-green-500" />
+                              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-green-500" />
+
+                              {/* Rank Badge remains visible */}
+                              <div className="absolute top-4 right-4 px-3 py-1 bg-green-900/80 rounded-full border border-green-500/50 text-xs font-mono">
+                                {partner.rank}
+                              </div>
+
+                              <img
+                                src={partner.logo}
+                                alt="" /* keep alt empty to avoid alt text showing */
+                                className="max-h-[65%] max-w-full object-contain mb-0 rounded transition-transform duration-300 group-hover:scale-105"
+                                onError={(e) => {
+                                  // hide broken images so no alt text or name appears
+                                  e.currentTarget.style.display = "none";
+                                }}
+                              />
+
+                              {/* Scanning Line Effect */}
+                              <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-transparent via-green-500/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <div
+                      className={`grid gap-8 justify-items-center ${getGridColsForTier(
+                        key,
+                        tier.partners.length
+                      )}`}
+                    >
+                      {tier.partners.map((partner, idx) => (
+                        <div
+                          key={partner.name || partner.logo || idx}
+                          className={`relative group ${getCardSizeClass(key)}`}
+                        >
+                          <div className="relative p-5 border border-gray-700 rounded-lg overflow-hidden flex items-center justify-center h-full">
+                            <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-green-500" />
+                            <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-green-500" />
+                            <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-green-500" />
+                            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-green-500" />
+
+                            {/* Rank Badge remains visible */}
+                            <div className="absolute top-4 right-4 px-3 py-1 bg-green-900/80 rounded-full border border-green-500/50 text-xs font-mono">
+                              {partner.rank}
+                            </div>
+
+                            <img
+                              src={partner.logo}
+                              alt="" /* keep alt empty to avoid alt text showing */
+                              className="max-h-[65%] max-w-full object-contain mb-0 rounded transition-transform duration-300 group-hover:scale-105"
+                              onError={(e) => {
+                                // hide broken images so no alt text or name appears
+                                e.currentTarget.style.display = "none";
+                              }}
+                            />
+
+                            {/* Scanning Line Effect */}
+                            <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-transparent via-green-500/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
