@@ -50,7 +50,7 @@ const Venue = () => {
                     Hack4Brahma Command Center
                   </p>
                   <p className="text-gray-300 text-lg">
-                    Indian Institute of Information Technology Guwahati (IIITG)
+                    Assam down town University (ADTU)
                   </p>
                   <p className="text-gray-300 text-lg">Guwahati, Assam</p>
                 </div>
@@ -64,7 +64,7 @@ const Venue = () => {
                   <h3 className="font-bold text-green-500 text-lg">
                     DEPLOYMENT DATE
                   </h3>
-                  <p className="text-gray-300 text-lg">11 - 12 October 2025</p>
+                  <p className="text-gray-300 text-lg">10 - 11 October 2025</p>
                 </div>
               </div>
 
@@ -93,7 +93,7 @@ const Venue = () => {
 
             <div className="border-2 border-green-600 rounded-lg overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3583.5414840610697!2d91.56199079999999!3d26.081237299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a5987e09da847%3A0xfc90e6da1b4547c1!2sIndian%20Institute%20of%20Information%20Technology%20Guwahati%20(IIITG)!5e0!3m2!1sen!2sin!4v1755451561360!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.5711372446317!2d91.8614645!3d26.2017968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375af77400000001%3A0xfa44ca580f29ec15!2sAssam%20down%20town%20University!5e1!3m2!1sen!2sin!4v1759425175481!5m2!1sen!2sin"
                 width="100%"
                 height="400"
                 style={{ border: 0 }}
