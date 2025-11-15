@@ -127,7 +127,7 @@ const About = () => {
           <div className=" mx-auto text-center px-4 text-white/70 text-2xl mb-24">
             <p>
               Hack4Brahma is Northeast India’s biggest hackathon, supported by
-              Startup India and SAYUJ, powered by Orkes, hosted at Assam down town University (ADTU) Guwahati
+              Startup India and SAYUJ, presented by DevCrewBharat & powered by Orkes hosted at Guwahati University, Guwahati
               on 10th–11th October 2025. Students will collaborate, build
               real-world tech projects, and connect with industry experts,
               immersing themselves in a dynamic community of innovators.

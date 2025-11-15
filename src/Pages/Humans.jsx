@@ -129,12 +129,12 @@ const Organizers = () => {
       linkedin: "https://www.linkedin.com/in/harsh-kumar-560944237/",
       twitter: "https://x.com/Harsh2227ofc",
     },
-    {
-      name: "Himanshi Aggarwal",
-      src: "/img/himanshi.png",
-      linkedin: "https://www.linkedin.com/in/himanshi-aggarwal-5a5553321",
-      twitter: "https://x.com/HimanshiAg15396",
-    },
+    // {
+    //   name: "Himanshi Aggarwal",
+    //   src: "/img/himanshi.png",
+    //   linkedin: "https://www.linkedin.com/in/himanshi-aggarwal-5a5553321",
+    //   twitter: "https://x.com/HimanshiAg15396",
+    // },
     {
       name: "Mohd Sahal",
       src: "/img/sahal.png",
@@ -142,18 +142,18 @@ const Organizers = () => {
       twitter: "https://x.com/SahalParvez742",
     },
 
-    {
-      name: "Navinya Yede",
-      src: "/img/navinya.png",
-      linkedin: "https://www.linkedin.com/in/navinya-yede-251802257",
-      twitter: "https://x.com/navinya_yed0203",
-    },
+    // {
+    //   name: "Navinya Yede",
+    //   src: "/img/navinya.png",
+    //   linkedin: "https://www.linkedin.com/in/navinya-yede-251802257",
+    //   twitter: "https://x.com/navinya_yed0203",
+    // },
 
-    {
-      name: "Vaibhavi Mangrulkar",
-      src: "/img/vaibhavi.png",
-      linkedin: "https://www.linkedin.com/in/vaibhavi-mangrulkar-7b0793285",
-    },
+    // {
+    //   name: "Vaibhavi Mangrulkar",
+    //   src: "/img/vaibhavi.png",
+    //   linkedin: "https://www.linkedin.com/in/vaibhavi-mangrulkar-7b0793285",
+    // },
   ];
 
   return (
@@ -173,7 +173,7 @@ const Organizers = () => {
           containerClass="mt-8 text-black text-center reveal-element"
         />
         <div className="mt-16 py-8 sm:py-12 md:py-16 w-full flex justify-center">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16 max-w-6xl w-full justify-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16 max-w-6xl w-full justify-items-center ">
             {organizers.map((member, index) => (
               <OrganizerCard key={index} member={member} />
             ))}

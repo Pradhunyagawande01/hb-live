@@ -50,7 +50,7 @@ const Venue = () => {
                     Hack4Brahma Command Center
                   </p>
                   <p className="text-gray-300 text-lg">
-                    Assam down town University (ADTU)
+                    Guwahati University
                   </p>
                   <p className="text-gray-300 text-lg">Guwahati, Assam</p>
                 </div>
@@ -93,7 +93,7 @@ const Venue = () => {
 
             <div className="border-2 border-green-600 rounded-lg overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.5711372446317!2d91.8614645!3d26.2017968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375af77400000001%3A0xfa44ca580f29ec15!2sAssam%20down%20town%20University!5e1!3m2!1sen!2sin!4v1759425175481!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3581.215906927516!2d91.66215618034627!3d26.157097018074072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a44c7b2106653%3A0x4f53385236c22a34!2sGUIST!5e0!3m2!1sen!2sin!4v1763226654115!5m2!1sen!2sin"
                 width="100%"
                 height="400"
                 style={{ border: 0 }}
