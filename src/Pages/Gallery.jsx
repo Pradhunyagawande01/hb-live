@@ -60,13 +60,13 @@ export default function Gallery() {
           <div className="grid grid-cols-1 gap-4 md:hidden">
             <CornerBorderWrapper>
               <div className="bg-transparent h-48 sm:h-60">
-                <img src="/img/img1.jpg" alt="Gallery image 1" className="w-full h-full object-cover rounded-md" />
+                <img src="/img/11.jpeg" alt="Gallery image 1" className="w-full h-full object-cover rounded-md" />
               </div>
             </CornerBorderWrapper>
 
             <CornerBorderWrapper>
               <div className="bg-transparent h-48 sm:h-60">
-                <img src="/img/img2.jpg" alt="Gallery image 2" className="w-full h-full object-cover rounded-md" />
+                <img src="/img/22.jpeg" alt="Gallery image 2" className="w-full h-full object-cover rounded-md" />
               </div>
             </CornerBorderWrapper>
 
@@ -78,7 +78,7 @@ export default function Gallery() {
 
             <CornerBorderWrapper>
               <div className="bg-transparent h-48 sm:h-60">
-                <img src="/img/img3.jpg" alt="Gallery image 3" className="w-full h-full object-cover rounded-md" />
+                <img src="/img/33.jpeg" alt="Gallery image 3" className="w-full h-full object-cover rounded-md" />
               </div>
             </CornerBorderWrapper>
 
@@ -89,13 +89,13 @@ export default function Gallery() {
 
             <CornerBorderWrapper>
               <div className="bg-transparent h-48 sm:h-60">
-                <img src="/img/img4.jpg" alt="Gallery image 4" className="w-full h-full object-cover rounded-md" />
+                <img src="/img/44.jpeg" alt="Gallery image 4" className="w-full h-full object-cover rounded-md" />
               </div>
             </CornerBorderWrapper>
 
             <CornerBorderWrapper>
               <div className="bg-transparent h-48 sm:h-60">
-                <img src="/img/img5.jpg" alt="Gallery image 5" className="w-full h-full object-cover rounded-md" />
+                <img src="/img/55.jpeg" alt="Gallery image 5" className="w-full h-full object-cover rounded-md" />
               </div>
             </CornerBorderWrapper>
 
@@ -106,7 +106,7 @@ export default function Gallery() {
 
             <CornerBorderWrapper>
               <div className="bg-transparent h-48 sm:h-60">
-                <img src="/img/img6.jpg" alt="Gallery image 6" className="w-full h-full object-cover rounded-md" />
+                <img src="/img/66.jpeg" alt="Gallery image 6" className="w-full h-full object-cover rounded-md" />
               </div>
             </CornerBorderWrapper>
 
@@ -117,13 +117,13 @@ export default function Gallery() {
 
             <CornerBorderWrapper>
               <div className="bg-transparent h-48 sm:h-60">
-                <img src="/img/game1.jpg" alt="Gallery game image" className="w-full h-full object-cover rounded-md" />
+                <img src="/img/77.jpeg" alt="Gallery game image" className="w-full h-full object-cover rounded-md" />
               </div>
             </CornerBorderWrapper>
 
             <CornerBorderWrapper>
               <div className="bg-transparent h-48 sm:h-60">
-                <img src="/img/workshop1.jpg" alt="Gallery workshop image" className="w-full h-full object-cover rounded-md" />
+                <img src="/img/88.jpeg" alt="Gallery workshop image" className="w-full h-full object-cover rounded-md" />
               </div>
             </CornerBorderWrapper>
 
@@ -139,56 +139,56 @@ export default function Gallery() {
               {/* card 1 */}
               <div className="md:col-span-5">
                 <CornerBorderWrapper>
-                  <img src="/img/delhi.jpg" alt="Gallery image 1" className="w-full object-cover rounded-md h-60" />
+                  <img src="/img/11.jpeg" alt="Gallery image 1" className="w-full object-cover rounded-md h-60" />
                 </CornerBorderWrapper>
               </div>
 
               {/* card 2 */}
               <div className="md:col-span-5 md:col-start-4 md:row-start-2">
                 <CornerBorderWrapper>
-                  <img src="/img/img2.jpg" alt="Gallery image 2" className="w-full object-cover rounded-md h-60" />
+                  <img src="/img/22.jpeg" alt="Gallery image 2" className="w-full object-cover rounded-md h-60" />
                 </CornerBorderWrapper>
               </div>
 
               {/* card 3 */}
               <div className="md:col-span-5 md:col-start-7 md:row-start-3">
                 <CornerBorderWrapper>
-                  <img src="/img/img3.jpg" alt="Gallery image 3" className="w-full object-cover rounded-md h-60" />
+                  <img src="/img/33.jpeg" alt="Gallery image 3" className="w-full object-cover rounded-md h-60" />
                 </CornerBorderWrapper>
               </div>
 
               {/* tall card */}
               <div className="md:col-span-3 md:row-span-3 md:col-start-9 md:row-start-1">
                 <CornerBorderWrapper>
-                  <img src="/img/img4.jpg" alt="Gallery image 4" className="w-full h-full object-cover rounded-md" />
+                  <img src="/img/44.jpeg" alt="Gallery image 4" className="w-full h-full object-cover rounded-md" />
                 </CornerBorderWrapper>
               </div>
 
               {/* card 5 */}
               <div className="md:col-span-5 md:row-span-2 md:col-start-4 md:row-start-4">
                 <CornerBorderWrapper>
-                  <img src="/img/img5.jpg" alt="Gallery image 5" className="w-full object-cover rounded-md h-60" />
+                  <img src="/img/55.jpeg" alt="Gallery image 5" className="w-full object-cover rounded-md h-60" />
                 </CornerBorderWrapper>
               </div>
 
               {/* tall card left */}
               <div className="md:col-span-3 md:row-span-3 md:col-start-1 md:row-start-3">
                 <CornerBorderWrapper>
-                  <img src="/img/img6.jpg" alt="Gallery image 6" className="w-full h-full object-cover rounded-md" />
+                  <img src="/img/66.jpeg" alt="Gallery image 6" className="w-full h-full object-cover rounded-md" />
                 </CornerBorderWrapper>
               </div>
 
               {/* wide bottom-left game */}
               <div className="md:col-span-4 md:row-span-4 md:col-start-1 md:row-start-5">
                 <CornerBorderWrapper>
-                  <img src="/img/game1.jpg" alt="Gallery game image" className="w-full object-cover rounded-md h-60" />
+                  <img src="/img/77.jpeg" alt="Gallery game image" className="w-full object-cover rounded-md h-60" />
                 </CornerBorderWrapper>
               </div>
 
               {/* bottom‑right workshop */}
               <div className="md:col-span-5 md:row-span-2 md:col-start-7 md:row-start-5">
                 <CornerBorderWrapper>
-                  <img src="/img/workshop1.jpg" alt="Gallery workshop image" className="w-full  object-cover rounded-md h-60" />
+                  <img src="/img/88.jpeg" alt="Gallery workshop image" className="w-full  object-cover rounded-md h-60" />
                 </CornerBorderWrapper>
               </div>
 
