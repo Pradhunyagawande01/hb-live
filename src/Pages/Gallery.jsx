@@ -78,7 +78,7 @@ export default function Gallery() {
 
             <CornerBorderWrapper>
               <div className="bg-transparent h-48 sm:h-60">
-                <img src="/img/33.jpeg" alt="Gallery image 3" className="w-full h-full object-cover rounded-md" />
+                <img src="/img/10.jpeg" alt="Gallery image 3" className="w-full h-full object-cover rounded-md" />
               </div>
             </CornerBorderWrapper>
 
@@ -153,7 +153,7 @@ export default function Gallery() {
               {/* card 3 */}
               <div className="md:col-span-5 md:col-start-7 md:row-start-3">
                 <CornerBorderWrapper>
-                  <img src="/img/33.jpeg" alt="Gallery image 3" className="w-full object-cover rounded-md h-60" />
+                  <img src="/img/10.jpeg" alt="Gallery image 3" className="w-full object-cover rounded-md h-60" />
                 </CornerBorderWrapper>
               </div>
 
