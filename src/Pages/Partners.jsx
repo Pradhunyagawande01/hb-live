@@ -1,21 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Shield,
   Star,
   Medal,
   Camera,
-  Phone,
-  Gamepad, // Added import for Gamepad icon
+  Gamepad,
+  Clock,
+  Award,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 import AnimatedTitle from "../Components/AnimatedTitle";
-import Footer from "../Components/Footer";
-import Marquee from "../Components/Marquee.jsx";
-import DottedBg from "../Components/DottedBg";
 
-function Partners() {
-  const [activeSection, setActiveSection] = useState("general");
+function PastSponsors() {
+  const [expandedTier, setExpandedTier] = useState(null);
 
-  // Partner data with military and media partners
+  const toggleTier = (key) => {
+    setExpandedTier((prev) => (prev === key ? null : key));
+  };
+
+  // Past event data
+  const eventInfo = {
+    name: "Hack4Brahma",
+    date: "2025",
+    tagline:
+      "We extend our heartfelt gratitude to all the sponsors who made our event a grand success.",
+  };
+
   const partners = {
     general: {
       title: "GENERAL",
@@ -29,18 +40,6 @@ function Partners() {
         },
       ],
     },
-    // colonel: {
-    //   title: "COLONEL",
-    //   description: "Elite Tactical Division",
-    //   icon: Star,
-    //   partners: [
-    //     {
-    //       name: "Pathway Framework",
-    //       logo: "/img/pathway.png",
-    //       rank: "Platinum",
-    //     },
-    //   ],
-    // },
     major: {
       title: "MAJOR",
       description: "Specialized Support Units",
@@ -78,24 +77,31 @@ function Partners() {
           logo: "/img/nexfellow2.jpg",
           rank: "Media",
         },
-        // add more as needed
       ],
     },
     inkind: {
       title: "In-Kind Partners",
       description: "Supporting our mission in-kind",
-      icon: Camera, // reuse Camera icon for visual parity
+      icon: Award,
       partners: [
         { name: "InterviewBuddy", logo: "/img/g29.png", rank: "InKind" },
-        { name: "interview-cake", logo: "/img/interview-cake.png", rank: "InKind" },
-        { name: "GiveMyCertificate", logo: "/img/GMC LogoS.png", rank: "InKind" },
+        {
+          name: "interview-cake",
+          logo: "/img/interview-cake.png",
+          rank: "InKind",
+        },
+        {
+          name: "GiveMyCertificate",
+          logo: "/img/GMC LogoS.png",
+          rank: "InKind",
+        },
         { name: "wolfram", logo: "/img/wolfram.png", rank: "InKind" },
         { name: "xyz", logo: "/img/xyz.svg", rank: "InKind" },
       ],
     },
     Gaming: {
       title: "Gaming Partners",
-      description: "Broadcasting our mission to the world!",
+      description: "Our gaming allies",
       icon: Gamepad,
       partners: [
         {
@@ -108,244 +114,253 @@ function Partners() {
           logo: "/img/FF.png",
           rank: "Gaming",
         },
-        // add more as needed
       ],
     },
     ecosystem: {
       title: "Ecosystem",
       description: "Ecosystem Partners",
       icon: Shield,
-      partners: [{ name: "WIP", logo: "/img/WIP-logo .png", rank: "Ecosystem" }],
+      partners: [
+        { name: "WIP", logo: "/img/WIP-logo .png", rank: "Ecosystem" },
+      ],
     },
   };
 
-  // Cycle only military partners, not media
-  useEffect(() => {
-    const militaryKeys = Object.keys(partners).filter((k) => k !== "media");
-    const interval = setInterval(() => {
-      setActiveSection((currentSection) => {
-        const currentIndex = militaryKeys.indexOf(currentSection);
-        const nextIndex = currentIndex === militaryKeys.length - 1 ? 0 : currentIndex + 1;
-        return militaryKeys[nextIndex];
-      });
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [partners]);
+  // Flatten all partners for the logo wall
+  const allPartners = Object.values(partners).flatMap((tier) => tier.partners);
 
-  // helper to pick card sizing based on tier key (keeps diamond/platinum visually large)
-  const getCardSizeClass = (tierKey) => {
-    switch (tierKey) {
-      case "general":
-      case "colonel":
-        // keep Diamond & Platinum visually big
-        return "w-full max-w-[320px] h-[320px]";
-      case "major":
-        // gold / silver / bronze large
-        return "w-full max-w-[320px] h-[320px]";
-      case "media":
-        // media cards moderate
-        return "w-full max-w-[320px] h-[320px]";
-      case "inkind":
-        // in-kind compact boxes
-        return "w-full max-w-[320px] h-[320px]";
-      case "ecosystem":
-        // ecosystem now same size as others
-        return "w-full max-w-[320px] h-[320px]";
+  const getRankColor = (rank) => {
+    switch (rank) {
+      case "Diamond":
+        return "from-cyan-400 to-blue-500";
+      case "Platinum":
+        return "from-gray-300 to-gray-500";
+      case "Gold":
+        return "from-yellow-400 to-amber-600";
+      case "Silver":
+        return "from-gray-300 to-gray-400";
+      case "Bronze":
+        return "from-orange-400 to-orange-700";
       default:
-        return "w-full max-w-[320px] h-[320px]";
+        return "from-green-400 to-green-600";
     }
   };
 
-  // grid column helper for partner lists (kept for non-inkind tiers)
-  const getGridColsForTier = (key, count) => {
-    if (key === "major") return "grid-cols-1 md:grid-cols-3";
-    if (key === "media")
-      return count <= 2
-        ? "grid-cols-1 md:grid-cols-2"
-        : "grid-cols-1 sm:grid-cols-2 md:grid-cols-3";
-    if (key === "inkind") return "";
-    if (key === "ecosystem") return "grid-cols-1 justify-center"; // center single ecosystem logo
-    if (key === "colonel" || key === "general") return "grid-cols-1";
-    return "grid-cols-1 md:grid-cols-2";
+  const getRankBorder = (rank) => {
+    switch (rank) {
+      case "Diamond":
+        return "border-cyan-500/30";
+      case "Platinum":
+        return "border-gray-400/30";
+      case "Gold":
+        return "border-yellow-500/30";
+      case "Silver":
+        return "border-gray-300/30";
+      case "Bronze":
+        return "border-orange-500/30";
+      default:
+        return "border-green-500/30";
+    }
   };
 
   return (
     <div className="relative min-h-screen text-gray-100 overflow-hidden">
-      {/* Uncomment DottedBg wrapper if needed */}
-      {/* <DottedBg
-          dotColor="rgba(255, 255, 255, 0.25)"
-          bgColor="black"
-          dotSize={2}
-          baseSpacing={30}
-          repelRadius={100}
-          explodeStrength={25}
-          returnSpeed={0.5}
-        > */}
+      {/* Background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
+      </div>
+
       <div className="relative z-10">
-        <div className="relative flex flex-col items-center container mx-auto px-4 text-[#198f51] mb-10">
+        {/* Hero Section */}
+        <div className="relative flex flex-col items-center container mx-auto px-4 pt-8 pb-4">
           <AnimatedTitle
-            title=" <b>Sponsors</b>"
-            containerClass="mt-8 !text-black text-center reveal-element "
+            title="<b>Past Sponsors</b>"
+            containerClass="mt-8 !text-black text-center reveal-element"
           />
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 py-16">
-          {/* Header */}
-          <div className="text-center mb-20">
-            <div className="flex items-center justify-center gap-2 mb-8">
-              <div className="h-px w-12 bg-green-500/50" />
-              <Star className="w-6 h-6 text-green-500" />
-              <div className="h-px w-12 bg-green-500/50" />
+        <div className="relative z-10 container mx-auto px-4 py-8">
+          {/* Event Badge */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-green-900/20 border border-green-500/30 rounded-full mb-6 backdrop-blur-sm">
+              <Clock className="w-4 h-4 text-green-400" />
+              <span className="text-green-400 font-mono text-sm tracking-wider">
+                {eventInfo.name} • {eventInfo.date}
+              </span>
             </div>
-            <p className="text-xl text-gray-200 max-w-2xl mx-auto">
-              Elite organizations united under our command, supporting the advancement of military
-              technology and innovation
+
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="h-px w-16 bg-gradient-to-r from-transparent to-green-500/50" />
+              <Star className="w-5 h-5 text-green-500" />
+              <div className="h-px w-16 bg-gradient-to-l from-transparent to-green-500/50" />
+            </div>
+
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+              {eventInfo.tagline}
             </p>
           </div>
 
-          {/* Partners Grid */}
-          <div className="space-y-24">
-            {Object.entries(partners).map(([key, tier]) => (
-              <div
-                key={key}
-                className={`relative rounded-lg p-8 transition-all duration-500`}
-              >
-                {/* Tier Header */}
-                <div className="text-center mb-12">
-                  <div className="inline-flex items-center justify-center p-4 bg-gradient-to-br from-green-600 to-green-900 rounded-full mb-4">
-                    <tier.icon className="w-8 h-8" />
+          {/* Logo Wall - Quick overview of all past sponsors */}
+          <div className="mb-20">
+            <div className="flex items-center justify-center gap-3 mb-8">
+              <div className="h-px flex-1 max-w-[100px] bg-gradient-to-r from-transparent to-gray-700" />
+              <h3 className="text-sm font-mono text-gray-500 tracking-[0.3em] uppercase">
+                All Partners
+              </h3>
+              <div className="h-px flex-1 max-w-[100px] bg-gradient-to-l from-transparent to-gray-700" />
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-6 p-36 bg-gray-900/30 rounded-2xl border border-gray-800/50 backdrop-blur-sm">
+              {allPartners.map((partner, idx) => (
+                <div
+                  key={`wall-${partner.name}-${idx}`}
+                  className="group relative w-20 h-20 md:w-24 md:h-24 flex items-center justify-center p-3 rounded-xl bg-gray-800/40 border border-gray-700/30 hover:border-green-500/40 hover:bg-gray-800/70 transition-all duration-300 cursor-default"
+                  title={partner.name}
+                >
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    className="max-h-full max-w-full object-contain opacity-60 group-hover:opacity-100 transition-opacity duration-300 filter grayscale group-hover:grayscale-0"
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+
+                  {/* Tooltip */}
+                  <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-800 rounded text-xs text-gray-300 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                    {partner.name}
                   </div>
-                  {/* Uncomment if you want to show title */}
-                  {/* {tier.title && (
-                    <h2 className="text-3xl font-bold tracking-wider mb-2">{tier.title}</h2>
-                  )} */}
-                  {tier.description && <p className="text-green-500">{tier.description}</p>}
                 </div>
-
-                {/* Partners */}
-
-                {/* InKind: render first row (3) centered, second row (2) centered */}
-                {key === "inkind" ? (
-                  <div className="space-y-6">
-                    {/* first row: top 3 */}
-                    <div className="flex flex-wrap justify-center gap-8">
-                      {tier.partners.slice(0, 3).map((partner, idx) => (
-                        <div
-                          key={partner.name || partner.logo || idx}
-                          className={`relative group ${getCardSizeClass(key)}`}
-                        >
-                          <div className="relative p-5 border border-gray-700 rounded-lg overflow-hidden flex items-center justify-center h-full">
-                            <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-green-500" />
-                            <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-green-500" />
-                            <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-green-500" />
-                            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-green-500" />
-
-                            {/* Rank Badge remains visible */}
-                            <div className="absolute top-4 right-4 px-3 py-1 bg-green-900/80 rounded-full border border-green-500/50 text-xs font-mono">
-                              {partner.rank}
-                            </div>
-
-                            <img
-                              src={partner.logo}
-                              alt=""
-                              className="max-h-[65%] max-w-full object-contain mb-0 rounded transition-transform duration-300 group-hover:scale-105"
-                              onError={(e) => {
-                                e.currentTarget.style.display = "none";
-                              }}
-                            />
-
-                            {/* Scanning Line Effect */}
-                            <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-transparent via-green-500/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* second row: bottom 2 centered (symmetry) */}
-                    <div className="flex flex-wrap justify-center gap-8">
-                      {tier.partners.slice(3).map((partner, idx) => (
-                        <div
-                          key={partner.name || partner.logo || idx + 3}
-                          className={`relative group ${getCardSizeClass(key)}`}
-                        >
-                          <div className="relative p-5 border border-gray-700 rounded-lg overflow-hidden flex items-center justify-center h-full">
-                            <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-green-500" />
-                            <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-green-500" />
-                            <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-green-500" />
-                            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-green-500" />
-
-                            {/* Rank Badge remains visible */}
-                            <div className="absolute top-4 right-4 px-3 py-1 bg-green-900/80 rounded-full border border-green-500/50 text-xs font-mono">
-                              {partner.rank}
-                            </div>
-
-                            <img
-                              src={partner.logo}
-                              alt=""
-                              className="max-h-[65%] max-w-full object-contain mb-0 rounded transition-transform duration-300 group-hover:scale-105"
-                              onError={(e) => {
-                                e.currentTarget.style.display = "none";
-                              }}
-                            />
-
-                            {/* Scanning Line Effect */}
-                            <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-transparent via-green-500/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ) : (
-                  <div
-                    className={`grid gap-8 justify-items-center ${getGridColsForTier(
-                      key,
-                      tier.partners.length
-                    )}`}
-                  >
-                    {tier.partners.map((partner, idx) => (
-                      <div
-                        key={partner.name || partner.logo || idx}
-                        className={`relative group ${getCardSizeClass(key)}`}
-                      >
-                        <div className="relative p-5 border border-gray-700 rounded-lg overflow-hidden flex items-center justify-center h-full">
-                          <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-green-500" />
-                          <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-green-500" />
-                          <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-green-500" />
-                          <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-green-500" />
-
-                          {/* Rank Badge remains visible */}
-                          <div className="absolute top-4 right-4 px-3 py-1 bg-green-900/80 rounded-full border border-green-500/50 text-xs font-mono">
-                            {partner.rank}
-                          </div>
-
-                          <img
-                            src={partner.logo}
-                            alt=""
-                            className="max-h-[65%] max-w-full object-contain mb-0 rounded transition-transform duration-300 group-hover:scale-105"
-                            onError={(e) => {
-                              e.currentTarget.style.display = "none";
-                            }}
-                          />
-
-                          {/* Scanning Line Effect */}
-                          <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-transparent via-green-500/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* Uncomment if Marquee or Footer needed */}
-        {/* <div><Marquee /></div> */}
-        {/* <Footer /> */}
+          {/* Detailed Tier Sections */}
+          <div className="space-y-4 max-w-5xl mx-auto">
+            <div className="flex items-center justify-center gap-3 mb-8">
+              <div className="h-px flex-1 max-w-[100px] bg-gradient-to-r from-transparent to-gray-700" />
+              <h3 className="text-sm font-mono text-gray-500 tracking-[0.3em] uppercase">
+                By Category
+              </h3>
+              <div className="h-px flex-1 max-w-[100px] bg-gradient-to-l from-transparent to-gray-700" />
+            </div>
+
+            {Object.entries(partners).map(([key, tier]) => {
+              const isExpanded = expandedTier === key;
+              const TierIcon = tier.icon;
+
+              return (
+                <div
+                  key={key}
+                  className="rounded-xl border border-gray-800/60 bg-gray-900/40 backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-gray-700/60"
+                >
+                  {/* Accordion Header */}
+                  <button
+                    onClick={() => toggleTier(key)}
+                    className="w-full flex items-center justify-between px-6 py-5 group cursor-pointer"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="p-2.5 bg-gradient-to-br from-green-600/20 to-green-900/30 rounded-lg border border-green-500/20 group-hover:border-green-500/40 transition-colors">
+                        <TierIcon className="w-5 h-5 text-green-400" />
+                      </div>
+                      <div className="text-left">
+                        <h3 className="text-lg font-semibold tracking-wide text-gray-200 group-hover:text-white transition-colors">
+                          {tier.title}
+                        </h3>
+                        <p className="text-sm text-gray-500">{tier.description}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs font-mono text-gray-600 bg-gray-800/60 px-3 py-1 rounded-full">
+                        {tier.partners.length}{" "}
+                        {tier.partners.length === 1 ? "partner" : "partners"}
+                      </span>
+                      {isExpanded ? (
+                        <ChevronUp className="w-5 h-5 text-gray-500 group-hover:text-green-400 transition-colors" />
+                      ) : (
+                        <ChevronDown className="w-5 h-5 text-gray-500 group-hover:text-green-400 transition-colors" />
+                      )}
+                    </div>
+                  </button>
+
+                  {/* Accordion Content */}
+                  <div
+                    className={`transition-all duration-500 ease-in-out overflow-hidden ${
+                      isExpanded ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    <div className="px-6 pb-6 pt-2">
+                      <div className="h-px w-full bg-gray-800/80 mb-6" />
+                      <div className="flex flex-wrap justify-center gap-6">
+                        {tier.partners.map((partner, idx) => (
+                          <div
+                            key={`${partner.name}-${idx}`}
+                            className={`relative group/card w-full max-w-[260px] h-[220px] ${getRankBorder(
+                              partner.rank
+                            )}`}
+                          >
+                            <div className="relative h-full p-5 border border-gray-700/50 rounded-xl overflow-hidden flex flex-col items-center justify-center bg-gray-800/20 hover:bg-gray-800/40 transition-all duration-300">
+                              {/* Corner Accents */}
+                              <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-green-500/40" />
+                              <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-green-500/40" />
+                              <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-green-500/40" />
+                              <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-green-500/40" />
+
+                              {/* Rank Badge */}
+                              <div
+                                className={`absolute top-3 right-3 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold text-white bg-gradient-to-r ${getRankColor(
+                                  partner.rank
+                                )} shadow-lg`}
+                              >
+                                {partner.rank}
+                              </div>
+
+                              {/* Past Badge */}
+                              {/* <div className="absolute top-3 left-3 px-2 py-0.5 bg-gray-700/60 rounded-full text-[10px] font-mono text-gray-400 border border-gray-600/30">
+                                {eventInfo.date}
+                              </div> */}
+
+                              {/* Logo */}
+                              <img
+                                src={partner.logo}
+                                alt={partner.name}
+                                className="max-h-[55%] max-w-[80%] object-contain rounded transition-all duration-300 filter grayscale-[30%] group-hover/card:grayscale-0 group-hover/card:scale-105"
+                                onError={(e) => {
+                                  e.currentTarget.style.display = "none";
+                                }}
+                              />
+
+                              {/* Partner Name */}
+                              <p className="mt-3 text-sm text-gray-400 font-medium tracking-wide group-hover/card:text-gray-200 transition-colors">
+                                {partner.name}
+                              </p>
+
+                              {/* Scanning Line Effect */}
+                              <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-transparent via-green-500/10 to-transparent -translate-x-full group-hover/card:translate-x-full transition-transform duration-1000" />
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+        
+          
+        </div>
       </div>
-      {/* </DottedBg> */}
     </div>
   );
 }
 
-export default Partners;
+export default PastSponsors;
