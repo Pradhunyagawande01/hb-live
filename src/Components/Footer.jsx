@@ -1,204 +1,124 @@
-import { MessageSquare, Twitter, Linkedin, Instagram, FileText, ChevronRight, Mail, Phone } from "lucide-react"
+// src/components/Footer.jsx
+import React from "react";
 
-const Footer = () => {
-  const currentYear = new Date().getFullYear()
-
-  const socialLinks = [
+export default function Footer() {
+  const socials = [
     {
-      href: "https://discord.gg/vPNPDAPgG5",
-      icon: <MessageSquare size={20} />,
-      label: "Discord",
-      color: "hover:bg-[#198F51]",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+          <rect x="2" y="9" width="4" height="12"/>
+          <circle cx="4" cy="4" r="2"/>
+        </svg>
+      ),
+      label: "LINKEDIN.COM/HACK4BRAHMA",
+      href: "https://linkedin.com/hack4brahma",
     },
     {
-      href: "https://x.com/hack4brahma?t=jhqT75ofTIqomxNi-RwD5w&s=09",
-      icon: <Twitter size={20} />,
-      label: "Twitter",
-      color: "hover:bg-[#198F51]",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+      ),
+      label: "INSTAGRAM.COM/HACK4BRAHMA",
+      href: "https://instagram.com/hack4brahma",
     },
     {
-      href: "https://www.linkedin.com/company/hack4brahma/",
-      icon: <Linkedin size={20} />,
-      label: "LinkedIn",
-      color: "hover:bg-[#198F51]",
-    },
-    {
-      href: "https://www.instagram.com/hack4brahma?igsh=MWd3bnR0MTRmNGZrYw==",
-      icon: <Instagram size={20} />,
-      label: "Instagram",
-      color: "hover:bg-[#198F51]",
-    },
-  ]
-
-  const documentLinks = [
-    // {
-    //   href: "https://drive.google.com/drive/folders/1SdToxbTVp6fibqF-IsLYCUdPZQI_KhLf",
-    //   icon: <FileText size={18} />,
-    //   label: "Event Brochure",
-    // },
-    {
-      href: "https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md",
-      icon: <FileText size={18} />,
-      label: "MLH Code of Conduct",
-    },
-  ]
-
-  const contactInfo = [
-    {
-      icon: <Mail size={18} />,
-      label: "hack4brahma@gmail.com",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+      ),
+      label: "HACK4BRAHMA@GMAIL.COM",
       href: "mailto:hack4brahma@gmail.com",
     },
     {
-      icon: <Phone size={18} />,
-      label: "+91 7820931587",
-      href: "tel:+917820931587",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+      ),
+      label: "DISCORD.COM/HACK4BRAHMA",
+      href: "https://discord.com/hack4brahma",
     },
-  ]
+  ];
 
   return (
-    <footer className="relative  text-white overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fillRule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%2306AD63&quot; fillOpacity=&quot;0.1&quot;%3E%3Ccircle cx=&quot;30&quot; cy=&quot;30&quot; r=&quot;2&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
-      </div>
+    <footer className="bg-[#0f0f0f] border-t border-white/10 w-full">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-12 md:py-16">
 
-      {/* Green accent line */}
-      <div className="h-1 bg-gradient-to-r from-transparent via-[#06AD63] to-transparent"></div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 lg:px-8">
-        {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-8">
-          {/* Branding Section */}
-          <div className="lg:col-span-2 space-y-6">
-            <div className="space-y-4">
-              <h3 className="text-4xl md:text-6xl uppercase font-bold tracking-tight">
-                Hack
-                <span className="text-[#06AD63] text-5xl md:text-7xl font-black">4</span>
-                Brahma
-              </h3>
-              <div className="w-24 h-1 bg-gradient-to-r from-[#06AD63] to-transparent rounded-full"></div>
-            </div>
-
-            {/* <p className="text-gray-300 text-lg leading-relaxed max-w-md">
-              A hackathon dedicated to honoring and supporting our brave soldiers through innovative technological
-              solutions.
-            </p> */}
-
-            {/* Mission Statement */}
-            <div className="bg-gradient-to-r from-[#06AD63]/10 to-transparent p-6 rounded-2xl border border-[#06AD63]/20">
-              <p className="text-[#06AD63] font-semibold text-sm uppercase tracking-wider mb-2">Our Mission</p>
-              <p className="text-gray-200 text-sm">Empowering innovation to serve those who serve our nation.</p>
+        {/* Logo Row */}
+        <div className="flex items-center gap-3 mb-10 md:mb-12">
+          {/* Logo Circle */}
+          <div className="w-10 h-10 rounded-full border-2 border-white/80 flex items-center justify-center shrink-0">
+            <div className="w-6 h-6 rounded-full border border-white/60 flex items-center justify-center">
+              <div className="w-2 h-2 bg-white/80 rounded-full" />
             </div>
           </div>
 
-          {/* Social Media Section */}
-          <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-[#06AD63] flex items-center gap-2">
-              Connect With Us
-              <div className="flex-1 h-px bg-gradient-to-r from-[#06AD63] to-transparent"></div>
-            </h3>
+          {/* Brand Name */}
+          <span className="text-white font-black uppercase tracking-[4px] text-lg md:text-xl title">
+            HACK4BRAHMA.
+          </span>
+        </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-4">
-              {socialLinks.map((link, index) => (
+        {/* Bottom Content Row */}
+        <div className="flex flex-col sm:flex-row gap-10 sm:gap-20 md:gap-32">
+
+          {/* Drop a Hi */}
+          <div className="flex flex-col gap-2">
+            <p className="text-white/40 text-[11px] uppercase tracking-[2px] font-medium subtitle">
+              DROP A HI
+            </p>
+            <a
+              href="mailto:hack4brahma@gmail.com"
+              className="text-white/80 text-sm md:text-base hover:text-white transition-colors duration-200 tracking-wide text"
+            >
+              hack4brahma.com
+            </a>
+          </div>
+
+          {/* Socials */}
+          <div className="flex flex-col gap-3">
+            <p className="text-white/40 text-[11px] uppercase tracking-[2px] font-medium subtitle">
+              SOCIALS
+            </p>
+
+            <div className="flex flex-col gap-3 text">
+              {socials.map((social, index) => (
                 <a
                   key={index}
-                  href={link.href}
+                  href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={link.label}
-                  className={`group relative p-4 rounded-xl bg-gray-800/50 border border-gray-700 hover:border-[#06AD63] transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#06AD63]/20 ${link.color}`}
+                  className="flex items-center gap-3 text-white/70 hover:text-white transition-colors duration-200 group"
                 >
-                  <div className="flex items-center justify-center text-gray-300 group-hover:text-white transition-colors">
-                    {link.icon}
-                  </div>
-                  <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                    {link.label}
+                  {/* Icon Box */}
+                  <span className="w-7 h-7 border border-white/20 flex items-center justify-center group-hover:border-white/60 transition-colors duration-200 shrink-0">
+                    {social.icon}
+                  </span>
+
+                  {/* Label */}
+                  <span className="text-[11px] sm:text-xs md:text-sm uppercase tracking-[1.5px] font-medium">
+                    {social.label}
                   </span>
                 </a>
               ))}
             </div>
           </div>
-
-          {/* Contact & Documents Section */}
-          <div className="space-y-8">
-            {/* Contact Info */}
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-[#06AD63] flex items-center gap-2">
-                Get in Touch
-                <div className="flex-1 h-px bg-gradient-to-r from-[#06AD63] to-transparent"></div>
-              </h3>
-
-              <div className="space-y-3">
-                {contactInfo.map((contact, index) => (
-                  <a
-                    key={index}
-                    href={contact.href}
-                    className="flex items-center gap-3 p-3 rounded-lg bg-gray-800/30 border border-gray-700/50 hover:border-[#06AD63]/50 hover:bg-[#06AD63]/5 transition-all duration-300 group"
-                  >
-                    <div className="text-[#06AD63] group-hover:scale-110 transition-transform">{contact.icon}</div>
-                    <span className="text-gray-300 group-hover:text-white transition-colors text-sm">
-                      {contact.label}
-                    </span>
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {/* Documents */}
-            <div className="space-y-4">
-              <h4 className="text-lg font-semibold text-[#06AD63] flex items-center gap-2">
-                <FileText size={20} />
-                Documents
-              </h4>
-
-              <div className="space-y-2">
-                {documentLinks.map((link, index) => (
-                  <a
-                    key={index}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-[#06AD63]/10 to-transparent border border-[#06AD63]/20 hover:border-[#06AD63]/50 hover:from-[#06AD63]/20 transition-all duration-300 group"
-                  >
-                    <div className="text-[#06AD63] group-hover:scale-110 transition-transform">{link.icon}</div>
-                    <span className="text-gray-200 group-hover:text-white transition-colors text-sm flex-1">
-                      {link.label}
-                    </span>
-                    <ChevronRight
-                      className="text-[#06AD63] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300"
-                      size={16}
-                    />
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="mt-16 pt-8 border-t border-gray-800">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-2 text-gray-400 text-sm">
-              <div className="w-2 h-2 bg-[#06AD63] rounded-full animate-pulse"></div>
-              <span>&copy; {currentYear} Hack4Brahma. All rights reserved.</span>
-            </div>
-
-            <div className="flex items-center gap-4 text-xs text-gray-500">
-              <span className="hover:text-[#06AD63] cursor-pointer transition-colors">Privacy Policy</span>
-              <span className="w-1 h-1 bg-gray-600 rounded-full"></span>
-              <span className="hover:text-[#06AD63] cursor-pointer transition-colors">Terms of Service</span>
-            </div>
-          </div>
+        {/* Bottom Bar */}
+        <div className="mt-10 md:mt-14 pt-6 border-t border-white/10">
+          <p className="text-white/30 text-[11px] uppercase tracking-[2px] text-center text">
+            © 2025 HACK4BRAHMA. ALL RIGHTS RESERVED.
+          </p>
         </div>
+
       </div>
-
-      {/* Decorative Elements */}
-      <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-[#06AD63]/5 to-transparent rounded-full blur-3xl"></div>
-      <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-[#06AD63]/10 to-transparent rounded-full blur-2xl"></div>
     </footer>
-  )
+  );
 }
-
-export default Footer
-
