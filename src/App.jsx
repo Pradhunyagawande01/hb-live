@@ -1,11 +1,11 @@
 
-import Landing from "./components/Landing";
-import About from "./components/About";
-import Projects from "./components/Projects";
-import Partners from "./components/Partners";
-import Botum from "./components/Botum";
-import Footer from "./components/Footer";
-import LinkedInWallSection from "./components/LinkedInWall";
+import Landing from "./Components/Landing";
+import About from "./Components/About";
+import Projects from "./Components/Projects";
+import Partners from "./Components/Partners";
+import Botum from "./Components/Botum";
+import Footer from "./Components/Footer";
+import LinkedInWallSection from "./Components/LinkedInWall/Index";
 
 const App = () => {
   return (
